@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ClientType extends Migration
+class CreateFinancial extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class ClientType extends Migration
      */
     public function up()
     {
-        Schema::create('client_type', function (Blueprint $table) {
+        Schema::create('financial', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('platform');
         });
     }
 
@@ -26,6 +26,6 @@ class ClientType extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client_type');
+        Schema::dropIfExists('financial');
     }
 }

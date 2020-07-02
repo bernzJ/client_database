@@ -16,7 +16,7 @@
                 <div class="card-body" v-cloak>
                     <div class="card-block">
                         <form @submit.prevent="">
-                            <div class="row justify-content-md-between">
+                            <div class="row justify-content-start">
                                 <div class="col col-lg-7 col-xl-5 form-group">
                                     <div class="input-group">
                                         <input class="form-control" placeholder="{{ trans('brackets/admin-ui::admin.placeholder.search') }}" v-model="search" @keyup.enter="filter('search', $event.target.value)" />
@@ -25,15 +25,17 @@
                                         </span>
                                     </div>
                                 </div>
+
                                 <div class="col form-group deadline-checkbox-col">
                                     <div class="switch-filter-wrap">
                                         <label class="switch switch-3d switch-primary">
                                             <input type="checkbox" class="switch-input" v-model="showIndustriesFilter">
                                             <span class="switch-slider"></span>
                                         </label>
-                                        <span class="Industries-filter">&nbsp;{{ __('Industries filter') }}</span>
+                                        <span class="industries-filter">&nbsp;{{ __('Industries filter') }}</span>
                                     </div>
                                 </div>
+
                                 <div class="col-sm-auto form-group ">
                                     <select class="form-control" v-model="pagination.state.per_page">
 
@@ -42,14 +44,14 @@
                                         <option value="100">100</option>
                                     </select>
                                 </div>
-                                <div class="row" v-if="showIndustriesFilter">
-                                    <div class="col-sm-auto form-group" style="margin-bottom: 0;">
-                                        <p style="line-height: 40px; margin:0;">{{ __('Select industry/s') }}</p>
-                                    </div>
-                                    <div class="col col-lg-12 col-xl-12 form-group" style="max-width: 590px; ">
-                                        <multiselect v-model="industriesMultiselect" :options="{{ $industries->map(function($industry) { return ['key' => $industry->id, 'label' =>  $industry->name]; })->toJson() }}" label="label" track-by="key" placeholder="{{ __('Type to search a industry/s') }}" :limit="2" :multiple="true">
-                                        </multiselect>
-                                    </div>
+                            </div>
+                            <div class="row" v-if="showIndustriesFilter">
+                                <div class="col-sm-auto form-group" style="margin-bottom: 0;">
+                                    <p style="line-height: 40px; margin:0;">{{ __('Select industry/s') }}</p>
+                                </div>
+                                <div class="col col-lg-12 col-xl-12 form-group" style="max-width: 590px; ">
+                                    <multiselect v-model="industriesMultiselect" :options="{{ $industries->map(function($industry) { return ['key' => $industry->id, 'label' =>  $industry->name]; })->toJson() }}" label="label" track-by="key" placeholder="{{ __('Type to search a industry/s') }}" :limit="2" :multiple="true">
+                                    </multiselect>
                                 </div>
                             </div>
                         </form>
@@ -66,33 +68,9 @@
 
                                     <th is='sortable' :column="'id'">{{ trans('admin.customer.columns.id') }}</th>
                                     <th is='sortable' :column="'name'">{{ trans('admin.customer.columns.name') }}</th>
-                                    <th is='sortable' :column="'website'">{{ trans('admin.customer.columns.website') }}</th>
-                                    <th :column="'industry'">{{ trans('admin.customer.columns.industry') }}</th>
-                                    <th is='sortable' :column="'timezone'">{{ trans('admin.customer.columns.timezone') }}</th>
-                                    <th is='sortable' :column="'fiscal_year'">{{ trans('admin.customer.columns.fiscal_year') }}</th>
-                                    <th is='sortable' :column="'employees_count'">{{ trans('admin.customer.columns.employees_count') }}</th>
-                                    <th is='sortable' :column="'project_type'">{{ trans('admin.customer.columns.project_type') }}</th>
-                                    <th is='sortable' :column="'client_type'">{{ trans('admin.customer.columns.client_type') }}</th>
+                                    <th is='sortable' :column="'country_id'">{{ trans('admin.customer.columns.country_id') }}</th>
+                                    <th is='sortable' :column="'client_type_id'">{{ trans('admin.customer.columns.client_type_id') }}</th>
                                     <th is='sortable' :column="'active_projects'">{{ trans('admin.customer.columns.active_projects') }}</th>
-                                    <th is='sortable' :column="'referenceable'">{{ trans('admin.customer.columns.referenceable') }}</th>
-                                    <th is='sortable' :column="'opted_out'">{{ trans('admin.customer.columns.opted_out') }}</th>
-                                    <th is='sortable' :column="'financial'">{{ trans('admin.customer.columns.financial') }}</th>
-                                    <th is='sortable' :column="'hr'">{{ trans('admin.customer.columns.hr') }}</th>
-                                    <th is='sortable' :column="'sso'">{{ trans('admin.customer.columns.sso') }}</th>
-                                    <th is='sortable' :column="'test_site'">{{ trans('admin.customer.columns.test_site') }}</th>
-                                    <th is='sortable' :column="'refresh_date'">{{ trans('admin.customer.columns.refresh_date') }}</th>
-                                    <th is='sortable' :column="'logo'">{{ trans('admin.customer.columns.logo') }}</th>
-                                    <th is='sortable' :column="'address_1'">{{ trans('admin.customer.columns.address_1') }}</th>
-                                    <th is='sortable' :column="'address_2'">{{ trans('admin.customer.columns.address_2') }}</th>
-                                    <th is='sortable' :column="'address_lng_lat'">{{ trans('admin.customer.columns.address_lng_lat') }}</th>
-                                    <th is='sortable' :column="'city'">{{ trans('admin.customer.columns.city') }}</th>
-                                    <th is='sortable' :column="'zip'">{{ trans('admin.customer.columns.zip') }}</th>
-                                    <th is='sortable' :column="'country'">{{ trans('admin.customer.columns.country') }}</th>
-                                    <th is='sortable' :column="'state'">{{ trans('admin.customer.columns.state') }}</th>
-                                    <th is='sortable' :column="'lg_account_owner_oversight'">{{ trans('admin.customer.columns.lg_account_owner_oversight') }}</th>
-                                    <th is='sortable' :column="'lg_sales_owner'">{{ trans('admin.customer.columns.lg_sales_owner') }}</th>
-                                    <th is='sortable' :column="'employee_groups'">{{ trans('admin.customer.columns.employee_groups') }}</th>
-                                    <th is='sortable' :column="'notes'">{{ trans('admin.customer.columns.notes') }}</th>
 
                                     <th></th>
                                 </tr>
@@ -114,38 +92,12 @@
                                         <label class="form-check-label" :for="'enabled' + item.id">
                                         </label>
                                     </td>
+
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.name }}</td>
-                                    <td>@{{ item.website }}</td>
-                                    <td>
-                                        @{{ item.industries }}
-                                    </td>
-                                    <td>@{{ item.timezone }}</td>
-                                    <td>@{{ item.fiscal_year }}</td>
-                                    <td>@{{ item.employees_count }}</td>
-                                    <td>@{{ item.project_type }}</td>
-                                    <td>@{{ item.client_type }}</td>
+                                    <td>@{{ item.country_id }}</td>
+                                    <td>@{{ item.client_type_id }}</td>
                                     <td>@{{ item.active_projects }}</td>
-                                    <td>@{{ item.referenceable }}</td>
-                                    <td>@{{ item.opted_out }}</td>
-                                    <td>@{{ item.financial }}</td>
-                                    <td>@{{ item.hr }}</td>
-                                    <td>@{{ item.sso }}</td>
-                                    <td>@{{ item.test_site }}</td>
-                                    <td>@{{ item.refresh_date | date }}</td>
-                                    <td>@{{ item.logo }}</td>
-                                    <td>@{{ item.address_1 }}</td>
-                                    <td>@{{ item.address_2 }}</td>
-                                    <td>@{{ item.address_lng_lat }}</td>
-                                    <td>@{{ item.city }}</td>
-                                    <td>@{{ item.zip }}</td>
-                                    <td>@{{ item.country }}</td>
-                                    <td>@{{ item.state }}</td>
-                                    <td>@{{ item.lg_account_owner_oversight }}</td>
-                                    <td>@{{ item.lg_sales_owner }}</td>
-                                    <td>@{{ item.employee_groups }}</td>
-                                    <td>@{{ item.notes }}</td>
-
                                     <td>
                                         <div class="row no-gutters">
                                             <div class="col-auto">

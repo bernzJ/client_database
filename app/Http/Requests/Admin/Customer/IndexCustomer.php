@@ -25,7 +25,7 @@ class IndexCustomer extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,name,website,industry,timezone,fiscal_year,employees_count,project_type,client_type,active_projects,referenceable,opted_out,financial,hr,sso,test_site,refresh_date,logo,address_1,address_2,address_lng_lat,city,zip,country,state,lg_account_owner_oversight,lg_sales_owner,employee_groups,notes|nullable',
+            'orderBy' => 'in:id,name,website,timezone_id,fiscal_year_id,employees_count,project_type_id,client_type_id,active_projects,referenceable,opted_out,financial_id,hr_id,sso,test_site,refresh_date,logo,address_1,address_2,address_lng_lat,city,zip,country_id,state_id,lg_account_owner_oversight,lg_sales_owner,employee_groups_id,notes_id|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

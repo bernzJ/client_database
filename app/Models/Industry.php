@@ -17,19 +17,12 @@ class Industry extends Model
 
     protected $appends = ['resource_url'];
 
-    public function Industry()
-    {
-        return $this->hasMany(Industry::class);
-    }
-
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()
     {
         return url('/admin/industries/' . $this->getKey());
     }
-
-    /* ************************ RELATIONS ************************* */
 
     public function customers()
     {

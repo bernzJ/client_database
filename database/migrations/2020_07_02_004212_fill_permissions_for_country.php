@@ -5,7 +5,7 @@ use Illuminate\Config\Repository;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class FillPermissionsForDashboard extends Migration
+class FillPermissionsForCountry extends Migration
 {
     /**
      * @var Repository|mixed
@@ -21,15 +21,20 @@ class FillPermissionsForDashboard extends Migration
     protected $roles;
 
     /**
-     * FillPermissionsForDashboard constructor.
+     * FillPermissionsForCountry constructor.
      */
     public function __construct()
     {
         $this->guardName = config('admin-auth.defaults.guard');
 
         $permissions = collect([
-            'admin.dashboard',
-            'admin.dashboard.index',
+            'admin.country',
+            'admin.country.index',
+            'admin.country.create',
+            'admin.country.show',
+            'admin.country.edit',
+            'admin.country.delete',
+            'admin.country.bulk-delete',
         ]);
 
         //Add New permissions
@@ -123,7 +128,7 @@ class FillPermissionsForDashboard extends Migration
             'model_has_roles' => 'model_has_roles',
             'role_has_permissions' => 'role_has_permissions',
         ]);
-
+        
         DB::transaction(function () use ($tableNames){
             foreach ($this->permissions as $permission) {
                 $permissionItem = DB::table($tableNames['permissions'])->where([

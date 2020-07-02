@@ -9,17 +9,17 @@ class Customer extends Model
     protected $fillable = [
         'name',
         'website',
-        'industry',
-        'timezone',
-        'fiscal_year',
+        'industry_id',
+        'timezone_id',
+        'fiscal_year_id',
         'employees_count',
-        'project_type',
-        'client_type',
+        'project_type_id',
+        'client_type_id',
         'active_projects',
         'referenceable',
         'opted_out',
-        'financial',
-        'hr',
+        'financial_id',
+        'hr_id',
         'sso',
         'test_site',
         'refresh_date',
@@ -29,12 +29,12 @@ class Customer extends Model
         'address_lng_lat',
         'city',
         'zip',
-        'country',
-        'state',
+        'country_id',
+        'state_id',
         'lg_account_owner_oversight',
         'lg_sales_owner',
-        'employee_groups',
-        'notes',
+        'employee_groups_id',
+        'notes_id',
 
     ];
 
@@ -43,9 +43,8 @@ class Customer extends Model
         'refresh_date',
 
     ];
-    public $timestamps = false;
-
     protected $with = ['industry'];
+    public $timestamps = false;
 
     protected $appends = ['resource_url'];
 
@@ -55,6 +54,8 @@ class Customer extends Model
     {
         return url('/admin/customers/' . $this->getKey());
     }
+
+    /* ************************ RELATIONS ************************* */
 
     public function industry()
     {

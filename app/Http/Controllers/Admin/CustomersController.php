@@ -16,7 +16,6 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
@@ -39,7 +38,7 @@ class CustomersController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'name', 'website', 'industry', 'timezone', 'fiscal_year', 'employees_count', 'project_type', 'client_type', 'active_projects', 'referenceable', 'opted_out', 'financial', 'hr', 'sso', 'test_site', 'refresh_date', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'country', 'state', 'lg_account_owner_oversight', 'lg_sales_owner', 'employee_groups', 'notes'],
+            ['id', 'name', 'website', 'industry_id', 'timezone_id', 'fiscal_year_id', 'employees_count', 'project_type_id', 'client_type_id', 'active_projects', 'referenceable', 'opted_out', 'financial_id', 'hr_id', 'sso', 'test_site', 'refresh_date', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'country_id', 'state_id', 'lg_account_owner_oversight', 'lg_sales_owner', 'employee_groups_id', 'notes_id'],
 
             // set columns to searchIn
             ['id', 'name', 'website', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'lg_account_owner_oversight', 'lg_sales_owner'],
@@ -47,7 +46,7 @@ class CustomersController extends Controller
             function ($query) use ($request) {
                 $query->with(['industry']);
                 if ($request->has('industries')) {
-                    $query->whereIn('industry', $request->get('industries'));
+                    $query->whereIn('industry_id', $request->get('industries'));
                 }
             }
         );
@@ -61,10 +60,7 @@ class CustomersController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.customer.index', [
-            'data' => $data,
-            'industries' => Industry::all()
-        ]);
+        return view('admin.customer.index', ['data' => $data, 'industries' => Industry::all()]);
     }
 
     /**
@@ -77,8 +73,8 @@ class CustomersController extends Controller
     {
         $this->authorize('admin.customer.create');
 
-        return view('admin.customer.create', [
-            'industries' => Industry::all()
+        return view('admin.customer.create',  [
+            'industries' => Industry::all(),
         ]);
     }
 
@@ -92,7 +88,7 @@ class CustomersController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-        $sanitized['industry'] = $request->getIndustryId();
+        $sanitized['industry_id'] = $request->getIndustryId();
         // Store the Customer
         $customer = Customer::create($sanitized);
 
@@ -146,7 +142,7 @@ class CustomersController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-        $sanitized['industry'] = $request->getIndustryId();
+        $sanitized['industry_id'] = $request->getIndustryId();
         // Update changed values Customer
         $customer->update($sanitized);
 

@@ -29,33 +29,41 @@ class UpdateCustomer extends FormRequest
             'name' => ['sometimes', 'string'],
             'website' => ['nullable', 'string'],
             'industry' => ['required'],
-            'timezone' => ['sometimes', 'integer'],
-            'fiscal_year' => ['sometimes', 'integer'],
+            'timezone_id' => ['sometimes', 'integer'],
+            'fiscal_year_id' => ['nullable', 'integer'],
             'employees_count' => ['sometimes', 'integer'],
-            'project_type' => ['sometimes', 'integer'],
-            'client_type' => ['sometimes', 'integer'],
+            'project_type_id' => ['sometimes', 'integer'],
+            'client_type_id' => ['nullable', 'integer'],
             'active_projects' => ['sometimes', 'boolean'],
             'referenceable' => ['sometimes', 'boolean'],
             'opted_out' => ['sometimes', 'boolean'],
-            'financial' => ['sometimes', 'integer'],
-            'hr' => ['sometimes', 'integer'],
+            'financial_id' => ['nullable', 'integer'],
+            'hr_id' => ['nullable', 'integer'],
             'sso' => ['sometimes', 'boolean'],
             'test_site' => ['sometimes', 'boolean'],
-            'refresh_date' => ['sometimes', 'date'],
-            'logo' => ['sometimes', 'string'],
+            'refresh_date' => ['nullable', 'date'],
+            'logo' => ['nullable', 'string'],
             'address_1' => ['sometimes', 'string'],
-            'address_2' => ['sometimes', 'string'],
+            'address_2' => ['nullable', 'string'],
             'address_lng_lat' => ['sometimes', 'string'],
-            'city' => ['sometimes', 'string'],
-            'zip' => ['sometimes', 'string'],
-            'country' => ['sometimes', 'integer'],
-            'state' => ['sometimes', 'integer'],
-            'lg_account_owner_oversight' => ['sometimes', 'string'],
-            'lg_sales_owner' => ['sometimes', 'string'],
-            'employee_groups' => ['sometimes', 'integer'],
-            'notes' => ['sometimes', 'integer'],
+            'city' => ['nullable', 'string'],
+            'zip' => ['nullable', 'string'],
+            'country_id' => ['sometimes', 'integer'],
+            'state_id' => ['sometimes', 'integer'],
+            'lg_account_owner_oversight' => ['nullable', 'string'],
+            'lg_sales_owner' => ['nullable', 'string'],
+            'employee_groups_id' => ['nullable', 'integer'],
+            'notes_id' => ['nullable', 'integer'],
 
         ];
+    }
+
+    public function getIndustryId()
+    {
+        if ($this->has('industry')) {
+            return $this->get('industry')['id'];
+        }
+        return null;
     }
 
     /**
@@ -71,13 +79,5 @@ class UpdateCustomer extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
-    }
-
-    public function getIndustryId()
-    {
-        if ($this->has('industry')) {
-            return $this->get('industry')['id'];
-        }
-        return null;
     }
 }
