@@ -29,11 +29,11 @@ class UpdateCustomer extends FormRequest
             'name' => ['sometimes', 'string'],
             'website' => ['nullable', 'string'],
             'industry' => ['required'],
-            'timezone_id' => ['sometimes', 'integer'],
+            'timezone' => ['required'],
             'fiscal_year_id' => ['nullable', 'integer'],
             'employees_count' => ['sometimes', 'integer'],
-            'project_type_id' => ['sometimes', 'integer'],
-            'client_type_id' => ['nullable', 'integer'],
+            'project_type' => ['required'],
+            'client_type' => ['nullable'],
             'active_projects' => ['sometimes', 'boolean'],
             'referenceable' => ['sometimes', 'boolean'],
             'opted_out' => ['sometimes', 'boolean'],
@@ -48,8 +48,8 @@ class UpdateCustomer extends FormRequest
             'address_lng_lat' => ['sometimes', 'string'],
             'city' => ['nullable', 'string'],
             'zip' => ['nullable', 'string'],
-            'country_id' => ['sometimes', 'integer'],
-            'state_id' => ['sometimes', 'integer'],
+            'country' => ['required'],
+            'state' => ['nullable', 'required'],
             'lg_account_owner_oversight' => ['nullable', 'string'],
             'lg_sales_owner' => ['nullable', 'string'],
             'employee_groups_id' => ['nullable', 'integer'],
@@ -66,6 +66,45 @@ class UpdateCustomer extends FormRequest
         return null;
     }
 
+    public function getTimezoneId()
+    {
+        if ($this->has('timezone')) {
+            return $this->get('timezone')['id'];
+        }
+        return null;
+    }
+
+    public function getProjectTypeId()
+    {
+        if ($this->has('project_type')) {
+            return $this->get('project_type')['id'];
+        }
+        return null;
+    }
+
+    public function getClientTypeId()
+    {
+        if ($this->has('client_type')) {
+            return $this->get('client_type')['id'];
+        }
+        return null;
+    }
+
+    public function getCountryId()
+    {
+        if ($this->has('country')) {
+            return $this->get('country')['id'];
+        }
+        return null;
+    }
+
+    public function getStateId()
+    {
+        if ($this->has('state')) {
+            return $this->get('state')['id'];
+        }
+        return null;
+    }
     /**
      * Modify input data
      *

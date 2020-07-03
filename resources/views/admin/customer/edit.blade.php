@@ -7,9 +7,13 @@
 <div class="container-xl">
     <div class="card">
 
-        <customer-form :action="'{{ $customer->resource_url }}'" :data="{{ $customer->toJson() }}" :industries="{{$industries->toJson()}}" v-cloak inline-template>
+        <customer-form :action="'{{ $customer->resource_url }}'" :data="{{ $customer->toJson() }}"
+            :industries="{{$industries->toJson()}}" :timezones="{{$timezones->toJson()}}"
+            :project_types="{{$project_types->toJson()}}" :client_types="{{$client_types->toJson()}}"
+            :countries="{{$countries->toJson()}}" :states="{{$states->toJson()}}" v-cloak inline-template>
 
-            <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit" :action="action" novalidate>
+            <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit" :action="action"
+                novalidate>
 
 
                 <div class="card-header">

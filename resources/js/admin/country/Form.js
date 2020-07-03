@@ -5,6 +5,9 @@ Vue.component('country-form', {
     data: function() {
         return {
             form: {
+                name:  '' ,
+                two_char_country_code:  '' ,
+                three_char_country_code:  '' ,
                 
             }
         }

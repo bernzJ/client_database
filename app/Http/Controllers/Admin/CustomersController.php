@@ -8,8 +8,13 @@ use App\Http\Requests\Admin\Customer\DestroyCustomer;
 use App\Http\Requests\Admin\Customer\IndexCustomer;
 use App\Http\Requests\Admin\Customer\StoreCustomer;
 use App\Http\Requests\Admin\Customer\UpdateCustomer;
+use App\Models\ClientType;
+use App\Models\Country;
 use App\Models\Customer;
 use App\Models\Industry;
+use App\Models\ProjectType;
+use App\Models\Timezone;
+use App\Models\State;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -44,9 +49,24 @@ class CustomersController extends Controller
             ['id', 'name', 'website', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'lg_account_owner_oversight', 'lg_sales_owner'],
 
             function ($query) use ($request) {
-                $query->with(['industry']);
+                $query->with(['industry', 'timezone', 'projectType', 'clientType', 'country', 'state']);
                 if ($request->has('industries')) {
                     $query->whereIn('industry_id', $request->get('industries'));
+                }
+                if ($request->has('timezones')) {
+                    $query->whereIn('timezone_id', $request->get('timezones'));
+                }
+                if ($request->has('project_types')) {
+                    $query->whereIn('project_type_id', $request->get('project_types'));
+                }
+                if ($request->has('client_types')) {
+                    $query->whereIn('client_type_id', $request->get('client_types'));
+                }
+                if ($request->has('countries')) {
+                    $query->whereIn('country_id', $request->get('countries'));
+                }
+                if ($request->has('states')) {
+                    $query->whereIn('state_id', $request->get('states'));
                 }
             }
         );
@@ -60,7 +80,15 @@ class CustomersController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.customer.index', ['data' => $data, 'industries' => Industry::all()]);
+        return view('admin.customer.index', [
+            'data' => $data,
+            'industries' => Industry::all(),
+            'timezones' => Timezone::all(),
+            'project_types' => ProjectType::all(),
+            'client_types' => ClientType::all(),
+            'countries' => Country::all(),
+            'states' => State::all(),
+        ]);
     }
 
     /**
@@ -75,6 +103,11 @@ class CustomersController extends Controller
 
         return view('admin.customer.create',  [
             'industries' => Industry::all(),
+            'timezones' => Timezone::all(),
+            'project_types' => ProjectType::all(),
+            'client_types' => ClientType::all(),
+            'countries' => Country::all(),
+            'states' => State::all(),
         ]);
     }
 
@@ -89,6 +122,11 @@ class CustomersController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['industry_id'] = $request->getIndustryId();
+        $sanitized['timezone_id'] = $request->getTimezoneId();
+        $sanitized['project_type_id'] = $request->getProjectTypeId();
+        $sanitized['client_type_id'] = $request->getClientTypeId();
+        $sanitized['country_id'] = $request->getCountryId();
+        $sanitized['state_id'] = $request->getStateId();
         // Store the Customer
         $customer = Customer::create($sanitized);
 
@@ -128,6 +166,11 @@ class CustomersController extends Controller
         return view('admin.customer.edit', [
             'customer' => $customer,
             'industries' => Industry::all(),
+            'timezones' => Timezone::all(),
+            'project_types' => ProjectType::all(),
+            'client_types' => ClientType::all(),
+            'countries' => Country::all(),
+            'states' => State::all(),
         ]);
     }
 
@@ -143,6 +186,11 @@ class CustomersController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['industry_id'] = $request->getIndustryId();
+        $sanitized['timezone_id'] = $request->getTimezoneId();
+        $sanitized['project_type_id'] = $request->getProjectTypeId();
+        $sanitized['client_type_id'] = $request->getClientTypeId();
+        $sanitized['country_id'] = $request->getCountryId();
+        $sanitized['state_id'] = $request->getStateId();
         // Update changed values Customer
         $customer->update($sanitized);
 

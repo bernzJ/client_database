@@ -26,6 +26,9 @@ class StoreCountry extends FormRequest
     public function rules(): array
     {
         return [
+            'name' => ['required', 'string'],
+            'two_char_country_code' => ['required', 'string'],
+            'three_char_country_code' => ['required', 'string'],
             
         ];
     }

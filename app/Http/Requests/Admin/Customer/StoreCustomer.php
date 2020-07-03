@@ -29,11 +29,11 @@ class StoreCustomer extends FormRequest
             'name' => ['required', 'string'],
             'website' => ['nullable', 'string'],
             'industry' => ['required'],
-            'timezone_id' => ['required', 'integer'],
-            'fiscal_year_id' => ['nullable', 'integer'],
+            'timezone' => ['required'],
+            'fiscal_year_id' => ['nullable'],
             'employees_count' => ['required', 'integer'],
-            'project_type_id' => ['required', 'integer'],
-            'client_type_id' => ['nullable', 'integer'],
+            'project_type' => ['required'],
+            'client_type' => ['nullable'],
             'active_projects' => ['required', 'boolean'],
             'referenceable' => ['required', 'boolean'],
             'opted_out' => ['required', 'boolean'],
@@ -48,8 +48,8 @@ class StoreCustomer extends FormRequest
             'address_lng_lat' => ['required', 'string'],
             'city' => ['nullable', 'string'],
             'zip' => ['nullable', 'string'],
-            'country_id' => ['required', 'integer'],
-            'state_id' => ['required', 'integer'],
+            'country' => ['required'],
+            'state' => ['nullable'],
             'lg_account_owner_oversight' => ['nullable', 'string'],
             'lg_sales_owner' => ['nullable', 'string'],
             'employee_groups_id' => ['nullable', 'integer'],
@@ -62,6 +62,46 @@ class StoreCustomer extends FormRequest
     {
         if ($this->has('industry')) {
             return $this->get('industry')['id'];
+        }
+        return null;
+    }
+
+    public function getTimezoneId()
+    {
+        if ($this->has('timezone')) {
+            return $this->get('timezone')['id'];
+        }
+        return null;
+    }
+
+    public function getProjectTypeId()
+    {
+        if ($this->has('project_type')) {
+            return $this->get('project_type')['id'];
+        }
+        return null;
+    }
+
+    public function getClientTypeId()
+    {
+        if ($this->has('client_type')) {
+            return $this->get('client_type')['id'];
+        }
+        return null;
+    }
+
+    public function getCountryId()
+    {
+        if ($this->has('country')) {
+            return $this->get('country')['id'];
+        }
+        return null;
+    }
+
+    public function getStateId()
+    {
+        if ($this->has('state')) {
+            return $this->get('state')['id'];
         }
         return null;
     }

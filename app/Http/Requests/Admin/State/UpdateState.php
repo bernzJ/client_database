@@ -26,7 +26,10 @@ class UpdateState extends FormRequest
     public function rules(): array
     {
         return [
-            
+            'abbreviation' => ['sometimes', 'string'],
+            'name' => ['sometimes', 'string'],
+            'country' => ['required'],
+
         ];
     }
 
@@ -43,5 +46,13 @@ class UpdateState extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getCountryId()
+    {
+        if ($this->has('country')) {
+            return $this->get('country')['id'];
+        }
+        return null;
     }
 }

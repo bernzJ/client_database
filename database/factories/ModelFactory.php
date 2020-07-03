@@ -234,3 +234,39 @@ $factory->define(App\Models\Customer::class, static function (Faker\Generator $f
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Timezone::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ProjectType::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Country::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        'two_char_country_code' => $faker->sentence,
+        'three_char_country_code' => $faker->sentence,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\State::class, static function (Faker\Generator $faker) {
+    return [
+        'abbreviation' => $faker->sentence,
+        'name' => $faker->firstName,
+        'country_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});

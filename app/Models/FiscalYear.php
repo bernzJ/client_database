@@ -13,25 +13,31 @@ class FiscalYear extends Model
         'end',
         'month_end_close_period',
         'quarterly_close_cycle',
-    
+
     ];
-    
-    
+
+
     protected $dates = [
         'begin',
         'end',
         'month_end_close_period',
         'quarterly_close_cycle',
-    
+
     ];
     public $timestamps = false;
-    
+
     protected $appends = ['resource_url'];
 
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/fiscal-years/'.$this->getKey());
+        return url('/admin/fiscal-years/' . $this->getKey());
+    }
+
+    //@TODO: fix this
+    public function customers()
+    {
+        return $this->hasMany(Customer::class);
     }
 }

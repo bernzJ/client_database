@@ -26,15 +26,18 @@ class StoreState extends FormRequest
     public function rules(): array
     {
         return [
-            
+            'abbreviation' => ['required', 'string'],
+            'name' => ['required', 'string'],
+            'country' => ['required'],
+
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
@@ -42,5 +45,13 @@ class StoreState extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getCountryId()
+    {
+        if ($this->has('country')) {
+            return $this->get('country')['id'];
+        }
+        return null;
     }
 }

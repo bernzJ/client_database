@@ -1,6 +1,6 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.project-type.actions.edit', ['name' => $projectType->id]))
+@section('title', trans('admin.project-type.actions.edit', ['name' => $projectType->name]))
 
 @section('body')
 
@@ -17,7 +17,7 @@
 
 
                     <div class="card-header">
-                        <i class="fa fa-pencil"></i> {{ trans('admin.project-type.actions.edit', ['name' => $projectType->id]) }}
+                        <i class="fa fa-pencil"></i> {{ trans('admin.project-type.actions.edit', ['name' => $projectType->name]) }}
                     </div>
 
                     <div class="card-body">

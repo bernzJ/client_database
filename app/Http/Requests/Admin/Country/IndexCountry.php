@@ -25,7 +25,7 @@ class IndexCountry extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:|nullable',
+            'orderBy' => 'in:id,name,two_char_country_code,three_char_country_code|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

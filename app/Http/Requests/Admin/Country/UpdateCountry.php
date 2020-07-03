@@ -26,6 +26,9 @@ class UpdateCountry extends FormRequest
     public function rules(): array
     {
         return [
+            'name' => ['sometimes', 'string'],
+            'two_char_country_code' => ['sometimes', 'string'],
+            'three_char_country_code' => ['sometimes', 'string'],
             
         ];
     }

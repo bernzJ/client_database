@@ -587,5 +587,73 @@ return [
         ],
     ],
 
+    'timezone' => [
+        'title' => 'Timezones',
+
+        'actions' => [
+            'index' => 'Timezones',
+            'create' => 'New Timezone',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            
+        ],
+    ],
+
+    'project-type' => [
+        'title' => 'Project Type',
+
+        'actions' => [
+            'index' => 'Project Type',
+            'create' => 'New Project Type',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            
+        ],
+    ],
+
+    'country' => [
+        'title' => 'Countries',
+
+        'actions' => [
+            'index' => 'Countries',
+            'create' => 'New Country',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            'two_char_country_code' => 'Two char country code',
+            'three_char_country_code' => 'Three char country code',
+            
+        ],
+    ],
+
+    'state' => [
+        'title' => 'State',
+
+        'actions' => [
+            'index' => 'State',
+            'create' => 'New State',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'abbreviation' => 'Abbreviation',
+            'name' => 'Name',
+            'country_id' => 'Country',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

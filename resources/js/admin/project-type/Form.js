@@ -5,6 +5,7 @@ Vue.component('project-type-form', {
     data: function() {
         return {
             form: {
+                name:  '' ,
                 
             }
         }

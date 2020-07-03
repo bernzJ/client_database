@@ -1,6 +1,6 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.timezone.actions.edit', ['name' => $timezone->id]))
+@section('title', trans('admin.timezone.actions.edit', ['name' => $timezone->name]))
 
 @section('body')
 
@@ -17,7 +17,7 @@
 
 
                     <div class="card-header">
-                        <i class="fa fa-pencil"></i> {{ trans('admin.timezone.actions.edit', ['name' => $timezone->id]) }}
+                        <i class="fa fa-pencil"></i> {{ trans('admin.timezone.actions.edit', ['name' => $timezone->name]) }}
                     </div>
 
                     <div class="card-body">

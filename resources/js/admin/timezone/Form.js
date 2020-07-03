@@ -5,6 +5,7 @@ Vue.component('timezone-form', {
     data: function() {
         return {
             form: {
+                name:  '' ,
                 
             }
         }

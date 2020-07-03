@@ -37,10 +37,10 @@ class CountriesController extends Controller
             $request,
 
             // set columns to query
-            [''],
+            ['id', 'name', 'two_char_country_code', 'three_char_country_code'],
 
             // set columns to searchIn
-            ['']
+            ['id', 'name', 'two_char_country_code', 'three_char_country_code']
         );
 
         if ($request->ajax()) {

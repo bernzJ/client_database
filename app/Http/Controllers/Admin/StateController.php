@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\State\DestroyState;
 use App\Http\Requests\Admin\State\IndexState;
 use App\Http\Requests\Admin\State\StoreState;
 use App\Http\Requests\Admin\State\UpdateState;
+use App\Models\Country;
 use App\Models\State;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
@@ -37,10 +38,17 @@ class StateController extends Controller
             $request,
 
             // set columns to query
-            [''],
+            ['id', 'abbreviation', 'name', 'country_id'],
 
             // set columns to searchIn
-            ['']
+            ['id', 'abbreviation', 'name'],
+
+            function ($query) use ($request) {
+                $query->with(['country']);
+                if ($request->has('countries')) {
+                    $query->whereIn('country_id', $request->get('countries'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -52,7 +60,7 @@ class StateController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.state.index', ['data' => $data]);
+        return view('admin.state.index', ['data' => $data, 'countries' => Country::all()]);
     }
 
     /**
@@ -65,7 +73,9 @@ class StateController extends Controller
     {
         $this->authorize('admin.state.create');
 
-        return view('admin.state.create');
+        return view('admin.state.create', [
+            'countries' => Country::all(),
+        ]);
     }
 
     /**
@@ -78,7 +88,7 @@ class StateController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-
+        $sanitized['country_id'] = $request->getCountryId();
         // Store the State
         $state = State::create($sanitized);
 
@@ -117,6 +127,7 @@ class StateController extends Controller
 
         return view('admin.state.edit', [
             'state' => $state,
+            'countries' => Country::all(),
         ]);
     }
 
@@ -131,7 +142,7 @@ class StateController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-
+        $sanitized['country_id'] = $request->getCountryId();
         // Update changed values State
         $state->update($sanitized);
 
@@ -171,7 +182,7 @@ class StateController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyState $request) : Response
+    public function bulkDestroy(BulkDestroyState $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

@@ -2,18 +2,18 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('customer-form', {
     mixins: [AppForm],
-    props: ['industries'],
+    props: ['industries', 'timezones', 'project_types', 'client_types', 'countries', 'states'],
     data: function () {
         return {
             form: {
                 name: '',
                 website: '',
                 industry: '',
-                timezone_id: '',
+                timezone: '',
                 fiscal_year_id: '',
                 employees_count: '',
-                project_type_id: '',
-                client_type_id: '',
+                project_type: '',
+                client_type: '',
                 active_projects: false,
                 referenceable: false,
                 opted_out: false,
@@ -28,8 +28,8 @@ Vue.component('customer-form', {
                 address_lng_lat: '',
                 city: '',
                 zip: '',
-                country_id: '',
-                state_id: '',
+                country: '',
+                state: '',
                 lg_account_owner_oversight: '',
                 lg_sales_owner: '',
                 employee_groups_id: '',

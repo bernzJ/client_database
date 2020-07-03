@@ -7,21 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 class Timezone extends Model
 {
     protected $fillable = [
-    
+        'name',
+
     ];
-    
-    
-    protected $dates = [
-    
-    ];
+
+
+    protected $dates = [];
     public $timestamps = false;
-    
+
     protected $appends = ['resource_url'];
 
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/timezones/'.$this->getKey());
+        return url('/admin/timezones/' . $this->getKey());
+    }
+
+    public function customers()
+    {
+        return $this->hasMany(Customer::class);
     }
 }

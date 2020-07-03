@@ -37,10 +37,10 @@ class TimezonesController extends Controller
             $request,
 
             // set columns to query
-            [''],
+            ['id', 'name'],
 
             // set columns to searchIn
-            ['']
+            ['id', 'name']
         );
 
         if ($request->ajax()) {
