@@ -22,10 +22,10 @@ return [
             'activated' => 'Activated',
             'forbidden' => 'Forbidden',
             'language' => 'Language',
-                
+
             //Belongs to many relations
             'roles' => 'Roles',
-                
+
         ],
     ],
 
@@ -40,7 +40,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -83,7 +83,7 @@ return [
             'lg_sales_owner' => 'Lg sales owner',
             'employee_groups' => 'Employee groups',
             'notes' => 'Notes',
-            
+
         ],
     ],
 
@@ -99,7 +99,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'name' => 'Name',
-            
+
         ],
     ],
 
@@ -142,7 +142,7 @@ return [
             'lg_sales_owner' => 'Lg sales owner',
             'employee_groups' => 'Employee groups',
             'notes' => 'Notes',
-            
+
         ],
     ],
 
@@ -158,7 +158,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'name' => 'Name',
-            
+
         ],
     ],
 
@@ -173,7 +173,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -189,7 +189,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'name' => 'Name',
-            
+
         ],
     ],
 
@@ -204,7 +204,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -219,7 +219,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -238,7 +238,7 @@ return [
             'end' => 'End',
             'month_end_close_period' => 'Month end close period',
             'quarterly_close_cycle' => 'Quarterly close cycle',
-            
+
         ],
     ],
 
@@ -253,7 +253,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -268,7 +268,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -284,7 +284,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'name' => 'Name',
-            
+
         ],
     ],
 
@@ -299,7 +299,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -314,7 +314,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -329,7 +329,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -344,7 +344,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -359,7 +359,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -374,7 +374,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -389,7 +389,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -404,7 +404,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -419,7 +419,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -434,7 +434,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -449,7 +449,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -464,7 +464,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -479,7 +479,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -494,7 +494,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -509,7 +509,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -524,7 +524,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            
+
         ],
     ],
 
@@ -567,7 +567,7 @@ return [
             'lg_sales_owner' => 'Lg sales owner',
             'employee_groups_id' => 'Employee groups',
             'notes_id' => 'Notes',
-            
+
         ],
     ],
 
@@ -583,7 +583,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'name' => 'Name',
-            
+
         ],
     ],
 
@@ -599,7 +599,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'name' => 'Name',
-            
+
         ],
     ],
 
@@ -615,7 +615,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'name' => 'Name',
-            
+
         ],
     ],
 
@@ -633,7 +633,7 @@ return [
             'name' => 'Name',
             'two_char_country_code' => 'Two char country code',
             'three_char_country_code' => 'Three char country code',
-            
+
         ],
     ],
 
@@ -651,7 +651,7 @@ return [
             'abbreviation' => 'Abbreviation',
             'name' => 'Name',
             'country_id' => 'Country',
-            
+
         ],
     ],
 

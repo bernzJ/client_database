@@ -38,7 +38,6 @@ class Customer extends Model
 
     ];
 
-
     protected $dates = [
         'refresh_date',
 

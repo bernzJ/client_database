@@ -14,13 +14,13 @@ $factory->define(Brackets\AdminAuth\Models\AdminUser::class, function (Faker\Gen
         'deleted_at' => null,
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
-        
+
     ];
 });/** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Customer::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
@@ -54,45 +54,45 @@ $factory->define(App\Models\Customer::class, static function (Faker\Generator $f
         'lg_sales_owner' => $faker->sentence,
         'employee_groups' => $faker->randomNumber(5),
         'notes' => $faker->randomNumber(5),
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Industry::class, static function (Faker\Generator $faker) {
     return [
         'name' => $faker->firstName,
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\ClientType::class, static function (Faker\Generator $faker) {
     return [
         'name' => $faker->firstName,
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Industry::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Timezone::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\FiscalYear::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
@@ -102,8 +102,8 @@ $factory->define(App\Models\FiscalYear::class, static function (Faker\Generator 
         'end' => $faker->date(),
         'month_end_close_period' => $faker->date(),
         'quarterly_close_cycle' => $faker->date(),
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
@@ -111,92 +111,92 @@ $factory->define(App\Models\ProjectType::class, static function (Faker\Generator
     return [
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\ClientType::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Financial::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Hr::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Country::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\EmployeeGroup::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Note::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Frequency::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Liability::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\CardProgram::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Payroll::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\State::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\ProjectType::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
@@ -230,24 +230,24 @@ $factory->define(App\Models\Customer::class, static function (Faker\Generator $f
         'lg_sales_owner' => $faker->sentence,
         'employee_groups_id' => $faker->randomNumber(5),
         'notes_id' => $faker->randomNumber(5),
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Timezone::class, static function (Faker\Generator $faker) {
     return [
         'name' => $faker->firstName,
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\ProjectType::class, static function (Faker\Generator $faker) {
     return [
         'name' => $faker->firstName,
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
@@ -256,8 +256,8 @@ $factory->define(App\Models\Country::class, static function (Faker\Generator $fa
         'name' => $faker->firstName,
         'two_char_country_code' => $faker->sentence,
         'three_char_country_code' => $faker->sentence,
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
@@ -266,7 +266,7 @@ $factory->define(App\Models\State::class, static function (Faker\Generator $fake
         'abbreviation' => $faker->sentence,
         'name' => $faker->firstName,
         'country_id' => $faker->randomNumber(5),
-        
-        
+
+
     ];
 });

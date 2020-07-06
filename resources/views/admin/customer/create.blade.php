@@ -13,8 +13,8 @@
             :client_types="{{$client_types->toJson()}}" :countries="{{$countries->toJson()}}"
             :states="{{$states->toJson()}}" v-cloak inline-template>
 
-            <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="action"
-                novalidate>
+            <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit"
+                :action="action" novalidate>
 
                 <div class="card-header">
                     <i class="fa fa-plus"></i> {{ trans('admin.customer.actions.create') }}

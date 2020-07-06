@@ -11,44 +11,46 @@
       @update:center="centerUpdate"
       @update:zoom="zoomUpdate"
     >
-      <l-tile-layer :url="url" :attribution="attribution" />
-      <l-marker :lat-lng="withPopup" :icon="icon">
-        <l-popup>
-          <div @click="innerClick" class="container">
-            <div class="row header">
-              <label class="title">Some title</label>
+      <div v-for="(item, index) in markers" :key="item.id">
+        <l-tile-layer :url="url" :attribution="attribution" />
+        <l-marker :lat-lng="withPopup(item.address_lng_lat)" :icon="icon">
+          <l-popup>
+            <div :key="index" @click="innerClick" class="container">
+              <div class="row header">
+                <label class="title">{{item.name}}</label>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  <label class="key">Address</label>
+                </div>
+                <div class="col-7">
+                  <label class="field">{{item.address_1}}</label>
+                </div>
+                <div class="col-5">
+                  <label class="key">Active</label>
+                </div>
+                <div class="col-7">
+                  <label class="field">{{item.active_projects === 0 ? 'No' : 'Yes'}}</label>
+                </div>
+                <div class="col-5">
+                  <label class="key">Client Type</label>
+                </div>
+                <div class="col-7">
+                  <label class="field">{{item.client_type}}</label>
+                </div>
+              </div>
+              <div class="row footer">
+                <div class="col">
+                  <a class="main-button" :href="item.resource_url">
+                    See Details
+                    <i class="icon-arrow-right" style="color:#fff;"></i>
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="row">
-              <div class="col-5">
-                <label class="key">Address</label>
-              </div>
-              <div class="col-7">
-                <label class="field">d</label>
-              </div>
-               <div class="col-5">
-                <label class="key">Address</label>
-              </div>
-              <div class="col-7">
-                <label class="field">Address</label>
-              </div>
-               <div class="col-5">
-                <label class="key">Address</label>
-              </div>
-              <div class="col-7">
-                <label class="field">Address</label>
-              </div>
-            </div>
-            <div class="row footer">
-              <div class="col">
-                <a class="main-button">
-                  See Details
-                  <i class="icon-arrow-right" style="color:#fff;"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </l-popup>
-      </l-marker>
+          </l-popup>
+        </l-marker>
+      </div>
     </l-map>
   </div>
 </template>
@@ -77,7 +79,9 @@ export default {
         "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png",
       attribution:
         '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-      withPopup: latLng(51.505, -0.09),
+      withPopup: function(value) {
+        return latLng(JSON.parse(value));
+      },
       icon: icon({
         iconUrl: dotSVG,
         iconRetinaUrl: dotSVG,

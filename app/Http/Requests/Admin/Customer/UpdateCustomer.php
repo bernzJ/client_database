@@ -32,8 +32,8 @@ class UpdateCustomer extends FormRequest
             'timezone' => ['required'],
             'fiscal_year_id' => ['nullable', 'integer'],
             'employees_count' => ['sometimes', 'integer'],
-            'project_type' => ['required'],
-            'client_type' => ['nullable'],
+            'project_type' => ['nullable'],
+            'client_type' => ['required'],
             'active_projects' => ['sometimes', 'boolean'],
             'referenceable' => ['sometimes', 'boolean'],
             'opted_out' => ['sometimes', 'boolean'],
@@ -49,7 +49,7 @@ class UpdateCustomer extends FormRequest
             'city' => ['nullable', 'string'],
             'zip' => ['nullable', 'string'],
             'country' => ['required'],
-            'state' => ['nullable', 'required'],
+            'state' => ['nullable'],
             'lg_account_owner_oversight' => ['nullable', 'string'],
             'lg_sales_owner' => ['nullable', 'string'],
             'employee_groups_id' => ['nullable', 'integer'],
@@ -76,7 +76,7 @@ class UpdateCustomer extends FormRequest
 
     public function getProjectTypeId()
     {
-        if ($this->has('project_type')) {
+        if ($this->filled('project_type')) {
             return $this->get('project_type')['id'];
         }
         return null;
@@ -84,7 +84,7 @@ class UpdateCustomer extends FormRequest
 
     public function getClientTypeId()
     {
-        if ($this->has('client_type')) {
+        if ($this->filled('client_type')) {
             return $this->get('client_type')['id'];
         }
         return null;
@@ -100,7 +100,7 @@ class UpdateCustomer extends FormRequest
 
     public function getStateId()
     {
-        if ($this->has('state')) {
+        if ($this->filled('state')) {
             return $this->get('state')['id'];
         }
         return null;

@@ -11,17 +11,17 @@
 </div>
 
 <div class="form-group row align-items-center"
-    :class="{'has-danger': errors.has('industry_id'), 'has-success': fields.industry_id && fields.industry_id.valid }">
-    <label for="industry_id" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.industry_id') }}</label>
+    :class="{'has-danger': errors.has('industry'), 'has-success': fields.industry && fields.industry.valid }">
+    <label for="industry" class="col-form-label text-md-right"
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.industry') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
 
         <multiselect v-model="form.industry" :options="industries" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select Industry') }}" placeholder="{{ __('Industry') }}">
         </multiselect>
 
-        <div v-if="errors.has('industry_id')" class="form-control-feedback form-text" v-cloak>
-            @{{ errors.first('industry_id') }}</div>
+        <div v-if="errors.has('industry')" class="form-control-feedback form-text" v-cloak>
+            @{{ errors.first('industry') }}</div>
     </div>
 </div>
 
@@ -88,28 +88,29 @@
 </div>
 
 <div class="form-group row align-items-center"
-    :class="{'has-danger': errors.has('state_id'), 'has-success': fields.state_id && fields.state_id.valid }">
-    <label for="state_id" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.state_id') }}</label>
+    :class="{'has-danger': errors.has('state'), 'has-success': fields.state && fields.state.valid }">
+    <label for="state" class="col-form-label text-md-right"
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.state') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.state" :options="states" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select State') }}" placeholder="{{ __('State') }}">
         </multiselect>
-        <div v-if="errors.has('state_id')" class="form-control-feedback form-text" v-cloak>
-            @{{ errors.first('state_id') }}</div>
+        <div v-if="errors.has('state')" class="form-control-feedback form-text" v-cloak>
+            @{{ errors.first('state') }}</div>
     </div>
 </div>
 
 <div class="form-group row align-items-center"
-    :class="{'has-danger': errors.has('country_id'), 'has-success': fields.country_id && fields.country_id.valid }">
-    <label for="country_id" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.country_id') }}</label>
+    :class="{'has-danger': errors.has('country'), 'has-success': fields.country && fields.country.valid }">
+    <label for="country" class="col-form-label text-md-right"
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.country') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.country" :options="countries" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select Country') }}" placeholder="{{ __('Country') }}">
         </multiselect>
-        <div v-if="errors.has('country_id')" class="form-control-feedback form-text" v-cloak>
-            @{{ errors.first('country_id') }}</div>
+
+        <div v-if="errors.has('country')" class="form-control-feedback form-text" v-cloak>
+            @{{ errors.first('country') }}</div>
     </div>
 </div>
 
@@ -137,20 +138,7 @@
     </div>
 </div>
 
-<div class="form-group row align-items-center"
-    :class="{'has-danger': errors.has('address_lng_lat'), 'has-success': fields.address_lng_lat && fields.address_lng_lat.valid }">
-    <label for="address_lng_lat" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.address_lng_lat') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.address_lng_lat" v-validate="'required'" @input="validate($event)"
-            class="form-control"
-            :class="{'form-control-danger': errors.has('address_lng_lat'), 'form-control-success': fields.address_lng_lat && fields.address_lng_lat.valid}"
-            id="address_lng_lat" name="address_lng_lat"
-            placeholder="{{ trans('admin.customer.columns.address_lng_lat') }}">
-        <div v-if="errors.has('address_lng_lat')" class="form-control-feedback form-text" v-cloak>
-            @{{ errors.first('address_lng_lat') }}</div>
-    </div>
-</div>
+<!-- TODO: implement this <input type="hidden" v-model="form.address_lng_lat" > -->
 
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('address_2'), 'has-success': fields.address_2 && fields.address_2.valid }">
@@ -300,28 +288,28 @@
 </div>
 
 <div class="form-group row align-items-center"
-    :class="{'has-danger': errors.has('client_type_id'), 'has-success': fields.client_type_id && fields.client_type_id.valid }">
-    <label for="client_type_id" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.client_type_id') }}</label>
+    :class="{'has-danger': errors.has('client_type'), 'has-success': fields.client_type && fields.client_type.valid }">
+    <label for="client_type" class="col-form-label text-md-right"
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.client_type') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.client_type" :options="client_types" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select Client Type') }}" placeholder="{{ __('Client Type') }}">
         </multiselect>
-        <div v-if="errors.has('client_type_id')" class="form-control-feedback form-text" v-cloak>
-            @{{ errors.first('client_type_id') }}</div>
+        <div v-if="errors.has('client_type')" class="form-control-feedback form-text" v-cloak>
+            @{{ errors.first('client_type') }}</div>
     </div>
 </div>
 
 <div class="form-group row align-items-center"
-    :class="{'has-danger': errors.has('project_type_id'), 'has-success': fields.project_type_id && fields.project_type_id.valid }">
-    <label for="project_type_id" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.project_type_id') }}</label>
+    :class="{'has-danger': errors.has('project_type'), 'has-success': fields.project_type && fields.project_type.valid }">
+    <label for="project_type" class="col-form-label text-md-right"
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.project_type') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.project_type" :options="project_types" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select Project Type') }}" placeholder="{{ __('Project Type') }}">
         </multiselect>
-        <div v-if="errors.has('project_type_id')" class="form-control-feedback form-text" v-cloak>
-            @{{ errors.first('project_type_id') }}</div>
+        <div v-if="errors.has('project_type')" class="form-control-feedback form-text" v-cloak>
+            @{{ errors.first('project_type') }}</div>
     </div>
 </div>
 
@@ -358,15 +346,15 @@
 </div>
 
 <div class="form-group row align-items-center"
-    :class="{'has-danger': errors.has('timezone_id'), 'has-success': fields.timezone_id && fields.timezone_id.valid }">
-    <label for="timezone_id" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.timezone_id') }}</label>
+    :class="{'has-danger': errors.has('timezone'), 'has-success': fields.timezone && fields.timezone.valid }">
+    <label for="timezone" class="col-form-label text-md-right"
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.timezone') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.timezone" :options="timezones" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select Timezone') }}" placeholder="{{ __('Timezone') }}">
         </multiselect>
-        <div v-if="errors.has('timezone_id')" class="form-control-feedback form-text" v-cloak>
-            @{{ errors.first('timezone_id') }}</div>
+        <div v-if="errors.has('timezone')" class="form-control-feedback form-text" v-cloak>
+            @{{ errors.first('timezone') }}</div>
     </div>
 </div>
 

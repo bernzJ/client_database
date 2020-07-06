@@ -21,7 +21,7 @@ class CreateCustomers extends Migration
             $table->unsignedInteger('timezone_id');
             $table->unsignedInteger('fiscal_year_id')->nullable();
             $table->integer('employees_count')->default(0);
-            $table->unsignedInteger('project_type_id');
+            $table->unsignedInteger('project_type_id')->nullable();
             $table->unsignedInteger('client_type_id')->nullable();
             $table->boolean('active_projects')->default(false);
             $table->boolean('referenceable')->default(false);
@@ -38,7 +38,7 @@ class CreateCustomers extends Migration
             $table->string('city')->nullable();
             $table->string('zip')->nullable();
             $table->unsignedInteger('country_id');
-            $table->unsignedInteger('state_id');
+            $table->unsignedInteger('state_id')->nullable();
             $table->string('lg_account_owner_oversight')->nullable();
             $table->string('lg_sales_owner')->nullable();
             $table->unsignedInteger('employee_groups_id')->nullable();

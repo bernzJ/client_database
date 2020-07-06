@@ -32,8 +32,8 @@ class StoreCustomer extends FormRequest
             'timezone' => ['required'],
             'fiscal_year_id' => ['nullable'],
             'employees_count' => ['required', 'integer'],
-            'project_type' => ['required'],
-            'client_type' => ['nullable'],
+            'project_type' => ['nullable'],
+            'client_type' => ['required'],
             'active_projects' => ['required', 'boolean'],
             'referenceable' => ['required', 'boolean'],
             'opted_out' => ['required', 'boolean'],
@@ -76,7 +76,7 @@ class StoreCustomer extends FormRequest
 
     public function getProjectTypeId()
     {
-        if ($this->has('project_type')) {
+        if ($this->filled('project_type')) {
             return $this->get('project_type')['id'];
         }
         return null;
@@ -84,7 +84,7 @@ class StoreCustomer extends FormRequest
 
     public function getClientTypeId()
     {
-        if ($this->has('client_type')) {
+        if ($this->filled('client_type')) {
             return $this->get('client_type')['id'];
         }
         return null;
@@ -100,7 +100,7 @@ class StoreCustomer extends FormRequest
 
     public function getStateId()
     {
-        if ($this->has('state')) {
+        if ($this->filled('state')) {
             return $this->get('state')['id'];
         }
         return null;
