@@ -105,6 +105,15 @@ class UpdateCustomer extends FormRequest
         }
         return null;
     }
+
+    public function getConcurProductIds()
+    {
+        if ($this->filled('concur_product')) {
+            return collect($this->get('concur_product'))->pluck('id');
+        }
+        return null;
+    }
+
     /**
      * Modify input data
      *

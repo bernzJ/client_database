@@ -19,6 +19,9 @@
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/card-programs') }}"><i class="nav-icon icon-plane"></i> {{ trans('admin.card-program.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/payrolls') }}"><i class="nav-icon icon-drop"></i> {{ trans('admin.payroll.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/states') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.state.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/concur-products') }}"><i class="nav-icon icon-compass"></i> {{ trans('admin.concur-product.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/segments') }}"><i class="nav-icon icon-umbrella"></i> {{ trans('admin.segment.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/concur-product-customers') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.concur-product-customer.title') }}</a></li>
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>

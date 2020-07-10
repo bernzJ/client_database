@@ -270,3 +270,70 @@ $factory->define(App\Models\State::class, static function (Faker\Generator $fake
 
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ConcurProduct::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ConcurProduct::class, static function (Faker\Generator $faker) {
+    return [
+        'customer_id' => $faker->randomNumber(5),
+        'product' => $faker->sentence,
+        'segment' => $faker->sentence,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Segment::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Segment::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ConcurProduct::class, static function (Faker\Generator $faker) {
+    return [
+        'customer_id' => $faker->randomNumber(5),
+        'product' => $faker->sentence,
+        'segment_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ConcurProductCustomer::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ConcurProductCustomer::class, static function (Faker\Generator $faker) {
+    return [
+        'concur_product_id' => $faker->randomNumber(5),
+        'customer_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ConcurProduct::class, static function (Faker\Generator $faker) {
+    return [
+        'product' => $faker->sentence,
+        'segment_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});

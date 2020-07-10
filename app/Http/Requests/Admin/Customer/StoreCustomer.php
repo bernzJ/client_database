@@ -54,7 +54,7 @@ class StoreCustomer extends FormRequest
             'lg_sales_owner' => ['nullable', 'string'],
             'employee_groups_id' => ['nullable', 'integer'],
             'notes_id' => ['nullable', 'integer'],
-
+            'concur_product' => ['required'],
         ];
     }
 
@@ -102,6 +102,14 @@ class StoreCustomer extends FormRequest
     {
         if ($this->filled('state')) {
             return $this->get('state')['id'];
+        }
+        return null;
+    }
+
+    public function getConcurProductIds()
+    {
+        if ($this->filled('concur_product')) {
+            return collect($this->get('concur_product'))->pluck('id');
         }
         return null;
     }

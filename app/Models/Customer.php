@@ -42,7 +42,7 @@ class Customer extends Model
         'refresh_date',
 
     ];
-    protected $with = ['industry', 'timezone', 'projectType', 'clientType', 'country', 'state'];
+    protected $with = ['industry', 'timezone', 'projectType', 'clientType', 'country', 'state', 'concurProduct'];
     public $timestamps = false;
 
     protected $appends = ['resource_url'];
@@ -79,5 +79,17 @@ class Customer extends Model
     public function state()
     {
         return $this->belongsTo(State::class);
+    }
+
+    // many to many.
+    public function concurProduct()
+    {
+        return $this->BelongsToMany(ConcurProduct::class);
+    }
+
+    // has one throu
+    public function segment()
+    {
+        return $this->hasOneThrough(Segment::class, ConcurProduct::class);
     }
 }

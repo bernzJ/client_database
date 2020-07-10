@@ -321,3 +321,49 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('concur-products')->name('concur-products/')->group(static function() {
+            Route::get('/',                                             'ConcurProductsController@index')->name('index');
+            Route::get('/create',                                       'ConcurProductsController@create')->name('create');
+            Route::post('/',                                            'ConcurProductsController@store')->name('store');
+            Route::get('/{concurProduct}/edit',                         'ConcurProductsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ConcurProductsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{concurProduct}',                             'ConcurProductsController@update')->name('update');
+            Route::delete('/{concurProduct}',                           'ConcurProductsController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('segments')->name('segments/')->group(static function() {
+            Route::get('/',                                             'SegmentsController@index')->name('index');
+            Route::get('/create',                                       'SegmentsController@create')->name('create');
+            Route::post('/',                                            'SegmentsController@store')->name('store');
+            Route::get('/{segment}/edit',                               'SegmentsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'SegmentsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{segment}',                                   'SegmentsController@update')->name('update');
+            Route::delete('/{segment}',                                 'SegmentsController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('concur-product-customers')->name('concur-product-customers/')->group(static function() {
+            Route::get('/',                                             'ConcurProductCustomerController@index')->name('index');
+            Route::get('/create',                                       'ConcurProductCustomerController@create')->name('create');
+            Route::post('/',                                            'ConcurProductCustomerController@store')->name('store');
+            Route::get('/{concurProductCustomer}/edit',                 'ConcurProductCustomerController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ConcurProductCustomerController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{concurProductCustomer}',                     'ConcurProductCustomerController@update')->name('update');
+            Route::delete('/{concurProductCustomer}',                   'ConcurProductCustomerController@destroy')->name('destroy');
+        });
+    });
+});

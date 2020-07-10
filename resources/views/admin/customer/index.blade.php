@@ -5,8 +5,9 @@
 @section('body')
 
 <customer-listing :data="{{ $data->toJson() }}" :url="'{{ url('admin/customers') }}'" inline-template>
-
     <div class="row">
+        {{var_dump($data->toJson())}}
+
         <div class="col">
             <div class="card">
                 <div class="card-header">

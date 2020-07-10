@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\Customer\IndexCustomer;
 use App\Http\Requests\Admin\Customer\StoreCustomer;
 use App\Http\Requests\Admin\Customer\UpdateCustomer;
 use App\Models\ClientType;
+use App\Models\ConcurProduct;
 use App\Models\Country;
 use App\Models\Customer;
 use App\Models\Industry;
@@ -49,7 +50,7 @@ class CustomersController extends Controller
             ['id', 'name', 'website', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'lg_account_owner_oversight', 'lg_sales_owner'],
 
             function ($query) use ($request) {
-                $query->with(['industry', 'timezone', 'projectType', 'clientType', 'country', 'state']);
+                $query->with(['industry', 'timezone', 'projectType', 'clientType', 'country', 'state', 'concurProduct']);
                 if ($request->has('industries')) {
                     $query->whereIn('industry_id', $request->get('industries'));
                 }
@@ -67,6 +68,10 @@ class CustomersController extends Controller
                 }
                 if ($request->has('states')) {
                     $query->whereIn('state_id', $request->get('states'));
+                }
+                if ($request->has('concur_products')) {
+                    die('oi');
+                    //$query->whereIn('author_id', $request->get('authors'));
                 }
             }
         );
@@ -88,6 +93,7 @@ class CustomersController extends Controller
             'client_types' => ClientType::all(),
             'countries' => Country::all(),
             'states' => State::all(),
+            'concur_products' => ConcurProduct::all(),
         ]);
     }
 
@@ -108,6 +114,7 @@ class CustomersController extends Controller
             'client_types' => ClientType::all(),
             'countries' => Country::all(),
             'states' => State::all(),
+            'concur_products' => ConcurProduct::all(),
         ]);
     }
 
@@ -127,8 +134,13 @@ class CustomersController extends Controller
         $sanitized['client_type_id'] = $request->getClientTypeId();
         $sanitized['country_id'] = $request->getCountryId();
         $sanitized['state_id'] = $request->getStateId();
+
+        // @TODO: get products ids, pluck out and store in product table.
         // Store the Customer
         $customer = Customer::create($sanitized);
+
+        $ids = $request->getConcurProductIds();
+        $customer->concurProduct()->attach($ids);
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/customers'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -171,6 +183,7 @@ class CustomersController extends Controller
             'client_types' => ClientType::all(),
             'countries' => Country::all(),
             'states' => State::all(),
+            'concur_products' => ConcurProduct::all(),
         ]);
     }
 
@@ -194,6 +207,9 @@ class CustomersController extends Controller
         // Update changed values Customer
         $customer->update($sanitized);
 
+        $ids = $request->getConcurProductIds();
+        $customer->concurProduct()->sync($ids);
+
         if ($request->ajax()) {
             return [
                 'redirect' => url('admin/customers'),
@@ -214,6 +230,7 @@ class CustomersController extends Controller
      */
     public function destroy(DestroyCustomer $request, Customer $customer)
     {
+        $customer->concurProduct()->detach();
         $customer->delete();
 
         if ($request->ajax()) {
@@ -236,7 +253,9 @@ class CustomersController extends Controller
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    Customer::whereIn('id', $bulkChunk)->delete();
+                    $customer = Customer::whereIn('id', $bulkChunk);
+                    $customer->concurProduct()->detach();
+                    $customer->delete();
 
                     // TODO your code goes here
                 });
