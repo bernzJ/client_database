@@ -37,10 +37,10 @@ class FinancialController extends Controller
             $request,
 
             // set columns to query
-            [''],
+            ['id', 'platform'],
 
             // set columns to searchIn
-            ['']
+            ['id', 'platform']
         );
 
         if ($request->ajax()) {

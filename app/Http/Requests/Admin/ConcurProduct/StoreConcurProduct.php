@@ -27,16 +27,24 @@ class StoreConcurProduct extends FormRequest
     {
         return [
             'product' => ['required', 'string'],
-            'segment_id' => ['required', 'integer'],
-            
+            'segment' => ['required'],
+
         ];
     }
 
+    public function getSegmentId()
+    {
+        if ($this->has('segment')) {
+            return $this->get('segment')['id'];
+        }
+        return null;
+    }
+
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();

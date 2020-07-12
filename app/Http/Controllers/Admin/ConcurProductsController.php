@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\ConcurProduct\IndexConcurProduct;
 use App\Http\Requests\Admin\ConcurProduct\StoreConcurProduct;
 use App\Http\Requests\Admin\ConcurProduct\UpdateConcurProduct;
 use App\Models\ConcurProduct;
+use App\Models\Segment;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -40,7 +41,14 @@ class ConcurProductsController extends Controller
             ['id', 'product', 'segment_id'],
 
             // set columns to searchIn
-            ['id', 'product']
+            ['id', 'product'],
+
+            function ($query) use ($request) {
+                $query->with(['segment']);
+                if ($request->has('segments')) {
+                    $query->whereIn('segment_id', $request->get('segments'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -52,7 +60,10 @@ class ConcurProductsController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.concur-product.index', ['data' => $data]);
+        return view('admin.concur-product.index', [
+            'data' => $data,
+            'segments' => Segment::all(),
+        ]);
     }
 
     /**
@@ -65,7 +76,9 @@ class ConcurProductsController extends Controller
     {
         $this->authorize('admin.concur-product.create');
 
-        return view('admin.concur-product.create');
+        return view('admin.concur-product.create', [
+            'segments' => Segment::all(),
+        ]);
     }
 
     /**
@@ -78,6 +91,7 @@ class ConcurProductsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['segment_id'] = $request->getSegmentId();
 
         // Store the ConcurProduct
         $concurProduct = ConcurProduct::create($sanitized);
@@ -117,6 +131,7 @@ class ConcurProductsController extends Controller
 
         return view('admin.concur-product.edit', [
             'concurProduct' => $concurProduct,
+            'segments' => Segment::all(),
         ]);
     }
 
@@ -131,6 +146,7 @@ class ConcurProductsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['segment_id'] = $request->getSegmentId();
 
         // Update changed values ConcurProduct
         $concurProduct->update($sanitized);
@@ -171,7 +187,7 @@ class ConcurProductsController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyConcurProduct $request) : Response
+    public function bulkDestroy(BulkDestroyConcurProduct $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

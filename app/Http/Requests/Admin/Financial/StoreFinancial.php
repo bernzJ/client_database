@@ -26,6 +26,7 @@ class StoreFinancial extends FormRequest
     public function rules(): array
     {
         return [
+            'platform' => ['required', 'string'],
             
         ];
     }

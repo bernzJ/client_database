@@ -27,9 +27,17 @@ class UpdateConcurProduct extends FormRequest
     {
         return [
             'product' => ['sometimes', 'string'],
-            'segment_id' => ['sometimes', 'integer'],
-            
+            'segment' => ['required'],
+
         ];
+    }
+
+    public function getSegmentId()
+    {
+        if ($this->has('segment')) {
+            return $this->get('segment')['id'];
+        }
+        return null;
     }
 
     /**

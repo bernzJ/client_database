@@ -12,6 +12,7 @@ use App\Models\ClientType;
 use App\Models\ConcurProduct;
 use App\Models\Country;
 use App\Models\Customer;
+use App\Models\Financial;
 use App\Models\FiscalYear;
 use App\Models\Industry;
 use App\Models\ProjectType;
@@ -132,7 +133,8 @@ class CustomersController extends Controller
         $sanitized['country_id'] = $request->getCountryId();
         $sanitized['state_id'] = $request->getStateId();
 
-        $fs_sanitized = $request->getFiscalYearObject();
+        $fsSanitized = $request->getFiscalYearObject();
+        $fiSanitized = $request->getFinancialObject();
 
         // Store the Customer
         $customer = Customer::create($sanitized);
@@ -142,8 +144,12 @@ class CustomersController extends Controller
         $customer->concurProduct()->attach($ids);
 
         // Store fiscal year
-        $fiscalYear = FiscalYear::create($fs_sanitized);
+        $fiscalYear = FiscalYear::create($fsSanitized);
         $customer->fiscalYear()->associate($fiscalYear)->save();
+
+        // Store financial
+        $financial = Financial::create($fiSanitized);
+        $customer->financial()->associate($financial);
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/customers'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -208,13 +214,15 @@ class CustomersController extends Controller
         $sanitized['country_id'] = $request->getCountryId();
         $sanitized['state_id'] = $request->getStateId();
 
+        $fsSanitized = $request->getFiscalYearObject();
+        $fiSanitized = $request->getFinancialObject();
 
         // Update changed values Customer
         $ids = $request->getConcurProductIds();
         $customer->concurProduct()->sync($ids);
 
-        $fs_sanitized = $request->getFiscalYearObject();
-        $customer->fiscalYear()->update($fs_sanitized);
+        $customer->fiscalYear()->update($fsSanitized);
+        $customer->financial()->associate($fiSanitized);
 
         if ($request->ajax()) {
             return [
@@ -237,6 +245,7 @@ class CustomersController extends Controller
     public function destroy(DestroyCustomer $request, Customer $customer)
     {
         $customer->fiscalYear()->delete();
+        $customer->financial()->delete();
         $customer->concurProduct()->detach();
         $customer->delete();
 
@@ -263,6 +272,7 @@ class CustomersController extends Controller
                     $customer = Customer::whereIn('id', $bulkChunk);
                     $customer->concurProduct()->detach();
                     $customer->fiscalYear()->delete();
+                    $customer->financial()->delete();
                     $customer->delete();
 
                     // TODO your code goes here

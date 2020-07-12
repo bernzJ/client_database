@@ -18,8 +18,6 @@ class CreateConcurProducts extends Migration
             $table->string('product');
             $table->unsignedInteger('segment_id');
 
-
-            // one to one
             $table->foreign('segment_id')->references('id')->on('segments')->onDelete('cascade');
         });
     }

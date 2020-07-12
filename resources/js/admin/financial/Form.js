@@ -5,6 +5,7 @@ Vue.component('financial-form', {
     data: function() {
         return {
             form: {
+                platform:  '' ,
                 
             }
         }

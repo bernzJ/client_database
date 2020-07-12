@@ -26,6 +26,7 @@ class UpdateFinancial extends FormRequest
     public function rules(): array
     {
         return [
+            'platform' => ['sometimes', 'string'],
             
         ];
     }

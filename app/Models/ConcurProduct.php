@@ -14,15 +14,15 @@ class ConcurProduct extends Model
 
 
     protected $dates = [];
+    protected $with = ['segment'];
     public $timestamps = false;
 
     protected $appends = ['resource_url'];
 
-    /* ************************ ACCESSOR ************************* */
-
-    public function getResourceUrlAttribute()
+    // one to many
+    public function segment()
     {
-        return url('/admin/concur-products/' . $this->getKey());
+        return $this->belongsTo(Segment::class);
     }
 
     // many to many.
@@ -31,8 +31,10 @@ class ConcurProduct extends Model
         return $this->BelongsToMany(Customer::class);
     }
 
-    public function segment()
+    /* ************************ ACCESSOR ************************* */
+
+    public function getResourceUrlAttribute()
     {
-        return $this->hasMany(Segment::class);
+        return url('/admin/concur-products/' . $this->getKey());
     }
 }

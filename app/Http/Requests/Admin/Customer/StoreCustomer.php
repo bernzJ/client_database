@@ -41,7 +41,8 @@ class StoreCustomer extends FormRequest
             'active_projects' => ['required', 'boolean'],
             'referenceable' => ['required', 'boolean'],
             'opted_out' => ['required', 'boolean'],
-            'financial_id' => ['nullable', 'integer'],
+            'financial.id' => ['nullable'],
+            'financial.platform' => ['required_without:financial.id'],
             'hr_id' => ['nullable', 'integer'],
             'sso' => ['required', 'boolean'],
             'test_site' => ['required', 'boolean'],
@@ -119,12 +120,21 @@ class StoreCustomer extends FormRequest
         return null;
     }
 
-
     public function getFiscalYearObject()
     {
         if ($this->filled('fiscal_year')) {
             return collect($this->get('fiscal_year'))
                 ->only(['begin', 'end', 'month_end_close_period', 'quarterly_close_cycle'])
+                ->all();
+        }
+        return null;
+    }
+
+    public function getFinancialObject()
+    {
+        if ($this->filled('financial')) {
+            return collect($this->get('financial'))
+                ->only(['platform'])
                 ->all();
         }
         return null;

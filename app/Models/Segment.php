@@ -8,21 +8,25 @@ class Segment extends Model
 {
     protected $fillable = [
         'name',
-    
+
     ];
-    
-    
-    protected $dates = [
-    
-    ];
+
+
+    protected $dates = [];
     public $timestamps = false;
-    
+
     protected $appends = ['resource_url'];
+
+    // one to many.
+    public function concurProducts()
+    {
+        return $this->hasMany(ConcurProduct::class);
+    }
 
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/segments/'.$this->getKey());
+        return url('/admin/segments/' . $this->getKey());
     }
 }

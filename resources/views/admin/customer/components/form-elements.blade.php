@@ -383,6 +383,20 @@
 </div>
 
 <div class="form-group row align-items-center"
+    :class="{'has-danger': errors.has('financial'), 'has-success': fields.financial && fields.financial.valid }">
+    <label for="financial" class="col-form-label text-md-right"
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.financial.platform') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.financial.platform" v-validate="'integer'" @input="validate($event)"
+            class="form-control"
+            :class="{'form-control-danger': errors.has('financial'), 'form-control-success': fields.financial && fields.financial.valid}"
+            id="financial" name="financial" placeholder="{{ trans('admin.customer.columns.financial.platform') }}">
+        <div v-if="errors.has('financial')" class="form-control-feedback form-text" v-cloak>
+            @{{ errors.first('financial') }}</div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('timezone'), 'has-success': fields.timezone && fields.timezone.valid }">
     <label for="timezone" class="col-form-label text-md-right"
         :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.timezone') }}</label>
