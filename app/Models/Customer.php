@@ -42,7 +42,7 @@ class Customer extends Model
         'refresh_date',
 
     ];
-    protected $with = ['industry', 'timezone', 'projectType', 'clientType', 'country', 'state', 'concurProduct'];
+    protected $with = ['industry', 'timezone', 'projectType', 'clientType', 'country', 'state', 'concurProduct', 'fiscalYear'];
     public $timestamps = false;
 
     protected $appends = ['resource_url'];
@@ -63,6 +63,10 @@ class Customer extends Model
     public function timezone()
     {
         return $this->belongsTo(Timezone::class);
+    }
+    public function fiscalYear()
+    {
+        return $this->belongsTo(FiscalYear::class);
     }
     public function projectType()
     {

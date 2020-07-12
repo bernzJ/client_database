@@ -30,7 +30,11 @@ class StoreCustomer extends FormRequest
             'website' => ['nullable', 'string'],
             'industry' => ['required'],
             'timezone' => ['required'],
-            'fiscal_year_id' => ['nullable'],
+            'fiscal_year.id' => ['nullable'],
+            'fiscal_year.begin' => ['required_without:fiscal_year.id'],
+            'fiscal_year.end' => ['nullable', 'date'],
+            'fiscal_year.month_end_close_period' => ['nullable', 'date'],
+            'fiscal_year.quarterly_close_cycle' => ['nullable', 'date'],
             'employees_count' => ['required', 'integer'],
             'project_type' => ['nullable'],
             'client_type' => ['required'],
@@ -55,6 +59,7 @@ class StoreCustomer extends FormRequest
             'employee_groups_id' => ['nullable', 'integer'],
             'notes_id' => ['nullable', 'integer'],
             'concur_product' => ['required'],
+
         ];
     }
 
@@ -110,6 +115,17 @@ class StoreCustomer extends FormRequest
     {
         if ($this->filled('concur_product')) {
             return collect($this->get('concur_product'))->pluck('id');
+        }
+        return null;
+    }
+
+
+    public function getFiscalYearObject()
+    {
+        if ($this->filled('fiscal_year')) {
+            return collect($this->get('fiscal_year'))
+                ->only(['begin', 'end', 'month_end_close_period', 'quarterly_close_cycle'])
+                ->all();
         }
         return null;
     }

@@ -2,7 +2,7 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('customer-form', {
     mixins: [AppForm],
-    props: ['industries', 'timezones', 'project_types', 'client_types', 'countries', 'states', 'concur_products'],
+    props: ['industries', 'timezones', 'project_types', 'client_types', 'countries', 'states', 'concur_products', 'fiscal_years'],
     data: function () {
         return {
             form: {
@@ -10,7 +10,13 @@ Vue.component('customer-form', {
                 website: '',
                 industry: '',
                 timezone: '',
-                fiscal_year_id: '',
+                fiscal_year: {
+                    id: null,
+                    begin: null,
+                    end: null,
+                    month_end_close_period: null,
+                    quarterly_close_cycle: null,
+                },
                 employees_count: '',
                 project_type: null,
                 client_type: null,

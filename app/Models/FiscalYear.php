@@ -35,9 +35,8 @@ class FiscalYear extends Model
         return url('/admin/fiscal-years/' . $this->getKey());
     }
 
-    //@TODO: fix this
-    public function customers()
+    public function customer()
     {
-        return $this->hasMany(Customer::class);
+        return $this->hasOne(Customer::class);
     }
 }

@@ -1,3 +1,10 @@
+<div v-for="error in errors" :key="id" class="alert alert-danger alert-dismissible fade show" role="alert">
+    @{{ error.msg }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('name'), 'has-success': fields.name && fields.name.valid }">
     <label for="name" class="col-form-label text-md-right"
@@ -310,7 +317,8 @@
             label="product" tag-placeholder="{{ __('Select Concur Product') }}"
             placeholder="{{ __('Concur Product') }}">
         </multiselect>
-        <div v-if="errors.has('concur_product')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('concur_product') }}</div>
+        <div v-if="errors.has('concur_product')" class="form-control-feedback form-text" v-cloak>
+            @{{ errors.first('concur_product') }}</div>
     </div>
 </div>
 
@@ -343,19 +351,34 @@
 </div>
 
 <div class="form-group row align-items-center"
-    :class="{'has-danger': errors.has('fiscal_year_id'), 'has-success': fields.fiscal_year_id && fields.fiscal_year_id.valid }">
-    <label for="fiscal_year_id" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.fiscal_year_id') }}</label>
+    :class="{'has-danger': errors.has('fiscal_year'), 'has-success': fields.fiscal_year && fields.fiscal_year.valid }">
+    <label for="fiscal_year" class="col-form-label text-md-right"
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.fiscal_year') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <!-- TODO: implement this.
-        https://stackoverflow.com/questions/28144442/laravel-how-to-update-one-to-one-relationships -->
-        <input type="text" v-model="form.fiscal_year_id" v-validate="'integer'" @input="validate($event)"
-            class="form-control"
-            :class="{'form-control-danger': errors.has('fiscal_year_id'), 'form-control-success': fields.fiscal_year_id && fields.fiscal_year_id.valid}"
-            id="fiscal_year_id" name="fiscal_year_id"
-            placeholder="{{ trans('admin.customer.columns.fiscal_year_id') }}">
-        <div v-if="errors.has('fiscal_year_id')" class="form-control-feedback form-text" v-cloak>
-            @{{ errors.first('fiscal_year_id') }}</div>
+        <!-- TODO: implement error display. -->
+        <input type="hidden" v-model="form.fiscal_year.id" v-validate="'integer'">
+
+        <datetime v-model="form.fiscal_year.begin" :config="datePickerConfig"
+            v-validate="'date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr"
+            :class="{'form-control-danger': errors.has('fiscal_year.begin'), 'form-control-success': fields.fiscal_year_begin && fields.fiscal_year_begin.valid}"
+            placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
+
+        <datetime v-model="form.fiscal_year.end" :config="datePickerConfig"
+            v-validate="'date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr"
+            :class="{'form-control-danger': errors.has('fiscal_year.end'), 'form-control-success': fields.fiscal_year_end && fields.fiscal_year_end.valid}"
+            placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
+
+        <datetime v-model="form.fiscal_year.month_end_close_period" :config="datePickerConfig"
+            v-validate="'date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr"
+            :class="{'form-control-danger': errors.has('fiscal_year.month_end_close_period'), 'form-control-success': fields.fiscal_year_month_end_close_period && fields.fiscal_year_month_end_close_period.valid}"
+            placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
+
+        <datetime v-model="form.fiscal_year.quarterly_close_cycle" :config="datePickerConfig"
+            v-validate="'date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr"
+            :class="{'form-control-danger': errors.has('fiscal_year.quarterly_close_cycle'), 'form-control-success': fields.fiscal_year_quarterly_close_cycle && fields.fiscal_year_quarterly_close_cycle.valid}"
+            placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
+
+
     </div>
 </div>
 
