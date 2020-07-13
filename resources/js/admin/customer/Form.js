@@ -24,6 +24,7 @@ Vue.component('customer-form', {
                 referenceable: false,
                 opted_out: false,
                 financial: {
+                    id: null,
                     platform: '',
                 },
                 hr_id: '',
@@ -46,5 +47,4 @@ Vue.component('customer-form', {
             }
         }
     }
-
 });

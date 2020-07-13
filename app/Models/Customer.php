@@ -34,8 +34,6 @@ class Customer extends Model
         'lg_account_owner_oversight',
         'lg_sales_owner',
         'employee_groups_id',
-        'notes_id',
-
     ];
 
     protected $dates = [
@@ -88,7 +86,10 @@ class Customer extends Model
     {
         return $this->belongsTo(State::class);
     }
-
+    public function note()
+    {
+        return $this->belongsTo(Note::class);
+    }
     // many to many.
     public function concurProduct()
     {

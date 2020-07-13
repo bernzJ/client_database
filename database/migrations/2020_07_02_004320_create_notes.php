@@ -15,10 +15,9 @@ class CreateNotes extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('company_overview')->nullable();
-            $table->string('company_culture')->nullable();
-            $table->string('strategic_goals')->nullable();
-            $table->string('compliance')->nullable();
+            $table->longText('company_culture')->nullable();
+            $table->longText('strategic_goals')->nullable();
+            $table->longText('compliance')->nullable();
         });
     }
 

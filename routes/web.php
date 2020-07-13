@@ -398,3 +398,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('notes')->name('notes/')->group(static function() {
+            Route::get('/',                                             'NotesController@index')->name('index');
+            Route::get('/create',                                       'NotesController@create')->name('create');
+            Route::post('/',                                            'NotesController@store')->name('store');
+            Route::get('/{note}/edit',                                  'NotesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'NotesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{note}',                                      'NotesController@update')->name('update');
+            Route::delete('/{note}',                                    'NotesController@destroy')->name('destroy');
+        });
+    });
+});

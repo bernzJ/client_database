@@ -58,7 +58,6 @@ class UpdateCustomer extends FormRequest
             'lg_account_owner_oversight' => ['nullable', 'string'],
             'lg_sales_owner' => ['nullable', 'string'],
             'employee_groups_id' => ['nullable', 'integer'],
-            'notes_id' => ['nullable', 'integer'],
             'concur_product' => ['sometimes'],
         ];
     }
@@ -122,9 +121,13 @@ class UpdateCustomer extends FormRequest
     public function getFiscalYearObject()
     {
         if ($this->filled('fiscal_year')) {
-            return collect($this->get('fiscal_year'))
-                ->only(['begin', 'end', 'month_end_close_period', 'quarterly_close_cycle'])
-                ->all();
+            $data = $this->get('fiscal_year');
+            return [
+                'begin' => $data['begin'],
+                'end' => $data['end'],
+                'month_end_close_period' => $data['month_end_close_period'],
+                'quarterly_close_cycle' => $data['quarterly_close_cycle'],
+            ];
         }
         return null;
     }
@@ -132,9 +135,10 @@ class UpdateCustomer extends FormRequest
     public function getFinancialObject()
     {
         if ($this->filled('financial')) {
-            return collect($this->get('financial'))
-                ->only(['platform'])
-                ->all();
+            $data = $this->get('financial');
+            return [
+                'platform' => $data['platform'],
+            ];
         }
         return null;
     }

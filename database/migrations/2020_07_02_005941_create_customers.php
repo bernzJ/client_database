@@ -42,7 +42,7 @@ class CreateCustomers extends Migration
             $table->string('lg_account_owner_oversight')->nullable();
             $table->string('lg_sales_owner')->nullable();
             $table->unsignedInteger('employee_groups_id')->nullable();
-            $table->unsignedInteger('notes_id')->nullable();
+            $table->unsignedInteger('note_id')->nullable();
 
             // one to one
             $table->foreign('industry_id')->references('id')->on('industries')->onDelete('cascade');
@@ -55,7 +55,7 @@ class CreateCustomers extends Migration
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
             $table->foreign('state_id')->references('id')->on('state')->onDelete('cascade');
             $table->foreign('employee_groups_id')->references('id')->on('employee_groups')->onDelete('cascade');
-            $table->foreign('notes_id')->references('id')->on('notes')->onDelete('cascade');
+            $table->foreign('note_id')->references('id')->on('notes')->onDelete('cascade');
         });
     }
 

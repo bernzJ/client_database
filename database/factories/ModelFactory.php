@@ -356,3 +356,24 @@ $factory->define(App\Models\ConcurProduct::class, static function (Faker\Generat
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Note::class, static function (Faker\Generator $faker) {
+    return [
+        'company_overview' => $faker->sentence,
+        'company_culture' => $faker->sentence,
+        'strategic_goals' => $faker->sentence,
+        'compliance' => $faker->sentence,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Note::class, static function (Faker\Generator $faker) {
+    return [
+        'company_culture' => $faker->text(),
+        'strategic_goals' => $faker->text(),
+        'compliance' => $faker->text(),
+        
+        
+    ];
+});

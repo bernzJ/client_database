@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Note\DestroyNote;
 use App\Http\Requests\Admin\Note\IndexNote;
 use App\Http\Requests\Admin\Note\StoreNote;
 use App\Http\Requests\Admin\Note\UpdateNote;
+use App\Models\Customer;
 use App\Models\Note;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
@@ -37,10 +38,14 @@ class NotesController extends Controller
             $request,
 
             // set columns to query
-            [''],
+            ['id', 'company_culture', 'strategic_goals', 'compliance'],
 
             // set columns to searchIn
-            ['']
+            ['id', 'company_culture', 'strategic_goals', 'compliance'],
+
+            function ($query) use ($request) {
+                $query->with(['customer']);
+            }
         );
 
         if ($request->ajax()) {
@@ -52,7 +57,10 @@ class NotesController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.note.index', ['data' => $data]);
+        return view('admin.note.index', [
+            'data' => $data,
+            'customers' => Customer::all('id', 'name'),
+        ]);
     }
 
     /**
@@ -65,7 +73,9 @@ class NotesController extends Controller
     {
         $this->authorize('admin.note.create');
 
-        return view('admin.note.create');
+        return view('admin.note.create', [
+            'customers' => Customer::all('id', 'name'),
+        ]);
     }
 
     /**
@@ -78,9 +88,12 @@ class NotesController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-
+        $id = $request->getCustomerId();
         // Store the Note
         $note = Note::create($sanitized);
+
+        // Update customer
+        Customer::find($id)->note()->associate($note)->save();
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/notes'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -117,6 +130,7 @@ class NotesController extends Controller
 
         return view('admin.note.edit', [
             'note' => $note,
+            'customers' => Customer::all('id', 'name'),
         ]);
     }
 
@@ -131,9 +145,12 @@ class NotesController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-
+        $id = $request->getCustomerId();
         // Update changed values Note
         $note->update($sanitized);
+
+        // Update customer
+        Customer::find($id)->note()->update($note);
 
         if ($request->ajax()) {
             return [
@@ -171,7 +188,7 @@ class NotesController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyNote $request) : Response
+    public function bulkDestroy(BulkDestroyNote $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

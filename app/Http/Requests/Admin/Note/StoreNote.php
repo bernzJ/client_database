@@ -26,15 +26,26 @@ class StoreNote extends FormRequest
     public function rules(): array
     {
         return [
-            
+            'customer' => ['required'],
+            'company_culture' => ['nullable', 'string'],
+            'strategic_goals' => ['nullable', 'string'],
+            'compliance' => ['nullable', 'string'],
+
         ];
     }
 
+    public function getCustomerId()
+    {
+        if ($this->has('customer')) {
+            return $this->get('customer')['id'];
+        }
+        return null;
+    }
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();

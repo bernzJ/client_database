@@ -238,20 +238,6 @@
     </div>
 </div>
 
-<div class="form-group row align-items-center"
-    :class="{'has-danger': errors.has('financial_id'), 'has-success': fields.financial_id && fields.financial_id.valid }">
-    <label for="financial_id" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.financial_id') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.financial_id" v-validate="'integer'" @input="validate($event)"
-            class="form-control"
-            :class="{'form-control-danger': errors.has('financial_id'), 'form-control-success': fields.financial_id && fields.financial_id.valid}"
-            id="financial_id" name="financial_id" placeholder="{{ trans('admin.customer.columns.financial_id') }}">
-        <div v-if="errors.has('financial_id')" class="form-control-feedback form-text" v-cloak>
-            @{{ errors.first('financial_id') }}</div>
-    </div>
-</div>
-
 <div class="form-check row"
     :class="{'has-danger': errors.has('opted_out'), 'has-success': fields.opted_out && fields.opted_out.valid }">
     <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-10'">
@@ -387,7 +373,9 @@
     <label for="financial" class="col-form-label text-md-right"
         :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.financial.platform') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.financial.platform" v-validate="'integer'" @input="validate($event)"
+        <input type="hidden" v-model="form.financial.id" v-validate="'integer'">
+
+        <input type="text" v-model="form.financial.platform" v-validate="'required'" @input="validate($event)"
             class="form-control"
             :class="{'form-control-danger': errors.has('financial'), 'form-control-success': fields.financial && fields.financial.valid}"
             id="financial" name="financial" placeholder="{{ trans('admin.customer.columns.financial.platform') }}">
@@ -406,18 +394,5 @@
         </multiselect>
         <div v-if="errors.has('timezone')" class="form-control-feedback form-text" v-cloak>
             @{{ errors.first('timezone') }}</div>
-    </div>
-</div>
-
-<div class="form-group row align-items-center"
-    :class="{'has-danger': errors.has('notes_id'), 'has-success': fields.notes_id && fields.notes_id.valid }">
-    <label for="notes_id" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.notes_id') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.notes_id" v-validate="'integer'" @input="validate($event)" class="form-control"
-            :class="{'form-control-danger': errors.has('notes_id'), 'form-control-success': fields.notes_id && fields.notes_id.valid}"
-            id="notes_id" name="notes_id" placeholder="{{ trans('admin.customer.columns.notes_id') }}">
-        <div v-if="errors.has('notes_id')" class="form-control-feedback form-text" v-cloak>
-            @{{ errors.first('notes_id') }}</div>
     </div>
 </div>

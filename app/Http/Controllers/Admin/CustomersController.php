@@ -46,7 +46,7 @@ class CustomersController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'name', 'website', 'industry_id', 'timezone_id', 'fiscal_year_id', 'employees_count', 'project_type_id', 'client_type_id', 'active_projects', 'referenceable', 'opted_out', 'financial_id', 'hr_id', 'sso', 'test_site', 'refresh_date', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'country_id', 'state_id', 'lg_account_owner_oversight', 'lg_sales_owner', 'employee_groups_id', 'notes_id'],
+            ['id', 'name', 'website', 'industry_id', 'timezone_id', 'fiscal_year_id', 'employees_count', 'project_type_id', 'client_type_id', 'active_projects', 'referenceable', 'opted_out', 'financial_id', 'hr_id', 'sso', 'test_site', 'refresh_date', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'country_id', 'state_id', 'lg_account_owner_oversight', 'lg_sales_owner', 'employee_groups_id'],
 
             // set columns to searchIn
             ['id', 'name', 'website', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'lg_account_owner_oversight', 'lg_sales_owner'],
@@ -149,7 +149,7 @@ class CustomersController extends Controller
 
         // Store financial
         $financial = Financial::create($fiSanitized);
-        $customer->financial()->associate($financial);
+        $customer->financial()->associate($financial)->save();
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/customers'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -222,7 +222,7 @@ class CustomersController extends Controller
         $customer->concurProduct()->sync($ids);
 
         $customer->fiscalYear()->update($fsSanitized);
-        $customer->financial()->associate($fiSanitized);
+        $customer->financial()->update($fiSanitized);
 
         if ($request->ajax()) {
             return [

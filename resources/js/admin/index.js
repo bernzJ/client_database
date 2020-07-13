@@ -25,3 +25,4 @@ import './concur-product-customer';
 import './financial';
 import './segment';
 import './concur-product';
+import './note';
