@@ -26,6 +26,7 @@ class UpdateHr extends FormRequest
     public function rules(): array
     {
         return [
+            'system' => ['sometimes', 'string'],
             
         ];
     }

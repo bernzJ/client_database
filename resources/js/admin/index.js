@@ -26,3 +26,5 @@ import './financial';
 import './segment';
 import './concur-product';
 import './note';
+import './hr';
+import './employee-group';

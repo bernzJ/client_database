@@ -33,14 +33,26 @@ class Customer extends Model
         'state_id',
         'lg_account_owner_oversight',
         'lg_sales_owner',
-        'employee_groups_id',
+        'employee_group_id',
     ];
 
     protected $dates = [
         'refresh_date',
 
     ];
-    protected $with = ['industry', 'timezone', 'projectType', 'clientType', 'country', 'state', 'concurProduct', 'fiscalYear', 'financial'];
+    protected $with = [
+        'industry',
+        'timezone',
+        'projectType',
+        'clientType',
+        'country',
+        'state',
+        'concurProduct',
+        'fiscalYear',
+        'financial',
+        'hr',
+        'employeeGroup',
+    ];
     public $timestamps = false;
 
     protected $appends = ['resource_url'];
@@ -86,9 +98,18 @@ class Customer extends Model
     {
         return $this->belongsTo(State::class);
     }
+    public function employeeGroup()
+    {
+        return $this->belongsTo(EmployeeGroup::class);
+    }
+    // reverse, omit in with
     public function note()
     {
         return $this->belongsTo(Note::class);
+    }
+    public function hr()
+    {
+        return $this->belongsTo(Hr::class);
     }
     // many to many.
     public function concurProduct()

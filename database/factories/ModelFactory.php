@@ -52,7 +52,7 @@ $factory->define(App\Models\Customer::class, static function (Faker\Generator $f
         'state' => $faker->randomNumber(5),
         'lg_account_owner_oversight' => $faker->sentence,
         'lg_sales_owner' => $faker->sentence,
-        'employee_groups' => $faker->randomNumber(5),
+        'employee_group' => $faker->randomNumber(5),
         'notes' => $faker->randomNumber(5),
 
 
@@ -228,7 +228,7 @@ $factory->define(App\Models\Customer::class, static function (Faker\Generator $f
         'state_id' => $faker->randomNumber(5),
         'lg_account_owner_oversight' => $faker->sentence,
         'lg_sales_owner' => $faker->sentence,
-        'employee_groups_id' => $faker->randomNumber(5),
+        'employee_group_id' => $faker->randomNumber(5),
         'notes_id' => $faker->randomNumber(5),
 
 
@@ -311,23 +311,23 @@ $factory->define(App\Models\ConcurProduct::class, static function (Faker\Generat
     return [
         'product' => $faker->sentence,
         'segment_name' => $faker->sentence,
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Segment::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Segment::class, static function (Faker\Generator $faker) {
     return [
         'name' => $faker->firstName,
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
@@ -335,8 +335,8 @@ $factory->define(App\Models\ConcurProduct::class, static function (Faker\Generat
     return [
         'product' => $faker->sentence,
         'segment_id' => $faker->randomNumber(5),
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
@@ -344,16 +344,16 @@ $factory->define(App\Models\Segment::class, static function (Faker\Generator $fa
     return [
         'name' => $faker->firstName,
         'concur_product_id' => $faker->randomNumber(5),
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\ConcurProduct::class, static function (Faker\Generator $faker) {
     return [
         'product' => $faker->sentence,
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
@@ -363,8 +363,8 @@ $factory->define(App\Models\Note::class, static function (Faker\Generator $faker
         'company_culture' => $faker->sentence,
         'strategic_goals' => $faker->sentence,
         'compliance' => $faker->sentence,
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
@@ -373,6 +373,37 @@ $factory->define(App\Models\Note::class, static function (Faker\Generator $faker
         'company_culture' => $faker->text(),
         'strategic_goals' => $faker->text(),
         'compliance' => $faker->text(),
+
+
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Hr::class, static function (Faker\Generator $faker) {
+    return [
+        'system' => $faker->sentence,
+
+
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\EmployeeGroup::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+
+
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\EmployeeGroup::class, static function (Faker\Generator $faker) {
+    return [
+
+
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\EmployeeGroup::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
         
         
     ];

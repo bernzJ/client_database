@@ -205,21 +205,6 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('employee-groups')->name('employee-groups/')->group(static function() {
-            Route::get('/',                                             'EmployeeGroupsController@index')->name('index');
-            Route::get('/create',                                       'EmployeeGroupsController@create')->name('create');
-            Route::post('/',                                            'EmployeeGroupsController@store')->name('store');
-            Route::get('/{employeeGroup}/edit',                         'EmployeeGroupsController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'EmployeeGroupsController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{employeeGroup}',                             'EmployeeGroupsController@update')->name('update');
-            Route::delete('/{employeeGroup}',                           'EmployeeGroupsController@destroy')->name('destroy');
-        });
-    });
-});
-
-/* Auto-generated admin routes */
-Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
         Route::prefix('notes')->name('notes/')->group(static function() {
             Route::get('/',                                             'NotesController@index')->name('index');
             Route::get('/create',                                       'NotesController@create')->name('create');
@@ -410,6 +395,52 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'NotesController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{note}',                                      'NotesController@update')->name('update');
             Route::delete('/{note}',                                    'NotesController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('hrs')->name('hrs/')->group(static function() {
+            Route::get('/',                                             'HrController@index')->name('index');
+            Route::get('/create',                                       'HrController@create')->name('create');
+            Route::post('/',                                            'HrController@store')->name('store');
+            Route::get('/{hr}/edit',                                    'HrController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'HrController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{hr}',                                        'HrController@update')->name('update');
+            Route::delete('/{hr}',                                      'HrController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('employee-groups')->name('employee-groups/')->group(static function() {
+            Route::get('/',                                             'EmployeeGroupController@index')->name('index');
+            Route::get('/create',                                       'EmployeeGroupController@create')->name('create');
+            Route::post('/',                                            'EmployeeGroupController@store')->name('store');
+            Route::get('/{employeeGroup}/edit',                         'EmployeeGroupController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'EmployeeGroupController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{employeeGroup}',                             'EmployeeGroupController@update')->name('update');
+            Route::delete('/{employeeGroup}',                           'EmployeeGroupController@destroy')->name('destroy');
+        });
+    });
+});
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('employee-groups')->name('employee-groups/')->group(static function() {
+            Route::get('/',                                             'EmployeeGroupController@index')->name('index');
+            Route::get('/create',                                       'EmployeeGroupController@create')->name('create');
+            Route::post('/',                                            'EmployeeGroupController@store')->name('store');
+            Route::get('/{employeeGroup}/edit',                         'EmployeeGroupController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'EmployeeGroupController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{employeeGroup}',                             'EmployeeGroupController@update')->name('update');
+            Route::delete('/{employeeGroup}',                           'EmployeeGroupController@destroy')->name('destroy');
         });
     });
 });

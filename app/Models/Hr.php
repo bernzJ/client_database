@@ -9,21 +9,25 @@ class Hr extends Model
     protected $table = 'hr';
 
     protected $fillable = [
-    
+        'system',
+
     ];
-    
-    
-    protected $dates = [
-    
-    ];
+
+
+    protected $dates = [];
     public $timestamps = false;
-    
+
     protected $appends = ['resource_url'];
+
+    public function customer()
+    {
+        return $this->hasOne(Customer::class);
+    }
 
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/hrs/'.$this->getKey());
+        return url('/admin/hrs/' . $this->getKey());
     }
 }

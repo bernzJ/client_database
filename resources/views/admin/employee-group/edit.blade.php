@@ -1,6 +1,6 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.employee-group.actions.edit', ['name' => $employeeGroup->id]))
+@section('title', trans('admin.employee-group.actions.edit', ['name' => $employeeGroup->name]))
 
 @section('body')
 
@@ -17,7 +17,7 @@
 
 
                     <div class="card-header">
-                        <i class="fa fa-pencil"></i> {{ trans('admin.employee-group.actions.edit', ['name' => $employeeGroup->id]) }}
+                        <i class="fa fa-pencil"></i> {{ trans('admin.employee-group.actions.edit', ['name' => $employeeGroup->name]) }}
                     </div>
 
                     <div class="card-body">

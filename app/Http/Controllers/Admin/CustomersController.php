@@ -12,8 +12,10 @@ use App\Models\ClientType;
 use App\Models\ConcurProduct;
 use App\Models\Country;
 use App\Models\Customer;
+use App\Models\EmployeeGroup;
 use App\Models\Financial;
 use App\Models\FiscalYear;
+use App\Models\Hr;
 use App\Models\Industry;
 use App\Models\ProjectType;
 use App\Models\Timezone;
@@ -46,13 +48,14 @@ class CustomersController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'name', 'website', 'industry_id', 'timezone_id', 'fiscal_year_id', 'employees_count', 'project_type_id', 'client_type_id', 'active_projects', 'referenceable', 'opted_out', 'financial_id', 'hr_id', 'sso', 'test_site', 'refresh_date', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'country_id', 'state_id', 'lg_account_owner_oversight', 'lg_sales_owner', 'employee_groups_id'],
+            ['id', 'name', 'website', 'industry_id', 'timezone_id', 'fiscal_year_id', 'employees_count', 'project_type_id', 'client_type_id', 'active_projects', 'referenceable', 'opted_out', 'financial_id', 'hr_id', 'sso', 'test_site', 'refresh_date', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'country_id', 'state_id', 'lg_account_owner_oversight', 'lg_sales_owner', 'employee_group_id'],
 
             // set columns to searchIn
             ['id', 'name', 'website', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'lg_account_owner_oversight', 'lg_sales_owner'],
 
             function ($query) use ($request) {
-                $query->with(['industry', 'timezone', 'projectType', 'clientType', 'country', 'state', 'concurProduct', 'fiscalYear']);
+                //@NOTE: this might be redundant from model's protected.
+                //$query->with(['industry', 'timezone', 'projectType', 'clientType', 'country', 'state', 'concurProduct', 'fiscalYear', 'hr']);
                 if ($request->has('industries')) {
                     $query->whereIn('industry_id', $request->get('industries'));
                 }
@@ -135,6 +138,8 @@ class CustomersController extends Controller
 
         $fsSanitized = $request->getFiscalYearObject();
         $fiSanitized = $request->getFinancialObject();
+        $hrSanitized = $request->getHrObject();
+        $egSanitized = $request->getEmployeeGroupObject();
 
         // Store the Customer
         $customer = Customer::create($sanitized);
@@ -150,6 +155,14 @@ class CustomersController extends Controller
         // Store financial
         $financial = Financial::create($fiSanitized);
         $customer->financial()->associate($financial)->save();
+
+        // Store hr
+        $hr = Hr::create($hrSanitized);
+        $customer->hr()->associate($hr)->save();
+
+        // Store employee group
+        $employeeGroup = EmployeeGroup::create($egSanitized);
+        $customer->employeeGroup()->associate($employeeGroup)->save();
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/customers'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -216,6 +229,8 @@ class CustomersController extends Controller
 
         $fsSanitized = $request->getFiscalYearObject();
         $fiSanitized = $request->getFinancialObject();
+        $hrSanitized = $request->getHrObject();
+        $egSanitized = $request->getEmployeeGroupObject();
 
         // Update changed values Customer
         $ids = $request->getConcurProductIds();
@@ -223,6 +238,8 @@ class CustomersController extends Controller
 
         $customer->fiscalYear()->update($fsSanitized);
         $customer->financial()->update($fiSanitized);
+        $customer->hr()->update($hrSanitized);
+        $customer->employeeGroup()->update($egSanitized);
 
         if ($request->ajax()) {
             return [
@@ -244,8 +261,10 @@ class CustomersController extends Controller
      */
     public function destroy(DestroyCustomer $request, Customer $customer)
     {
+        $customer->hr()->delete();
         $customer->fiscalYear()->delete();
         $customer->financial()->delete();
+        $customer->employeeGroup()->delete();
         $customer->concurProduct()->detach();
         $customer->delete();
 
@@ -271,8 +290,10 @@ class CustomersController extends Controller
                 ->each(static function ($bulkChunk) {
                     $customer = Customer::whereIn('id', $bulkChunk);
                     $customer->concurProduct()->detach();
+                    $customer->hr()->delete();
                     $customer->fiscalYear()->delete();
                     $customer->financial()->delete();
+                    $customer->employeeGroup()->delete();
                     $customer->delete();
 
                     // TODO your code goes here

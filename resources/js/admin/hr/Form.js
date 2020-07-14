@@ -5,6 +5,7 @@ Vue.component('hr-form', {
     data: function() {
         return {
             form: {
+                system:  '' ,
                 
             }
         }

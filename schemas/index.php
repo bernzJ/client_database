@@ -53,8 +53,8 @@ Schema::create('countries', function (Blueprint $table) {
   $table->string('three_char_country_code');
 });
 
-// employee_groups
-Schema::create('employee_groups', function (Blueprint $table) {
+// employee_group
+Schema::create('employee_group', function (Blueprint $table) {
   $table->increments('id');
   $table->string('name');
 });
@@ -136,7 +136,7 @@ Schema::create('customers', function (Blueprint $table) {
   $table->unsignedInteger('state_id');
   $table->string('lg_account_owner_oversight')->nullable();
   $table->string('lg_sales_owner')->nullable();
-  $table->unsignedInteger('employee_groups_id')->nullable();
+  $table->unsignedInteger('employee_group_id')->nullable();
   $table->unsignedInteger('notes_id')->nullable();
 
   // one to one
@@ -149,7 +149,7 @@ Schema::create('customers', function (Blueprint $table) {
   $table->foreign('hr_id')->references('id')->on('hr')->onDelete('cascade');
   $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
   $table->foreign('state_id')->references('id')->on('state')->onDelete('cascade');
-  $table->foreign('employee_groups_id')->references('id')->on('employee_groups')->onDelete('cascade');
+  $table->foreign('employee_group_id')->references('id')->on('employee_group')->onDelete('cascade');
   $table->foreign('notes_id')->references('id')->on('notes')->onDelete('cascade');
 });
 

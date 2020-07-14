@@ -5,6 +5,7 @@ Vue.component('employee-group-form', {
     data: function() {
         return {
             form: {
+                name:  '' ,
                 
             }
         }

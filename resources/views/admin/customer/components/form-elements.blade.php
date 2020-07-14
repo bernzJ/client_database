@@ -1,3 +1,4 @@
+<!--  https://www.getcraftable.com/docs/5.0/user-interface#notification -->
 <div v-for="error in errors" :key="id" class="alert alert-danger alert-dismissible fade show" role="alert">
     @{{ error.msg }}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -51,17 +52,19 @@
 </div>
 
 <div class="form-group row align-items-center"
-    :class="{'has-danger': errors.has('employee_groups_id'), 'has-success': fields.employee_groups_id && fields.employee_groups_id.valid }">
-    <label for="employee_groups_id" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.employee_groups_id') }}</label>
+    :class="{'has-danger': errors.has('employee_group'), 'has-success': fields.employee_group && fields.employee_group.valid }">
+    <label for="employee_group" class="col-form-label text-md-right"
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.employee_group') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.employee_groups_id" v-validate="'integer'" @input="validate($event)"
+        <input type="hidden" v-model="form.employee_group.id" v-validate="'integer'">
+
+        <input type="text" v-model="form.employee_group.name" v-validate="'required'" @input="validate($event)"
             class="form-control"
-            :class="{'form-control-danger': errors.has('employee_groups_id'), 'form-control-success': fields.employee_groups_id && fields.employee_groups_id.valid}"
-            id="employee_groups_id" name="employee_groups_id"
-            placeholder="{{ trans('admin.customer.columns.employee_groups_id') }}">
-        <div v-if="errors.has('employee_groups_id')" class="form-control-feedback form-text" v-cloak>
-            @{{ errors.first('employee_groups_id') }}</div>
+            :class="{'form-control-danger': errors.has('employee_group'), 'form-control-success': fields.employee_group && fields.employee_group.valid}"
+            id="employee_group" name="employee_group"
+            placeholder="{{ trans('admin.customer.columns.employee_group') }}">
+        <div v-if="errors.has('employee_group')" class="form-control-feedback form-text" v-cloak>
+            @{{ errors.first('employee_group') }}</div>
     </div>
 </div>
 
@@ -145,8 +148,6 @@
     </div>
 </div>
 
-<!-- TODO: implement this <input type="hidden" v-model="form.address_lng_lat" > -->
-
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('address_2'), 'has-success': fields.address_2 && fields.address_2.valid }">
     <label for="address_2" class="col-form-label text-md-right"
@@ -215,6 +216,7 @@
 
 <div class="form-check row" :class="{'has-danger': errors.has('sso'), 'has-success': fields.sso && fields.sso.valid }">
     <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-10'">
+        <!-- NOTE: check ths data-vv-name, name-->
         <input class="form-check-input" id="sso" type="checkbox" v-model="form.sso" v-validate="''" data-vv-name="sso"
             name="sso_fake_element">
         <label class="form-check-label" for="sso">
@@ -226,14 +228,16 @@
 </div>
 
 <div class="form-group row align-items-center"
-    :class="{'has-danger': errors.has('hr_id'), 'has-success': fields.hr_id && fields.hr_id.valid }">
-    <label for="hr_id" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.hr_id') }}</label>
+    :class="{'has-danger': errors.has('hr'), 'has-success': fields.hr && fields.hr.valid }">
+    <label for="hr" class="col-form-label text-md-right"
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.hr') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.hr_id" v-validate="'integer'" @input="validate($event)" class="form-control"
-            :class="{'form-control-danger': errors.has('hr_id'), 'form-control-success': fields.hr_id && fields.hr_id.valid}"
-            id="hr_id" name="hr_id" placeholder="{{ trans('admin.customer.columns.hr_id') }}">
-        <div v-if="errors.has('hr_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('hr_id') }}
+        <input type="hidden" v-model="form.hr.id" v-validate="'integer'">
+
+        <input type="text" v-model="form.hr.system" v-validate="''" @input="validate($event)" class="form-control"
+            :class="{'form-control-danger': errors.has('hr'), 'form-control-success': fields.hr && fields.hr.valid}"
+            id="hr" name="hr" placeholder="{{ trans('admin.customer.columns.hr') }}">
+        <div v-if="errors.has('hr')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('hr') }}
         </div>
     </div>
 </div>

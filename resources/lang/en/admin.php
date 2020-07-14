@@ -81,7 +81,7 @@ return [
             'state' => 'State',
             'lg_account_owner_oversight' => 'Lg account owner oversight',
             'lg_sales_owner' => 'Lg sales owner',
-            'employee_groups' => 'Employee groups',
+            'employee_group' => 'Employee groups',
             'notes' => 'Notes',
 
         ],
@@ -140,7 +140,7 @@ return [
             'state' => 'State',
             'lg_account_owner_oversight' => 'Lg account owner oversight',
             'lg_sales_owner' => 'Lg sales owner',
-            'employee_groups' => 'Employee groups',
+            'employee_group' => 'Employee groups',
             'notes' => 'Notes',
 
         ],
@@ -565,7 +565,7 @@ return [
             'state_id' => 'State',
             'lg_account_owner_oversight' => 'Lg account owner oversight',
             'lg_sales_owner' => 'Lg sales owner',
-            'employee_groups_id' => 'Employee groups',
+            'employee_group_id' => 'Employee groups',
             'notes_id' => 'Notes',
 
         ],

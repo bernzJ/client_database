@@ -37,10 +37,10 @@ class HrController extends Controller
             $request,
 
             // set columns to query
-            [''],
+            ['id', 'system'],
 
             // set columns to searchIn
-            ['']
+            ['id', 'system']
         );
 
         if ($request->ajax()) {

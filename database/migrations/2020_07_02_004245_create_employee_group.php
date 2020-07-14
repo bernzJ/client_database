@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmployeeGroups extends Migration
+class CreateEmployeeGroup extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEmployeeGroups extends Migration
      */
     public function up()
     {
-        Schema::create('employee_groups', function (Blueprint $table) {
+        Schema::create('employee_group', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
         });
@@ -26,6 +26,6 @@ class CreateEmployeeGroups extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employee_groups');
+        Schema::dropIfExists('employee_group');
     }
 }

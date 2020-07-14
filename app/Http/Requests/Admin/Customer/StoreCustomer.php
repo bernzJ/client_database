@@ -43,7 +43,8 @@ class StoreCustomer extends FormRequest
             'opted_out' => ['required', 'boolean'],
             'financial.id' => ['nullable'],
             'financial.platform' => ['required_without:financial.id'],
-            'hr_id' => ['nullable', 'integer'],
+            'hr.id' => ['nullable'],
+            'hr.system' => ['required_without:hr.id'],
             'sso' => ['required', 'boolean'],
             'test_site' => ['required', 'boolean'],
             'refresh_date' => ['nullable', 'date'],
@@ -57,7 +58,8 @@ class StoreCustomer extends FormRequest
             'state' => ['nullable'],
             'lg_account_owner_oversight' => ['nullable', 'string'],
             'lg_sales_owner' => ['nullable', 'string'],
-            'employee_groups_id' => ['nullable', 'integer'],
+            'employee_group.id' => ['nullable'],
+            'employee_group.name' => ['required_without:employee_group.id'],
             'concur_product' => ['required'],
 
         ];
@@ -139,6 +141,28 @@ class StoreCustomer extends FormRequest
             $data = $this->get('financial');
             return [
                 'platform' => $data['platform'],
+            ];
+        }
+        return null;
+    }
+
+    public function getHrObject()
+    {
+        if ($this->filled('hr')) {
+            $data = $this->get('hr');
+            return [
+                'system' => $data['system'],
+            ];
+        }
+        return null;
+    }
+
+    public function getEmployeeGroupObject()
+    {
+        if ($this->filled('employee_group')) {
+            $data = $this->get('employee_group');
+            return [
+                'name' => $data['name'],
             ];
         }
         return null;

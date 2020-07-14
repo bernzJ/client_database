@@ -20,7 +20,7 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
-class EmployeeGroupsController extends Controller
+class EmployeeGroupController extends Controller
 {
 
     /**
@@ -37,10 +37,10 @@ class EmployeeGroupsController extends Controller
             $request,
 
             // set columns to query
-            [''],
+            ['id', 'name'],
 
             // set columns to searchIn
-            ['']
+            ['id', 'name']
         );
 
         if ($request->ajax()) {
