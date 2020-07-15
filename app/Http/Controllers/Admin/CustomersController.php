@@ -20,6 +20,7 @@ use App\Models\Industry;
 use App\Models\ProjectType;
 use App\Models\Timezone;
 use App\Models\State;
+use App\Models\Tmc;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -95,6 +96,7 @@ class CustomersController extends Controller
             'countries' => Country::all(),
             'states' => State::all(),
             'concur_products' => ConcurProduct::all(),
+            'tmcs' => Tmc::all(),
         ]);
     }
 
@@ -116,6 +118,7 @@ class CustomersController extends Controller
             'countries' => Country::all(),
             'states' => State::all(),
             'concur_products' => ConcurProduct::all(),
+            'tmcs' => Tmc::all(),
         ]);
     }
 
@@ -145,8 +148,8 @@ class CustomersController extends Controller
         $customer = Customer::create($sanitized);
 
         // Store concurproducts
-        $ids = $request->getConcurProductIds();
-        $customer->concurProduct()->attach($ids);
+        $concur_ids = $request->getConcurProductIds();
+        $customer->concurProduct()->attach($concur_ids);
 
         // Store fiscal year
         $fiscalYear = FiscalYear::create($fsSanitized);
@@ -163,6 +166,10 @@ class CustomersController extends Controller
         // Store employee group
         $employeeGroup = EmployeeGroup::create($egSanitized);
         $customer->employeeGroup()->associate($employeeGroup)->save();
+
+        // Store tmcs
+        $tmc_ids = $request->getTmcIds();
+        $customer->tmc()->attach($tmc_ids);
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/customers'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -206,6 +213,7 @@ class CustomersController extends Controller
             'countries' => Country::all(),
             'states' => State::all(),
             'concur_products' => ConcurProduct::all(),
+            'tmcs' => Tmc::all(),
         ]);
     }
 
@@ -233,8 +241,11 @@ class CustomersController extends Controller
         $egSanitized = $request->getEmployeeGroupObject();
 
         // Update changed values Customer
-        $ids = $request->getConcurProductIds();
-        $customer->concurProduct()->sync($ids);
+        $concur_ids = $request->getConcurProductIds();
+        $customer->concurProduct()->sync($concur_ids);
+
+        $tmc_ids = $request->getTmcIds();
+        $customer->tmc()->sync($tmc_ids);
 
         $customer->fiscalYear()->update($fsSanitized);
         $customer->financial()->update($fiSanitized);
@@ -266,6 +277,7 @@ class CustomersController extends Controller
         $customer->financial()->delete();
         $customer->employeeGroup()->delete();
         $customer->concurProduct()->detach();
+        $customer->tmc()->detach();
         $customer->delete();
 
         if ($request->ajax()) {
@@ -290,6 +302,7 @@ class CustomersController extends Controller
                 ->each(static function ($bulkChunk) {
                     $customer = Customer::whereIn('id', $bulkChunk);
                     $customer->concurProduct()->detach();
+                    $customer->tmc()->detach();
                     $customer->hr()->delete();
                     $customer->fiscalYear()->delete();
                     $customer->financial()->delete();

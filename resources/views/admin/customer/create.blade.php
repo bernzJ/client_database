@@ -11,7 +11,8 @@
         <customer-form :action="'{{ url('admin/customers') }}'" :industries="{{$industries->toJson()}}"
             :timezones="{{$timezones->toJson()}}" :project_types="{{$project_types->toJson()}}"
             :client_types="{{$client_types->toJson()}}" :countries="{{$countries->toJson()}}"
-            :states="{{$states->toJson()}}" :concur_products="{{$concur_products->toJson()}}" v-cloak inline-template>
+            :states="{{$states->toJson()}}" :concur_products="{{$concur_products->toJson()}}"
+            :tmcs="{{$tmcs->toJson()}}" v-cloak inline-template>
 
             <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="action"
                 novalidate>

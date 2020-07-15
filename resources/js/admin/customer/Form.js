@@ -2,7 +2,7 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('customer-form', {
     mixins: [AppForm],
-    props: ['industries', 'timezones', 'project_types', 'client_types', 'countries', 'states', 'concur_products'],
+    props: ['industries', 'timezones', 'project_types', 'client_types', 'countries', 'states', 'concur_products', 'tmcs'],
     data: function () {
         return {
             form: {
@@ -50,6 +50,7 @@ Vue.component('customer-form', {
                 },
                 notes_id: '',
                 concur_product: [],
+                tmc: [],
             }
         }
     }

@@ -52,6 +52,7 @@ class Customer extends Model
         'financial',
         'hr',
         'employeeGroup',
+        'tmc',
     ];
     public $timestamps = false;
 
@@ -115,6 +116,10 @@ class Customer extends Model
     public function concurProduct()
     {
         return $this->BelongsToMany(ConcurProduct::class);
+    }
+    public function tmc()
+    {
+        return $this->BelongsToMany(Tmc::class);
     }
 
     // has one throu

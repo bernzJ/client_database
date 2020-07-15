@@ -28,3 +28,5 @@ import './concur-product';
 import './note';
 import './hr';
 import './employee-group';
+import './tmc';
+import './tmc-customer';

@@ -444,3 +444,33 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('tmcs')->name('tmcs/')->group(static function() {
+            Route::get('/',                                             'TmcController@index')->name('index');
+            Route::get('/create',                                       'TmcController@create')->name('create');
+            Route::post('/',                                            'TmcController@store')->name('store');
+            Route::get('/{tmc}/edit',                                   'TmcController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'TmcController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{tmc}',                                       'TmcController@update')->name('update');
+            Route::delete('/{tmc}',                                     'TmcController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('tmc-customers')->name('tmc-customers/')->group(static function() {
+            Route::get('/',                                             'TmcCustomerController@index')->name('index');
+            Route::get('/create',                                       'TmcCustomerController@create')->name('create');
+            Route::post('/',                                            'TmcCustomerController@store')->name('store');
+            Route::get('/{tmcCustomer}/edit',                           'TmcCustomerController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'TmcCustomerController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{tmcCustomer}',                               'TmcCustomerController@update')->name('update');
+            Route::delete('/{tmcCustomer}',                             'TmcCustomerController@destroy')->name('destroy');
+        });
+    });
+});

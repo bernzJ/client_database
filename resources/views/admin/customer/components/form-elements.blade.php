@@ -313,6 +313,20 @@
 </div>
 
 <div class="form-group row align-items-center"
+    :class="{'has-danger': errors.has('tmc'), 'has-success': fields.tmc && fields.tmc.valid }">
+    <label for="tmc" class="col-form-label text-md-right"
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.tmc') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+
+        <multiselect v-model="form.tmc" :options="tmcs" :multiple="true" track-by="id" label="name"
+            tag-placeholder="{{ __('Select Concur Tmc') }}" placeholder="{{ __('Tmc') }}">
+        </multiselect>
+        <div v-if="errors.has('tmc')" class="form-control-feedback form-text" v-cloak>
+            @{{ errors.first('tmc') }}</div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('project_type'), 'has-success': fields.project_type && fields.project_type.valid }">
     <label for="project_type" class="col-form-label text-md-right"
         :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.project_type') }}</label>

@@ -42,6 +42,8 @@
                         class="nav-icon icon-graduation"></i> {{ trans('admin.concur-product-customer.title') }}</a>
             </li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/segments') }}"><i class="nav-icon icon-drop"></i> {{ trans('admin.segment.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/tmcs') }}"><i class="nav-icon icon-umbrella"></i> {{ trans('admin.tmc.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/tmc-customers') }}"><i class="nav-icon icon-drop"></i> {{ trans('admin.tmc-customer.title') }}</a></li>
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>

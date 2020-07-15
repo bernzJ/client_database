@@ -61,6 +61,7 @@ class StoreCustomer extends FormRequest
             'employee_group.id' => ['nullable'],
             'employee_group.name' => ['required_without:employee_group.id'],
             'concur_product' => ['required'],
+            'tmc' => ['required'],
 
         ];
     }
@@ -164,6 +165,14 @@ class StoreCustomer extends FormRequest
             return [
                 'name' => $data['name'],
             ];
+        }
+        return null;
+    }
+
+    public function getTmcIds()
+    {
+        if ($this->filled('tmc')) {
+            return collect($this->get('tmc'))->pluck('id');
         }
         return null;
     }

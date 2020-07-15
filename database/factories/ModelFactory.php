@@ -408,3 +408,26 @@ $factory->define(App\Models\EmployeeGroup::class, static function (Faker\Generat
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Tmc::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\TmcCustomer::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Tmc::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        'comment' => $faker->sentence,
+        
+        
+    ];
+});
