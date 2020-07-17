@@ -44,6 +44,11 @@
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/segments') }}"><i class="nav-icon icon-drop"></i> {{ trans('admin.segment.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/tmcs') }}"><i class="nav-icon icon-umbrella"></i> {{ trans('admin.tmc.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/tmc-customers') }}"><i class="nav-icon icon-drop"></i> {{ trans('admin.tmc-customer.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/payment-methods') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.payment-method.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/credit-cards') }}"><i class="nav-icon icon-magnet"></i> {{ trans('admin.credit-card.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/reimbursements') }}"><i class="nav-icon icon-diamond"></i> {{ trans('admin.reimbursement.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/global-footprints') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.global-footprint.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/global-footprint-countries') }}"><i class="nav-icon icon-compass"></i> {{ trans('admin.global-footprint-country.title') }}</a></li>
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>

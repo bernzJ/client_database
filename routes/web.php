@@ -235,21 +235,6 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('liabilities')->name('liabilities/')->group(static function() {
-            Route::get('/',                                             'LiabilityController@index')->name('index');
-            Route::get('/create',                                       'LiabilityController@create')->name('create');
-            Route::post('/',                                            'LiabilityController@store')->name('store');
-            Route::get('/{liability}/edit',                             'LiabilityController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'LiabilityController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{liability}',                                 'LiabilityController@update')->name('update');
-            Route::delete('/{liability}',                               'LiabilityController@destroy')->name('destroy');
-        });
-    });
-});
-
-/* Auto-generated admin routes */
-Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
         Route::prefix('card-programs')->name('card-programs/')->group(static function() {
             Route::get('/',                                             'CardProgramsController@index')->name('index');
             Route::get('/create',                                       'CardProgramsController@create')->name('create');
@@ -471,6 +456,112 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'TmcCustomerController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{tmcCustomer}',                               'TmcCustomerController@update')->name('update');
             Route::delete('/{tmcCustomer}',                             'TmcCustomerController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('payment-methods')->name('payment-methods/')->group(static function() {
+            Route::get('/',                                             'PaymentMethodsController@index')->name('index');
+            Route::get('/create',                                       'PaymentMethodsController@create')->name('create');
+            Route::post('/',                                            'PaymentMethodsController@store')->name('store');
+            Route::get('/{paymentMethod}/edit',                         'PaymentMethodsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'PaymentMethodsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{paymentMethod}',                             'PaymentMethodsController@update')->name('update');
+            Route::delete('/{paymentMethod}',                           'PaymentMethodsController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('liabilities')->name('liabilities/')->group(static function() {
+            Route::get('/',                                             'LiabilitiesController@index')->name('index');
+            Route::get('/create',                                       'LiabilitiesController@create')->name('create');
+            Route::post('/',                                            'LiabilitiesController@store')->name('store');
+            Route::get('/{liability}/edit',                             'LiabilitiesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'LiabilitiesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{liability}',                                 'LiabilitiesController@update')->name('update');
+            Route::delete('/{liability}',                               'LiabilitiesController@destroy')->name('destroy');
+        });
+    });
+});
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('credit-cards')->name('credit-cards/')->group(static function() {
+            Route::get('/',                                             'CreditCardsController@index')->name('index');
+            Route::get('/create',                                       'CreditCardsController@create')->name('create');
+            Route::post('/',                                            'CreditCardsController@store')->name('store');
+            Route::get('/{creditCard}/edit',                            'CreditCardsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CreditCardsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{creditCard}',                                'CreditCardsController@update')->name('update');
+            Route::delete('/{creditCard}',                              'CreditCardsController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('payment-methods')->name('payment-methods/')->group(static function() {
+            Route::get('/',                                             'PaymentMethodsController@index')->name('index');
+            Route::get('/create',                                       'PaymentMethodsController@create')->name('create');
+            Route::post('/',                                            'PaymentMethodsController@store')->name('store');
+            Route::get('/{paymentMethod}/edit',                         'PaymentMethodsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'PaymentMethodsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{paymentMethod}',                             'PaymentMethodsController@update')->name('update');
+            Route::delete('/{paymentMethod}',                           'PaymentMethodsController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('reimbursements')->name('reimbursements/')->group(static function() {
+            Route::get('/',                                             'ReimbursementController@index')->name('index');
+            Route::get('/create',                                       'ReimbursementController@create')->name('create');
+            Route::post('/',                                            'ReimbursementController@store')->name('store');
+            Route::get('/{reimbursement}/edit',                         'ReimbursementController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ReimbursementController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{reimbursement}',                             'ReimbursementController@update')->name('update');
+            Route::delete('/{reimbursement}',                           'ReimbursementController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('global-footprints')->name('global-footprints/')->group(static function() {
+            Route::get('/',                                             'GlobalFootprintController@index')->name('index');
+            Route::get('/create',                                       'GlobalFootprintController@create')->name('create');
+            Route::post('/',                                            'GlobalFootprintController@store')->name('store');
+            Route::get('/{globalFootprint}/edit',                       'GlobalFootprintController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'GlobalFootprintController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{globalFootprint}',                           'GlobalFootprintController@update')->name('update');
+            Route::delete('/{globalFootprint}',                         'GlobalFootprintController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('global-footprint-countries')->name('global-footprint-countries/')->group(static function() {
+            Route::get('/',                                             'GlobalFootprintCountryController@index')->name('index');
+            Route::get('/create',                                       'GlobalFootprintCountryController@create')->name('create');
+            Route::post('/',                                            'GlobalFootprintCountryController@store')->name('store');
+            Route::get('/{globalFootprintCountry}/edit',                'GlobalFootprintCountryController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'GlobalFootprintCountryController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{globalFootprintCountry}',                    'GlobalFootprintCountryController@update')->name('update');
+            Route::delete('/{globalFootprintCountry}',                  'GlobalFootprintCountryController@destroy')->name('destroy');
         });
     });
 });

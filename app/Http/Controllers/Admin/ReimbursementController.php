@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Liability\BulkDestroyLiability;
-use App\Http\Requests\Admin\Liability\DestroyLiability;
-use App\Http\Requests\Admin\Liability\IndexLiability;
-use App\Http\Requests\Admin\Liability\StoreLiability;
-use App\Http\Requests\Admin\Liability\UpdateLiability;
-use App\Models\Liability;
+use App\Http\Requests\Admin\Reimbursement\BulkDestroyReimbursement;
+use App\Http\Requests\Admin\Reimbursement\DestroyReimbursement;
+use App\Http\Requests\Admin\Reimbursement\IndexReimbursement;
+use App\Http\Requests\Admin\Reimbursement\StoreReimbursement;
+use App\Http\Requests\Admin\Reimbursement\UpdateReimbursement;
+use App\Models\Reimbursement;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -20,27 +20,27 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
-class LiabilityController extends Controller
+class ReimbursementController extends Controller
 {
 
     /**
      * Display a listing of the resource.
      *
-     * @param IndexLiability $request
+     * @param IndexReimbursement $request
      * @return array|Factory|View
      */
-    public function index(IndexLiability $request)
+    public function index(IndexReimbursement $request)
     {
         // create and AdminListing instance for a specific model and
-        $data = AdminListing::create(Liability::class)->processRequestAndGet(
+        $data = AdminListing::create(Reimbursement::class)->processRequestAndGet(
             // pass the request with params
             $request,
 
             // set columns to query
-            [''],
+            ['id', 'type'],
 
             // set columns to searchIn
-            ['']
+            ['id', 'type']
         );
 
         if ($request->ajax()) {
@@ -52,7 +52,7 @@ class LiabilityController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.liability.index', ['data' => $data]);
+        return view('admin.reimbursement.index', ['data' => $data]);
     }
 
     /**
@@ -63,42 +63,42 @@ class LiabilityController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.liability.create');
+        $this->authorize('admin.reimbursement.create');
 
-        return view('admin.liability.create');
+        return view('admin.reimbursement.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreLiability $request
+     * @param StoreReimbursement $request
      * @return array|RedirectResponse|Redirector
      */
-    public function store(StoreLiability $request)
+    public function store(StoreReimbursement $request)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Store the Liability
-        $liability = Liability::create($sanitized);
+        // Store the Reimbursement
+        $reimbursement = Reimbursement::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/liabilities'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/reimbursements'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/liabilities');
+        return redirect('admin/reimbursements');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Liability $liability
+     * @param Reimbursement $reimbursement
      * @throws AuthorizationException
      * @return void
      */
-    public function show(Liability $liability)
+    public function show(Reimbursement $reimbursement)
     {
-        $this->authorize('admin.liability.show', $liability);
+        $this->authorize('admin.reimbursement.show', $reimbursement);
 
         // TODO your code goes here
     }
@@ -106,56 +106,56 @@ class LiabilityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Liability $liability
+     * @param Reimbursement $reimbursement
      * @throws AuthorizationException
      * @return Factory|View
      */
-    public function edit(Liability $liability)
+    public function edit(Reimbursement $reimbursement)
     {
-        $this->authorize('admin.liability.edit', $liability);
+        $this->authorize('admin.reimbursement.edit', $reimbursement);
 
 
-        return view('admin.liability.edit', [
-            'liability' => $liability,
+        return view('admin.reimbursement.edit', [
+            'reimbursement' => $reimbursement,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateLiability $request
-     * @param Liability $liability
+     * @param UpdateReimbursement $request
+     * @param Reimbursement $reimbursement
      * @return array|RedirectResponse|Redirector
      */
-    public function update(UpdateLiability $request, Liability $liability)
+    public function update(UpdateReimbursement $request, Reimbursement $reimbursement)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Update changed values Liability
-        $liability->update($sanitized);
+        // Update changed values Reimbursement
+        $reimbursement->update($sanitized);
 
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/liabilities'),
+                'redirect' => url('admin/reimbursements'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }
 
-        return redirect('admin/liabilities');
+        return redirect('admin/reimbursements');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyLiability $request
-     * @param Liability $liability
+     * @param DestroyReimbursement $request
+     * @param Reimbursement $reimbursement
      * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
      */
-    public function destroy(DestroyLiability $request, Liability $liability)
+    public function destroy(DestroyReimbursement $request, Reimbursement $reimbursement)
     {
-        $liability->delete();
+        $reimbursement->delete();
 
         if ($request->ajax()) {
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
@@ -167,17 +167,17 @@ class LiabilityController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param BulkDestroyLiability $request
+     * @param BulkDestroyReimbursement $request
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyLiability $request) : Response
+    public function bulkDestroy(BulkDestroyReimbursement $request) : Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    Liability::whereIn('id', $bulkChunk)->delete();
+                    Reimbursement::whereIn('id', $bulkChunk)->delete();
 
                     // TODO your code goes here
                 });

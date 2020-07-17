@@ -29,4 +29,13 @@ class Country extends Model
     {
         return $this->hasMany(Customer::class);
     }
+    // many to many.
+    public function creditCard()
+    {
+        return $this->BelongsToMany(CreditCard::class);
+    }
+    public function globalFootprint()
+    {
+        return $this->BelongsToMany(GlobalFootprint::class);
+    }
 }

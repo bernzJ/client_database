@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLiability extends Migration
+class CreateReimbursement extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateLiability extends Migration
      */
     public function up()
     {
-        Schema::create('liability', function (Blueprint $table) {
+        Schema::create('reimbursement', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('type');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateLiability extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('liability');
+        Schema::dropIfExists('reimbursement');
     }
 }

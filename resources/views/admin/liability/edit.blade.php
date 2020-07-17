@@ -1,6 +1,6 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.liability.actions.edit', ['name' => $liability->id]))
+@section('title', trans('admin.liability.actions.edit', ['name' => $liability->name]))
 
 @section('body')
 
@@ -17,7 +17,7 @@
 
 
                     <div class="card-header">
-                        <i class="fa fa-pencil"></i> {{ trans('admin.liability.actions.edit', ['name' => $liability->id]) }}
+                        <i class="fa fa-pencil"></i> {{ trans('admin.liability.actions.edit', ['name' => $liability->name]) }}
                     </div>
 
                     <div class="card-body">

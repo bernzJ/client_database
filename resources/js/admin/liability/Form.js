@@ -5,6 +5,7 @@ Vue.component('liability-form', {
     data: function() {
         return {
             form: {
+                name:  '' ,
                 
             }
         }

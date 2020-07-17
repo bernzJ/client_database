@@ -252,6 +252,8 @@ class CustomersController extends Controller
         $customer->hr()->update($hrSanitized);
         $customer->employeeGroup()->update($egSanitized);
 
+        $customer->update($sanitized);
+
         if ($request->ajax()) {
             return [
                 'redirect' => url('admin/customers'),

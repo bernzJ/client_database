@@ -127,4 +127,9 @@ class Customer extends Model
     {
         return $this->hasOneThrough(Segment::class, ConcurProduct::class);
     }
+
+    public function creditCards()
+    {
+        return $this->hasMany(CreditCard::class);
+    }
 }

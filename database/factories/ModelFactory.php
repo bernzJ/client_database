@@ -165,13 +165,6 @@ $factory->define(App\Models\Frequency::class, static function (Faker\Generator $
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Models\Liability::class, static function (Faker\Generator $faker) {
-    return [
-
-
-    ];
-});
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\CardProgram::class, static function (Faker\Generator $faker) {
     return [
 
@@ -404,22 +397,22 @@ $factory->define(App\Models\EmployeeGroup::class, static function (Faker\Generat
 $factory->define(App\Models\EmployeeGroup::class, static function (Faker\Generator $faker) {
     return [
         'name' => $faker->firstName,
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Tmc::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\TmcCustomer::class, static function (Faker\Generator $faker) {
     return [
-        
-        
+
+
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
@@ -427,6 +420,71 @@ $factory->define(App\Models\Tmc::class, static function (Faker\Generator $faker)
     return [
         'name' => $faker->firstName,
         'comment' => $faker->sentence,
+
+
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\PaymentMethod::class, static function (Faker\Generator $faker) {
+    return [
+
+
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Liability::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+
+
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\CreditCard::class, static function (Faker\Generator $faker) {
+    return [
+        'bank_name' => $faker->sentence,
+        'payment_type' => $faker->sentence,
+        'statement_cycle' => $faker->sentence,
+        'liability_id' => $faker->randomNumber(5),
+        'cc_feed' => $faker->boolean(),
+        'payment_method_id' => $faker->randomNumber(5),
+        'batch_config' => $faker->sentence,
+        'rebate' => $faker->sentence,
+        'card_program_type_id' => $faker->sentence,
+        'customer_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\PaymentMethod::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Reimbursement::class, static function (Faker\Generator $faker) {
+    return [
+        'type' => $faker->sentence,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\GlobalFootprint::class, static function (Faker\Generator $faker) {
+    return [
+        'reimbursement_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\GlobalFootprintCountry::class, static function (Faker\Generator $faker) {
+    return [
+        'global_footprint_id' => $faker->randomNumber(5),
+        'country_id' => $faker->randomNumber(5),
         
         
     ];

@@ -30,7 +30,10 @@ class ConcurProduct extends Model
     {
         return $this->BelongsToMany(Customer::class);
     }
-
+    public function globalFootprint()
+    {
+        return $this->BelongsToMany(GlobalFootprint::class);
+    }
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()
