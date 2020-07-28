@@ -54,6 +54,18 @@ class FillPermissionsForGlobalFootprint extends Migration
                 'guard_name' => $this->guardName,
                 'permissions' => $permissions,
             ],
+            [
+                'name' => 'Subscriber',
+                'guard_name' => $this->guardName,
+                'permissions' =>  [
+                    'admin.global-footprint',
+                    'admin.global-footprint.index',
+                    'admin.global-footprint.create',
+                    'admin.global-footprint.show',
+                    'admin.global-footprint.edit',
+                    'admin.global-footprint.delete',
+                ],
+            ],
         ];
     }
 
@@ -72,7 +84,7 @@ class FillPermissionsForGlobalFootprint extends Migration
             'role_has_permissions' => 'role_has_permissions',
         ]);
 
-        DB::transaction(function () use($tableNames) {
+        DB::transaction(function () use ($tableNames) {
             foreach ($this->permissions as $permission) {
                 $permissionItem = DB::table($tableNames['permissions'])->where([
                     'name' => $permission['name'],
@@ -128,8 +140,8 @@ class FillPermissionsForGlobalFootprint extends Migration
             'model_has_roles' => 'model_has_roles',
             'role_has_permissions' => 'role_has_permissions',
         ]);
-        
-        DB::transaction(function () use ($tableNames){
+
+        DB::transaction(function () use ($tableNames) {
             foreach ($this->permissions as $permission) {
                 $permissionItem = DB::table($tableNames['permissions'])->where([
                     'name' => $permission['name'],

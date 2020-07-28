@@ -113,6 +113,10 @@ class Customer extends Model
         return $this->belongsTo(Hr::class);
     }
     // many to many.
+    public function stakeholder()
+    {
+        return $this->BelongsToMany(Stakeholder::class);
+    }
     public function concurProduct()
     {
         return $this->BelongsToMany(ConcurProduct::class);

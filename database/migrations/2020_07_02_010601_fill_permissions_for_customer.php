@@ -54,6 +54,18 @@ class FillPermissionsForCustomer extends Migration
                 'guard_name' => $this->guardName,
                 'permissions' => $permissions,
             ],
+            [
+                'name' => 'Subscriber',
+                'guard_name' => $this->guardName,
+                'permissions' => [
+                    'admin.customer',
+                    'admin.customer.index',
+                    'admin.customer.create',
+                    'admin.customer.show',
+                    'admin.customer.edit',
+                    'admin.customer.delete',
+                ],
+            ],
         ];
     }
 
@@ -72,7 +84,7 @@ class FillPermissionsForCustomer extends Migration
             'role_has_permissions' => 'role_has_permissions',
         ]);
 
-        DB::transaction(function () use($tableNames) {
+        DB::transaction(function () use ($tableNames) {
             foreach ($this->permissions as $permission) {
                 $permissionItem = DB::table($tableNames['permissions'])->where([
                     'name' => $permission['name'],
@@ -128,8 +140,8 @@ class FillPermissionsForCustomer extends Migration
             'model_has_roles' => 'model_has_roles',
             'role_has_permissions' => 'role_has_permissions',
         ]);
-        
-        DB::transaction(function () use ($tableNames){
+
+        DB::transaction(function () use ($tableNames) {
             foreach ($this->permissions as $permission) {
                 $permissionItem = DB::table($tableNames['permissions'])->where([
                     'name' => $permission['name'],

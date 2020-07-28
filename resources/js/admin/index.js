@@ -36,3 +36,5 @@ import './credit-card';
 import './reimbursement';
 import './global-footprint';
 import './global-footprint-country';
+import './contact-method';
+import './stakeholder';

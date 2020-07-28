@@ -565,3 +565,33 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('contact-methods')->name('contact-methods/')->group(static function() {
+            Route::get('/',                                             'ContactMethodController@index')->name('index');
+            Route::get('/create',                                       'ContactMethodController@create')->name('create');
+            Route::post('/',                                            'ContactMethodController@store')->name('store');
+            Route::get('/{contactMethod}/edit',                         'ContactMethodController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ContactMethodController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{contactMethod}',                             'ContactMethodController@update')->name('update');
+            Route::delete('/{contactMethod}',                           'ContactMethodController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('stakeholders')->name('stakeholders/')->group(static function() {
+            Route::get('/',                                             'StakeholdersController@index')->name('index');
+            Route::get('/create',                                       'StakeholdersController@create')->name('create');
+            Route::post('/',                                            'StakeholdersController@store')->name('store');
+            Route::get('/{stakeholder}/edit',                           'StakeholdersController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'StakeholdersController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{stakeholder}',                               'StakeholdersController@update')->name('update');
+            Route::delete('/{stakeholder}',                             'StakeholdersController@destroy')->name('destroy');
+        });
+    });
+});

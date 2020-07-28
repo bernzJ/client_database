@@ -49,6 +49,11 @@ class FillPermissionsForDashboard extends Migration
                 'guard_name' => $this->guardName,
                 'permissions' => $permissions,
             ],
+            [
+                'name' => 'Subscriber',
+                'guard_name' => $this->guardName,
+                'permissions' =>  $permissions,
+            ],
         ];
     }
 
@@ -67,7 +72,7 @@ class FillPermissionsForDashboard extends Migration
             'role_has_permissions' => 'role_has_permissions',
         ]);
 
-        DB::transaction(function () use($tableNames) {
+        DB::transaction(function () use ($tableNames) {
             foreach ($this->permissions as $permission) {
                 $permissionItem = DB::table($tableNames['permissions'])->where([
                     'name' => $permission['name'],
@@ -124,7 +129,7 @@ class FillPermissionsForDashboard extends Migration
             'role_has_permissions' => 'role_has_permissions',
         ]);
 
-        DB::transaction(function () use ($tableNames){
+        DB::transaction(function () use ($tableNames) {
             foreach ($this->permissions as $permission) {
                 $permissionItem = DB::table($tableNames['permissions'])->where([
                     'name' => $permission['name'],

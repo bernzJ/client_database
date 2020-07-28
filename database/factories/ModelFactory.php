@@ -489,3 +489,32 @@ $factory->define(App\Models\GlobalFootprintCountry::class, static function (Fake
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ContactMethod::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ContactMethod::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Stakeholder::class, static function (Faker\Generator $faker) {
+    return [
+        'role' => $faker->sentence,
+        'name' => $faker->firstName,
+        'email' => $faker->email,
+        'phone' => $faker->sentence,
+        'contact_method_id' => $faker->randomNumber(5),
+        'timezone_id' => $faker->randomNumber(5),
+        'customer_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});
