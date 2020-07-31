@@ -348,10 +348,9 @@ return [
             'payment_method' => 'Payment method',
             'batch_config' => 'Batch configuration',
             'rebate' => 'Rebate',
-            'card_program_type' => 'Card program type',
             'customer' => 'Customer',
             'country' => 'Countries deployed',
-
+            'card_program' => 'Card program',
         ],
     ],
 

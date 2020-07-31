@@ -5,6 +5,7 @@ Vue.component('card-program-form', {
     data: function() {
         return {
             form: {
+                name:  '' ,
                 
             }
         }

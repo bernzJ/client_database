@@ -23,12 +23,13 @@ class CreateCreditCards extends Migration
             $table->unsignedInteger('payment_method_id');
             $table->string('batch_config');
             $table->string('rebate');
-            $table->string('card_program_type_id');
+            $table->unsignedInteger('card_program_id');
             $table->unsignedInteger('customer_id');
 
 
             $table->foreign('liability_id')->references('id')->on('liabilities')->onDelete('cascade');
             $table->foreign('payment_method_id')->references('id')->on('payment_methods')->onDelete('cascade');
+            $table->foreign('card_program_id')->references('id')->on('card_programs')->onDelete('cascade');
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });
     }

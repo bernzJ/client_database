@@ -220,7 +220,6 @@ $factory->define(App\Models\CreditCard::class, static function (Faker\Generator 
         'payment_method_id' => $faker->randomNumber(5),
         'batch_config' => $faker->sentence,
         'rebate' => $faker->sentence,
-        'card_program_type_id' => $faker->sentence,
         'customer_id' => $faker->randomNumber(5),
 
 
@@ -277,6 +276,14 @@ $factory->define(App\Models\Stakeholder::class, static function (Faker\Generator
         'contact_method_id' => $faker->randomNumber(5),
         'timezone_id' => $faker->randomNumber(5),
         'customer_id' => $faker->randomNumber(5),
+
+
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\CardProgram::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
 
 
     ];

@@ -34,7 +34,7 @@ class StoreCreditCard extends FormRequest
             'payment_method' => ['required'],
             'batch_config' => ['required', 'string'],
             'rebate' => ['required', 'string'],
-            'card_program_type_id' => ['required', 'string'],
+            'card_program' => ['required'],
             'customer' => ['required'],
             'country' => ['required'],
         ];
@@ -52,6 +52,14 @@ class StoreCreditCard extends FormRequest
     {
         if ($this->has('payment_method')) {
             return $this->get('payment_method')['id'];
+        }
+        return null;
+    }
+
+    public function getCardProgramId()
+    {
+        if ($this->has('card_program')) {
+            return $this->get('card_program')['id'];
         }
         return null;
     }

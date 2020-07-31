@@ -34,7 +34,7 @@ class UpdateCreditCard extends FormRequest
             'payment_method' => ['required'],
             'batch_config' => ['sometimes', 'string'],
             'rebate' => ['sometimes', 'string'],
-            'card_program_type_id' => ['sometimes', 'string'],
+            'card_program' => ['required'],
             'customer' => ['required'],
             'country' => ['required'],
         ];
@@ -52,6 +52,14 @@ class UpdateCreditCard extends FormRequest
     {
         if ($this->has('payment_method')) {
             return $this->get('payment_method')['id'];
+        }
+        return null;
+    }
+
+    public function getCardProgramId()
+    {
+        if ($this->has('card_program')) {
+            return $this->get('card_program')['id'];
         }
         return null;
     }

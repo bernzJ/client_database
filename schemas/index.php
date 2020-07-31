@@ -159,7 +159,7 @@ Schema::create('cards', function (Blueprint $table) {
   $table->unsignedInteger('customer_id');
   $table->string('bank_name')->nullable();
   $table->string('payment_type_name')->nullable();
-  $table->unsignedInteger('card_program_type_id')->nullable();
+  $table->unsignedInteger('card_program_id')->nullable();
   $table->unsignedInteger('liability_id')->nullable();
   $table->string('statement_cycle')->nullable();
   $table->boolean('cc_feed')->default(false);
@@ -169,6 +169,6 @@ Schema::create('cards', function (Blueprint $table) {
   // one to one
   $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
   $table->foreign('liability_id')->references('id')->on('liability')->onDelete('cascade');
-  $table->foreign('card_program_type_id')->references('id')->on('card_programs')->onDelete('cascade');
+  $table->foreign('card_program_id')->references('id')->on('card_programs')->onDelete('cascade');
 
 });

@@ -9,8 +9,8 @@
     <div class="card">
 
         <credit-card-form :action="'{{ url('admin/credit-cards') }}'" :liabilities="{{$liabilities->toJson()}}"
-            :payment_methods="{{$payment_methods->toJson()}}" :customers="{{$customers->toJson()}}"
-            :countries="{{$countries->toJson()}}" v-cloak inline-template>
+            :card_programs="{{$card_programs->toJson()}}" :payment_methods="{{$payment_methods->toJson()}}"
+            :customers="{{$customers->toJson()}}" :countries="{{$countries->toJson()}}" v-cloak inline-template>
 
             <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="action"
                 novalidate>

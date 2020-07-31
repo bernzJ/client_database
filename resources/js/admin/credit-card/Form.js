@@ -2,7 +2,7 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('credit-card-form', {
     mixins: [AppForm],
-    props: ['liabilities', 'payment_methods', 'customers', 'countries',],
+    props: ['liabilities', 'payment_methods', 'customers', 'countries', 'card_programs',],
     data: function () {
         return {
             form: {
@@ -11,11 +11,11 @@ Vue.component('credit-card-form', {
                 statement_cycle: '',
                 liability: '',
                 cc_feed: false,
-                payment_method_id: '',
+                payment_method: '',
                 batch_config: '',
                 rebate: '',
-                card_program_type_id: '',
-                customer_id: '',
+                card_program: '',
+                customer: '',
                 country: [],
             }
         }

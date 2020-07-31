@@ -13,6 +13,7 @@ use App\Models\CreditCard;
 use App\Models\Customer;
 use App\Models\Liability;
 use App\Models\PaymentMethod;
+use App\Models\CardProgram;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -41,10 +42,10 @@ class CreditCardsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'bank_name', 'payment_type', 'statement_cycle', 'liability_id', 'cc_feed', 'payment_method_id', 'batch_config', 'rebate', 'card_program_type_id', 'customer_id'],
+            ['id', 'bank_name', 'payment_type', 'statement_cycle', 'liability_id', 'cc_feed', 'payment_method_id', 'batch_config', 'rebate', 'card_program_id', 'customer_id'],
 
             // set columns to searchIn
-            ['id', 'bank_name', 'payment_type', 'statement_cycle', 'batch_config', 'rebate', 'card_program_type_id'],
+            ['id', 'bank_name', 'payment_type', 'statement_cycle', 'batch_config', 'rebate', 'card_program_id'],
 
             function ($query) use ($request) {
                 if ($request->has('liabilities')) {
@@ -52,6 +53,9 @@ class CreditCardsController extends Controller
                 }
                 if ($request->has('payment_methods')) {
                     $query->whereIn('payment_method_id', $request->get('payment_methods'));
+                }
+                if ($request->has('card_programs')) {
+                    $query->whereIn('card_program_id', $request->get('card_programs'));
                 }
                 if ($request->has('customers')) {
                     $query->whereIn('customer_id', $request->get('customers'));
@@ -74,6 +78,7 @@ class CreditCardsController extends Controller
             'payment_methods' => PaymentMethod::all(),
             'customers' => Customer::all(),
             'countries' => Country::all(),
+            'card_programs' => CardProgram::all(),
         ]);
     }
 
@@ -92,6 +97,7 @@ class CreditCardsController extends Controller
             'payment_methods' => PaymentMethod::all(),
             'customers' => Customer::all(),
             'countries' => Country::all(),
+            'card_programs' => CardProgram::all(),
         ]);
     }
 
@@ -107,6 +113,7 @@ class CreditCardsController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['liability_id'] = $request->getLiabilityId();
         $sanitized['payment_method_id'] = $request->getPaymentMethodId();
+        $sanitized['card_program_id'] = $request->getCardProgramId();
         $sanitized['customer_id'] = $request->getCustomerId();
 
         // Store the CreditCard
@@ -155,6 +162,7 @@ class CreditCardsController extends Controller
             'payment_methods' => PaymentMethod::all(),
             'customers' => Customer::all(),
             'countries' => Country::all(),
+            'card_programs' => CardProgram::all(),
         ]);
     }
 
@@ -171,6 +179,7 @@ class CreditCardsController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['liability_id'] = $request->getLiabilityId();
         $sanitized['payment_method_id'] = $request->getPaymentMethodId();
+        $sanitized['card_program_id'] = $request->getCardProgramId();
         $sanitized['customer_id'] = $request->getCustomerId();
 
         $country_ids = $request->getCountryIds();

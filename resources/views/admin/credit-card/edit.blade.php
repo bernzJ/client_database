@@ -9,7 +9,8 @@
 
         <credit-card-form :action="'{{ $creditCard->resource_url }}'" :data="{{ $creditCard->toJson() }}"
             :liabilities="{{ $liabilities->toJson() }}" :payment_methods="{{$payment_methods->toJson()}}"
-            :customers="{{$customers->toJson()}}" :countries="{{$countries->toJson()}}" v-cloak inline-template>
+            :card_programs="{{$card_programs->toJson()}}" :customers="{{$customers->toJson()}}"
+            :countries="{{$countries->toJson()}}" v-cloak inline-template>
 
             <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit" :action="action"
                 novalidate>

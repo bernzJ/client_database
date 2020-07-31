@@ -15,7 +15,7 @@ class CreditCard extends Model
         'payment_method_id',
         'batch_config',
         'rebate',
-        'card_program_type_id',
+        'card_program_id',
         'customer_id',
 
     ];
@@ -23,6 +23,7 @@ class CreditCard extends Model
     protected $with = [
         'liability',
         'paymentMethod',
+        'cardProgram',
         'customer',
         'country',
     ];
@@ -44,6 +45,11 @@ class CreditCard extends Model
     public function paymentMethod()
     {
         return $this->belongsTo(PaymentMethod::class);
+    }
+
+    public function cardProgram()
+    {
+        return $this->belongsTo(CardProgram::class);
     }
 
     // many to many.

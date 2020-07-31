@@ -111,17 +111,17 @@
 </div>
 
 <div class="form-group row align-items-center"
-    :class="{'has-danger': errors.has('card_program_type_id'), 'has-success': fields.card_program_type_id && fields.card_program_type_id.valid }">
-    <label for="card_program_type_id" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.credit-card.columns.card_program_type_id') }}</label>
+    :class="{'has-danger': errors.has('card_program'), 'has-success': fields.card_program && fields.card_program.valid }">
+    <label for="card_program" class="col-form-label text-md-right"
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.credit-card.columns.card_program') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.card_program_type_id" v-validate="'required'" @input="validate($event)"
-            class="form-control"
-            :class="{'form-control-danger': errors.has('card_program_type_id'), 'form-control-success': fields.card_program_type_id && fields.card_program_type_id.valid}"
-            id="card_program_type_id" name="card_program_type_id"
-            placeholder="{{ trans('admin.credit-card.columns.card_program_type_id') }}">
-        <div v-if="errors.has('card_program_type_id')" class="form-control-feedback form-text" v-cloak>
-            @{{ errors.first('card_program_type_id') }}</div>
+
+        <multiselect v-model="form.card_program" :options="card_programs" :multiple="false" track-by="id" label="name"
+            tag-placeholder="{{ __('Select Customer') }}" placeholder="{{ __('Customer') }}">
+        </multiselect>
+
+        <div v-if="errors.has('card_program')" class="form-control-feedback form-text" v-cloak>
+            @{{ errors.first('card_program') }}</div>
     </div>
 </div>
 

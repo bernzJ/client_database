@@ -25,7 +25,7 @@ class IndexCreditCard extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,bank_name,payment_type,statement_cycle,liability_id,cc_feed,payment_method_id,batch_config,rebate,card_program_type_id,customer_id|nullable',
+            'orderBy' => 'in:id,bank_name,payment_type,statement_cycle,liability_id,cc_feed,payment_method_id,batch_config,rebate,card_program_id,customer_id|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

@@ -18,8 +18,8 @@ Route::get('/', function () {
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('admin-users')->name('admin-users/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('admin-users')->name('admin-users/')->group(static function () {
             Route::get('/',                                             'AdminUsersController@index')->name('index');
             Route::get('/create',                                       'AdminUsersController@create')->name('create');
             Route::post('/',                                            'AdminUsersController@store')->name('store');
@@ -34,7 +34,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
         Route::get('/profile',                                      'ProfileController@editProfile')->name('edit-profile');
         Route::post('/profile',                                     'ProfileController@updateProfile')->name('update-profile');
         Route::get('/password',                                     'ProfileController@editPassword')->name('edit-password');
@@ -44,8 +44,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('customers')->name('customers/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('customers')->name('customers/')->group(static function () {
             Route::get('/',                                             'CustomersController@index')->name('index');
             Route::get('/create',                                       'CustomersController@create')->name('create');
             Route::post('/',                                            'CustomersController@store')->name('store');
@@ -59,8 +59,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('industries')->name('industries/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('industries')->name('industries/')->group(static function () {
             Route::get('/',                                             'IndustriesController@index')->name('index');
             Route::get('/create',                                       'IndustriesController@create')->name('create');
             Route::post('/',                                            'IndustriesController@store')->name('store');
@@ -74,8 +74,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('dashboards')->name('dashboards/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('dashboards')->name('dashboards/')->group(static function () {
             Route::get('/',                                             'DashboardController@index')->name('index');
         });
     });
@@ -84,8 +84,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('client-types')->name('client-types/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('client-types')->name('client-types/')->group(static function () {
             Route::get('/',                                             'ClientTypeController@index')->name('index');
             Route::get('/create',                                       'ClientTypeController@create')->name('create');
             Route::post('/',                                            'ClientTypeController@store')->name('store');
@@ -99,8 +99,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('industries')->name('industries/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('industries')->name('industries/')->group(static function () {
             Route::get('/',                                             'IndustriesController@index')->name('index');
             Route::get('/create',                                       'IndustriesController@create')->name('create');
             Route::post('/',                                            'IndustriesController@store')->name('store');
@@ -114,8 +114,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('timezones')->name('timezones/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('timezones')->name('timezones/')->group(static function () {
             Route::get('/',                                             'TimezonesController@index')->name('index');
             Route::get('/create',                                       'TimezonesController@create')->name('create');
             Route::post('/',                                            'TimezonesController@store')->name('store');
@@ -129,8 +129,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('fiscal-years')->name('fiscal-years/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('fiscal-years')->name('fiscal-years/')->group(static function () {
             Route::get('/',                                             'FiscalYearController@index')->name('index');
             Route::get('/create',                                       'FiscalYearController@create')->name('create');
             Route::post('/',                                            'FiscalYearController@store')->name('store');
@@ -144,8 +144,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('project-types')->name('project-types/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('project-types')->name('project-types/')->group(static function () {
             Route::get('/',                                             'ProjectTypeController@index')->name('index');
             Route::get('/create',                                       'ProjectTypeController@create')->name('create');
             Route::post('/',                                            'ProjectTypeController@store')->name('store');
@@ -159,8 +159,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('financials')->name('financials/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('financials')->name('financials/')->group(static function () {
             Route::get('/',                                             'FinancialController@index')->name('index');
             Route::get('/create',                                       'FinancialController@create')->name('create');
             Route::post('/',                                            'FinancialController@store')->name('store');
@@ -174,8 +174,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('hrs')->name('hrs/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('hrs')->name('hrs/')->group(static function () {
             Route::get('/',                                             'HrController@index')->name('index');
             Route::get('/create',                                       'HrController@create')->name('create');
             Route::post('/',                                            'HrController@store')->name('store');
@@ -189,8 +189,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('countries')->name('countries/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('countries')->name('countries/')->group(static function () {
             Route::get('/',                                             'CountriesController@index')->name('index');
             Route::get('/create',                                       'CountriesController@create')->name('create');
             Route::post('/',                                            'CountriesController@store')->name('store');
@@ -204,8 +204,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('notes')->name('notes/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('notes')->name('notes/')->group(static function () {
             Route::get('/',                                             'NotesController@index')->name('index');
             Route::get('/create',                                       'NotesController@create')->name('create');
             Route::post('/',                                            'NotesController@store')->name('store');
@@ -219,8 +219,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('frequencies')->name('frequencies/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('frequencies')->name('frequencies/')->group(static function () {
             Route::get('/',                                             'FrequencyController@index')->name('index');
             Route::get('/create',                                       'FrequencyController@create')->name('create');
             Route::post('/',                                            'FrequencyController@store')->name('store');
@@ -234,23 +234,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('card-programs')->name('card-programs/')->group(static function() {
-            Route::get('/',                                             'CardProgramsController@index')->name('index');
-            Route::get('/create',                                       'CardProgramsController@create')->name('create');
-            Route::post('/',                                            'CardProgramsController@store')->name('store');
-            Route::get('/{cardProgram}/edit',                           'CardProgramsController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'CardProgramsController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{cardProgram}',                               'CardProgramsController@update')->name('update');
-            Route::delete('/{cardProgram}',                             'CardProgramsController@destroy')->name('destroy');
-        });
-    });
-});
-
-/* Auto-generated admin routes */
-Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('payrolls')->name('payrolls/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('payrolls')->name('payrolls/')->group(static function () {
             Route::get('/',                                             'PayrollController@index')->name('index');
             Route::get('/create',                                       'PayrollController@create')->name('create');
             Route::post('/',                                            'PayrollController@store')->name('store');
@@ -264,8 +249,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('states')->name('states/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('states')->name('states/')->group(static function () {
             Route::get('/',                                             'StateController@index')->name('index');
             Route::get('/create',                                       'StateController@create')->name('create');
             Route::post('/',                                            'StateController@store')->name('store');
@@ -279,8 +264,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('customers')->name('customers/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('customers')->name('customers/')->group(static function () {
             Route::get('/',                                             'CustomersController@index')->name('index');
             Route::get('/create',                                       'CustomersController@create')->name('create');
             Route::post('/',                                            'CustomersController@store')->name('store');
@@ -295,8 +280,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('concur-products')->name('concur-products/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('concur-products')->name('concur-products/')->group(static function () {
             Route::get('/',                                             'ConcurProductsController@index')->name('index');
             Route::get('/create',                                       'ConcurProductsController@create')->name('create');
             Route::post('/',                                            'ConcurProductsController@store')->name('store');
@@ -310,8 +295,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('concur-product-customers')->name('concur-product-customers/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('concur-product-customers')->name('concur-product-customers/')->group(static function () {
             Route::get('/',                                             'ConcurProductCustomerController@index')->name('index');
             Route::get('/create',                                       'ConcurProductCustomerController@create')->name('create');
             Route::post('/',                                            'ConcurProductCustomerController@store')->name('store');
@@ -325,8 +310,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('financials')->name('financials/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('financials')->name('financials/')->group(static function () {
             Route::get('/',                                             'FinancialController@index')->name('index');
             Route::get('/create',                                       'FinancialController@create')->name('create');
             Route::post('/',                                            'FinancialController@store')->name('store');
@@ -341,8 +326,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('concur-products')->name('concur-products/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('concur-products')->name('concur-products/')->group(static function () {
             Route::get('/',                                             'ConcurProductsController@index')->name('index');
             Route::get('/create',                                       'ConcurProductsController@create')->name('create');
             Route::post('/',                                            'ConcurProductsController@store')->name('store');
@@ -356,8 +341,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('segments')->name('segments/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('segments')->name('segments/')->group(static function () {
             Route::get('/',                                             'SegmentsController@index')->name('index');
             Route::get('/create',                                       'SegmentsController@create')->name('create');
             Route::post('/',                                            'SegmentsController@store')->name('store');
@@ -371,8 +356,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('notes')->name('notes/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('notes')->name('notes/')->group(static function () {
             Route::get('/',                                             'NotesController@index')->name('index');
             Route::get('/create',                                       'NotesController@create')->name('create');
             Route::post('/',                                            'NotesController@store')->name('store');
@@ -386,8 +371,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('hrs')->name('hrs/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('hrs')->name('hrs/')->group(static function () {
             Route::get('/',                                             'HrController@index')->name('index');
             Route::get('/create',                                       'HrController@create')->name('create');
             Route::post('/',                                            'HrController@store')->name('store');
@@ -401,8 +386,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('employee-groups')->name('employee-groups/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('employee-groups')->name('employee-groups/')->group(static function () {
             Route::get('/',                                             'EmployeeGroupController@index')->name('index');
             Route::get('/create',                                       'EmployeeGroupController@create')->name('create');
             Route::post('/',                                            'EmployeeGroupController@store')->name('store');
@@ -417,8 +402,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('employee-groups')->name('employee-groups/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('employee-groups')->name('employee-groups/')->group(static function () {
             Route::get('/',                                             'EmployeeGroupController@index')->name('index');
             Route::get('/create',                                       'EmployeeGroupController@create')->name('create');
             Route::post('/',                                            'EmployeeGroupController@store')->name('store');
@@ -432,8 +417,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('tmcs')->name('tmcs/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('tmcs')->name('tmcs/')->group(static function () {
             Route::get('/',                                             'TmcController@index')->name('index');
             Route::get('/create',                                       'TmcController@create')->name('create');
             Route::post('/',                                            'TmcController@store')->name('store');
@@ -447,8 +432,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('tmc-customers')->name('tmc-customers/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('tmc-customers')->name('tmc-customers/')->group(static function () {
             Route::get('/',                                             'TmcCustomerController@index')->name('index');
             Route::get('/create',                                       'TmcCustomerController@create')->name('create');
             Route::post('/',                                            'TmcCustomerController@store')->name('store');
@@ -462,8 +447,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('payment-methods')->name('payment-methods/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('payment-methods')->name('payment-methods/')->group(static function () {
             Route::get('/',                                             'PaymentMethodsController@index')->name('index');
             Route::get('/create',                                       'PaymentMethodsController@create')->name('create');
             Route::post('/',                                            'PaymentMethodsController@store')->name('store');
@@ -477,8 +462,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('liabilities')->name('liabilities/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('liabilities')->name('liabilities/')->group(static function () {
             Route::get('/',                                             'LiabilitiesController@index')->name('index');
             Route::get('/create',                                       'LiabilitiesController@create')->name('create');
             Route::post('/',                                            'LiabilitiesController@store')->name('store');
@@ -493,8 +478,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('credit-cards')->name('credit-cards/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('credit-cards')->name('credit-cards/')->group(static function () {
             Route::get('/',                                             'CreditCardsController@index')->name('index');
             Route::get('/create',                                       'CreditCardsController@create')->name('create');
             Route::post('/',                                            'CreditCardsController@store')->name('store');
@@ -508,8 +493,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('payment-methods')->name('payment-methods/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('payment-methods')->name('payment-methods/')->group(static function () {
             Route::get('/',                                             'PaymentMethodsController@index')->name('index');
             Route::get('/create',                                       'PaymentMethodsController@create')->name('create');
             Route::post('/',                                            'PaymentMethodsController@store')->name('store');
@@ -523,8 +508,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('reimbursements')->name('reimbursements/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('reimbursements')->name('reimbursements/')->group(static function () {
             Route::get('/',                                             'ReimbursementController@index')->name('index');
             Route::get('/create',                                       'ReimbursementController@create')->name('create');
             Route::post('/',                                            'ReimbursementController@store')->name('store');
@@ -538,8 +523,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('global-footprints')->name('global-footprints/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('global-footprints')->name('global-footprints/')->group(static function () {
             Route::get('/',                                             'GlobalFootprintController@index')->name('index');
             Route::get('/create',                                       'GlobalFootprintController@create')->name('create');
             Route::post('/',                                            'GlobalFootprintController@store')->name('store');
@@ -553,8 +538,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('global-footprint-countries')->name('global-footprint-countries/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('global-footprint-countries')->name('global-footprint-countries/')->group(static function () {
             Route::get('/',                                             'GlobalFootprintCountryController@index')->name('index');
             Route::get('/create',                                       'GlobalFootprintCountryController@create')->name('create');
             Route::post('/',                                            'GlobalFootprintCountryController@store')->name('store');
@@ -568,8 +553,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('contact-methods')->name('contact-methods/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('contact-methods')->name('contact-methods/')->group(static function () {
             Route::get('/',                                             'ContactMethodController@index')->name('index');
             Route::get('/create',                                       'ContactMethodController@create')->name('create');
             Route::post('/',                                            'ContactMethodController@store')->name('store');
@@ -583,8 +568,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('stakeholders')->name('stakeholders/')->group(static function() {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('stakeholders')->name('stakeholders/')->group(static function () {
             Route::get('/',                                             'StakeholdersController@index')->name('index');
             Route::get('/create',                                       'StakeholdersController@create')->name('create');
             Route::post('/',                                            'StakeholdersController@store')->name('store');
@@ -592,6 +577,21 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'StakeholdersController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{stakeholder}',                               'StakeholdersController@update')->name('update');
             Route::delete('/{stakeholder}',                             'StakeholdersController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('card-programs')->name('card-programs/')->group(static function () {
+            Route::get('/',                                             'CardProgramsController@index')->name('index');
+            Route::get('/create',                                       'CardProgramsController@create')->name('create');
+            Route::post('/',                                            'CardProgramsController@store')->name('store');
+            Route::get('/{cardProgram}/edit',                           'CardProgramsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CardProgramsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{cardProgram}',                               'CardProgramsController@update')->name('update');
+            Route::delete('/{cardProgram}',                             'CardProgramsController@destroy')->name('destroy');
         });
     });
 });
