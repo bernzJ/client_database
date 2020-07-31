@@ -29,200 +29,6 @@ return [
         ],
     ],
 
-    'customer' => [
-        'title' => 'Customers',
-
-        'actions' => [
-            'index' => 'Customers',
-            'create' => 'New Customer',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-
-        ],
-    ],
-
-    'customer' => [
-        'title' => 'Customers',
-
-        'actions' => [
-            'index' => 'Customers',
-            'create' => 'New Customer',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-            'name' => 'Name',
-            'website' => 'Website',
-            'industry' => 'Industry',
-            'timezone' => 'Timezone',
-            'fiscal_year' => 'Fiscal year',
-            'employees_count' => 'Employees count',
-            'project_type' => 'Project type',
-            'client_type' => 'Client type',
-            'active_projects' => 'Active projects',
-            'referenceable' => 'Referenceable',
-            'opted_out' => 'Opted out',
-            'financial' => 'Financial',
-            'hr' => 'Hr',
-            'sso' => 'Sso',
-            'test_site' => 'Test site',
-            'refresh_date' => 'Refresh date',
-            'logo' => 'Logo',
-            'address_1' => 'Address 1',
-            'address_2' => 'Address 2',
-            'address_lng_lat' => 'Address lng lat',
-            'city' => 'City',
-            'zip' => 'Zip',
-            'country' => 'Country',
-            'state' => 'State',
-            'lg_account_owner_oversight' => 'Lg account owner oversight',
-            'lg_sales_owner' => 'Lg sales owner',
-            'employee_group' => 'Employee groups',
-            'notes' => 'Notes',
-
-        ],
-    ],
-
-    'industry' => [
-        'title' => 'Industries',
-
-        'actions' => [
-            'index' => 'Industries',
-            'create' => 'New Industry',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-            'name' => 'Name',
-
-        ],
-    ],
-
-    'customer' => [
-        'title' => 'Customers',
-
-        'actions' => [
-            'index' => 'Customers',
-            'create' => 'New Customer',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-            'name' => 'Name',
-            'website' => 'Website',
-            'industry' => 'Industry',
-            'timezone' => 'Timezone',
-            'fiscal_year' => 'Fiscal year',
-            'employees_count' => 'Employees count',
-            'project_type' => 'Project type',
-            'client_type' => 'Client type',
-            'active_projects' => 'Active projects',
-            'referenceable' => 'Referenceable',
-            'opted_out' => 'Opted out',
-            'financial' => 'Financial',
-            'hr' => 'Hr',
-            'sso' => 'Sso',
-            'test_site' => 'Test site',
-            'refresh_date' => 'Refresh date',
-            'logo' => 'Logo',
-            'address_1' => 'Address 1',
-            'address_2' => 'Address 2',
-            'address_lng_lat' => 'Address lng lat',
-            'city' => 'City',
-            'zip' => 'Zip',
-            'country' => 'Country',
-            'state' => 'State',
-            'lg_account_owner_oversight' => 'Lg account owner oversight',
-            'lg_sales_owner' => 'Lg sales owner',
-            'employee_group' => 'Employee groups',
-            'notes' => 'Notes',
-
-        ],
-    ],
-
-    'client-type' => [
-        'title' => 'Client Type',
-
-        'actions' => [
-            'index' => 'Client Type',
-            'create' => 'New Client Type',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-            'name' => 'Name',
-
-        ],
-    ],
-
-    'industry' => [
-        'title' => 'Industries',
-
-        'actions' => [
-            'index' => 'Industries',
-            'create' => 'New Industry',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-
-        ],
-    ],
-
-    'industry' => [
-        'title' => 'Industries',
-
-        'actions' => [
-            'index' => 'Industries',
-            'create' => 'New Industry',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-            'name' => 'Name',
-
-        ],
-    ],
-
-    'timezone' => [
-        'title' => 'Timezones',
-
-        'actions' => [
-            'index' => 'Timezones',
-            'create' => 'New Timezone',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-
-        ],
-    ],
-
-    'fiscal-year' => [
-        'title' => 'Fiscal Year',
-
-        'actions' => [
-            'index' => 'Fiscal Year',
-            'create' => 'New Fiscal Year',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-
-        ],
-    ],
-
     'fiscal-year' => [
         'title' => 'Fiscal Year',
 
@@ -238,36 +44,6 @@ return [
             'end' => 'End',
             'month_end_close_period' => 'Month end close period',
             'quarterly_close_cycle' => 'Quarterly close cycle',
-
-        ],
-    ],
-
-    'project-type' => [
-        'title' => 'Project Type',
-
-        'actions' => [
-            'index' => 'Project Type',
-            'create' => 'New Project Type',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-
-        ],
-    ],
-
-    'client-type' => [
-        'title' => 'Client Type',
-
-        'actions' => [
-            'index' => 'Client Type',
-            'create' => 'New Client Type',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
 
         ],
     ],
@@ -318,21 +94,6 @@ return [
         ],
     ],
 
-    'country' => [
-        'title' => 'Countries',
-
-        'actions' => [
-            'index' => 'Countries',
-            'create' => 'New Country',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-
-        ],
-    ],
-
     'employee-group' => [
         'title' => 'Employee Groups',
 
@@ -344,6 +105,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
+            'name' => 'Name',
 
         ],
     ],
@@ -423,111 +185,6 @@ return [
         ],
     ],
 
-    'state' => [
-        'title' => 'State',
-
-        'actions' => [
-            'index' => 'State',
-            'create' => 'New State',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-
-        ],
-    ],
-
-    'customer' => [
-        'title' => 'Customers',
-
-        'actions' => [
-            'index' => 'Customers',
-            'create' => 'New Customer',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-
-        ],
-    ],
-
-    'state' => [
-        'title' => 'State',
-
-        'actions' => [
-            'index' => 'State',
-            'create' => 'New State',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-
-        ],
-    ],
-
-    'project-type' => [
-        'title' => 'Project Type',
-
-        'actions' => [
-            'index' => 'Project Type',
-            'create' => 'New Project Type',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-
-        ],
-    ],
-
-    'customer' => [
-        'title' => 'Customers',
-
-        'actions' => [
-            'index' => 'Customers',
-            'create' => 'New Customer',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-
-        ],
-    ],
-
-    'project-type' => [
-        'title' => 'Project Type',
-
-        'actions' => [
-            'index' => 'Project Type',
-            'create' => 'New Project Type',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-
-        ],
-    ],
-
-    'customer' => [
-        'title' => 'Customers',
-
-        'actions' => [
-            'index' => 'Customers',
-            'create' => 'New Customer',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-
-        ],
-    ],
-
     'customer' => [
         'title' => 'Customers',
 
@@ -583,6 +240,23 @@ return [
         'columns' => [
             'id' => 'ID',
             'name' => 'Name',
+
+        ],
+    ],
+
+    'concur-product' => [
+        'title' => 'Concur Products',
+
+        'actions' => [
+            'index' => 'Concur Products',
+            'create' => 'New Concur Product',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'product' => 'Product',
+            'segment' => 'Segment',
 
         ],
     ],
@@ -651,6 +325,71 @@ return [
             'abbreviation' => 'Abbreviation',
             'name' => 'Name',
             'country_id' => 'Country',
+
+        ],
+    ],
+
+    'credit-card' => [
+        'title' => 'Credit Cards',
+
+        'actions' => [
+            'index' => 'Credit Card',
+            'create' => 'New Credit Card',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'bank_name' => 'Bank name',
+            'payment_type' => 'Payment type',
+            'statement_cycle' => 'Statement cycle',
+            'liability' => 'Liability',
+            'cc_feed' => 'Credit card feed',
+            'payment_method' => 'Payment method',
+            'batch_config' => 'Batch configuration',
+            'rebate' => 'Rebate',
+            'card_program_type' => 'Card program type',
+            'customer' => 'Customer',
+            'country' => 'Countries deployed',
+
+        ],
+    ],
+
+    'global-footprint' => [
+        'title' => 'Global Footprint',
+
+        'actions' => [
+            'index' => 'Global Footprint',
+            'create' => 'New Global Footprint',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'reimbursement' => 'Reimbursement',
+            'concur_product' => 'Concur product',
+            'country' => 'Countries deployed',
+        ],
+    ],
+
+    'stakeholder' => [
+        'title' => 'Stakeholders',
+
+        'actions' => [
+            'index' => 'stakeholder',
+            'create' => 'New stakeholder',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'role' => 'Role',
+            'name' => 'Name',
+            'email' => 'Email',
+            'phone' => 'Phone',
+            'contact_method' => 'Contact method',
+            'timezone' => 'Timezone',
+            'customer' => 'Customer',
 
         ],
     ],

@@ -14,7 +14,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('country'), 'has-success': fields.country && fields.country.valid }">
     <label for="country" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.credit-card.columns.country') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.global-footprint.columns.country') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
 
         <multiselect v-model="form.country" :options="countries" :multiple="true" track-by="id" label="name"
@@ -29,7 +29,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('concur_product'), 'has-success': fields.concur_product && fields.concur_product.valid }">
     <label for="concur_product" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.concur_product') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.global-footprint.columns.concur_product') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
 
         <multiselect v-model="form.concur_product" :options="concur_products" :multiple="true" track-by="id"
