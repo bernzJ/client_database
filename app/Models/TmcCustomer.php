@@ -9,6 +9,8 @@ class TmcCustomer extends Model
     protected $table = 'tmc_customer';
 
     protected $fillable = [
+        'tmc_id',
+        'customer_id',
     
     ];
     

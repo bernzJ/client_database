@@ -38,14 +38,10 @@
                         class="nav-icon icon-drop"></i> {{ trans('admin.country.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/employee-groups') }}"><i
                         class="nav-icon icon-graduation"></i> {{ trans('admin.employee-group.title') }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('admin/frequencies') }}"><i
-                        class="nav-icon icon-energy"></i> {{ trans('admin.frequency.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/liabilities') }}"><i
                         class="nav-icon icon-globe"></i> {{ trans('admin.liability.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/card-programs') }}"><i
                         class="nav-icon icon-plane"></i> {{ trans('admin.card-program.title') }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('admin/payrolls') }}"><i
-                        class="nav-icon icon-drop"></i> {{ trans('admin.payroll.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/states') }}"><i
                         class="nav-icon icon-graduation"></i> {{ trans('admin.state.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/segments') }}"><i

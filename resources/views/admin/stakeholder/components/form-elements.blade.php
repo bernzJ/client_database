@@ -51,7 +51,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('contact_method'), 'has-success': fields.contact_method && fields.contact_method.valid }">
     <label for="contact_method" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.stakeholder.columns.contact_method') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.stakeholder.columns.contact_method_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.contact_method" :options="contact_methods" :multiple="false" track-by="id"
             label="name" tag-placeholder="{{ __('Select Contact Method') }}" placeholder="{{ __('Contact Method') }}">
@@ -64,7 +64,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('timezone'), 'has-success': fields.timezone && fields.timezone.valid }">
     <label for="timezone" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.stakeholder.columns.timezone') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.stakeholder.columns.timezone_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.timezone" :options="timezones" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select Timezone') }}" placeholder="{{ __('Timezone') }}">
@@ -77,7 +77,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('customer'), 'has-success': fields.customer && fields.customer.valid }">
     <label for="customer" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.stakeholder.columns.customer') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.stakeholder.columns.customer_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
 
         <multiselect v-model="form.customer" :options="customers" :multiple="false" track-by="id" label="name"

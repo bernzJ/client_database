@@ -37,10 +37,10 @@ class TmcCustomerController extends Controller
             $request,
 
             // set columns to query
-            [''],
+            ['id', 'tmc_id', 'customer_id'],
 
             // set columns to searchIn
-            ['']
+            ['id']
         );
 
         if ($request->ajax()) {

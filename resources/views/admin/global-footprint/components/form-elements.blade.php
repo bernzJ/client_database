@@ -1,7 +1,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('reimbursement'), 'has-success': fields.reimbursement && fields.reimbursement.valid }">
     <label for="reimbursement" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.global-footprint.columns.reimbursement') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.global-footprint.columns.reimbursement_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.reimbursement" :options="reimbursements" :multiple="false" track-by="id" label="type"
             tag-placeholder="{{ __('Select Reimbursement') }}" placeholder="{{ __('Reimbursement') }}">

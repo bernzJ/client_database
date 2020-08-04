@@ -1,7 +1,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('customer'), 'has-success': fields.customer && fields.customer.valid }">
     <label for="customer" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.name') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.note.columns.name') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.customer" :options="customers" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select Customer') }}" placeholder="{{ __('Customer') }}">

@@ -75,6 +75,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
+            'platform' => 'Platform',
 
         ],
     ],
@@ -90,7 +91,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-
+            'system' => 'System',
         ],
     ],
 
@@ -121,21 +122,10 @@ return [
 
         'columns' => [
             'id' => 'ID',
-
-        ],
-    ],
-
-    'frequency' => [
-        'title' => 'Frequency',
-
-        'actions' => [
-            'index' => 'Frequency',
-            'create' => 'New Frequency',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
+            'name' => 'Name',
+            'company_culture' => 'Company culture',
+            'strategic_goals' => 'Strategic goals',
+            'compliance' => 'Compliance',
 
         ],
     ],
@@ -151,6 +141,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
+            'name' => 'Name',
 
         ],
     ],
@@ -166,21 +157,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-
-        ],
-    ],
-
-    'payroll' => [
-        'title' => 'Payroll',
-
-        'actions' => [
-            'index' => 'Payroll',
-            'create' => 'New Payroll',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
+            'name' => 'Name',
 
         ],
     ],
@@ -224,6 +201,9 @@ return [
             'lg_sales_owner' => 'Lg sales owner',
             'employee_group_id' => 'Employee groups',
             'notes_id' => 'Notes',
+            'tmc_id' => 'TMC',
+            'platform_id' => 'Platform',
+            'concur_product_id' => 'Concur Products',
 
         ],
     ],
@@ -343,14 +323,14 @@ return [
             'bank_name' => 'Bank name',
             'payment_type' => 'Payment type',
             'statement_cycle' => 'Statement cycle',
-            'liability' => 'Liability',
+            'liability_id' => 'Liability',
             'cc_feed' => 'Credit card feed',
-            'payment_method' => 'Payment method',
+            'payment_method_id' => 'Payment method',
             'batch_config' => 'Batch configuration',
             'rebate' => 'Rebate',
-            'customer' => 'Customer',
+            'customer_id' => 'Customer',
             'country' => 'Countries deployed',
-            'card_program' => 'Card program',
+            'card_program_id' => 'Card program',
         ],
     ],
 
@@ -365,7 +345,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            'reimbursement' => 'Reimbursement',
+            'reimbursement_id' => 'Reimbursement',
             'concur_product' => 'Concur product',
             'country' => 'Countries deployed',
         ],
@@ -386,11 +366,143 @@ return [
             'name' => 'Name',
             'email' => 'Email',
             'phone' => 'Phone',
-            'contact_method' => 'Contact method',
-            'timezone' => 'Timezone',
-            'customer' => 'Customer',
+            'contact_method_id' => 'Contact method',
+            'timezone_id' => 'Timezone',
+            'customer_id' => 'Customer',
 
         ],
+    ],
+
+    'segment' => [
+        'title' => 'Segments',
+
+        'actions' => [
+            'index' => 'Segment',
+            'create' => 'New Segment',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+
+        ],
+    ],
+
+    'tmc' => [
+        'title' => 'TMCS',
+
+        'actions' => [
+            'index' => 'TMC',
+            'create' => 'New TMC',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            'comment' => 'Comment',
+
+        ],
+    ],
+
+    'tmc-customer' => [
+        'title' => 'TMC Customers',
+
+        'actions' => [
+            'index' => 'TMC Customer (pivot table)',
+            'create' => 'New TMC Customer',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'tmc_id' => 'TMC',
+            'customer_id' => 'Customer',
+
+        ],
+    ],
+
+    'payment-method' => [
+        'title' => 'Payment methods',
+
+        'actions' => [
+            'index' => 'Payment method',
+            'create' => 'New Payment method',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+
+        ],
+    ],
+
+    'concur-product-customer' => [
+        'title' => 'Concur product customer',
+
+        'actions' => [
+            'index' => 'Concur product customer (pivot table)',
+            'create' => 'New Concur product customer',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'customer_id' => 'Customer',
+            'concur_product_id' => 'Concur product',
+        ],
+    ],
+
+    'global-footprint-country' => [
+        'title' => 'Global footprint country',
+
+        'actions' => [
+            'index' => 'Global footprint country (pivot table)',
+            'create' => 'New Global footprint country',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'global_footprint_id' => 'Global footprint',
+            'country_id' => 'Country',
+        ],
+    ],
+
+    'contact-method' => [
+        'title' => 'Contact method',
+
+        'actions' => [
+            'index' => 'Contact method',
+            'create' => 'New Contact method',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+        ],
+    ],
+
+    'reimbursement' => [
+        'title' => 'Reimbursement',
+
+        'actions' => [
+            'index' => 'Reimbursement',
+            'create' => 'New Reimbursement',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'type' => 'Type',
+        ],
+    ],
+
+    'dashboard' => [
+        'title' => 'Dashboard',
     ],
 
     // Do not delete me :) I'm used for auto-generation

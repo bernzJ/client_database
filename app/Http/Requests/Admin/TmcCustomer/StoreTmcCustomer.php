@@ -26,6 +26,8 @@ class StoreTmcCustomer extends FormRequest
     public function rules(): array
     {
         return [
+            'tmc_id' => ['required', 'integer'],
+            'customer_id' => ['required', 'integer'],
             
         ];
     }

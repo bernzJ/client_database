@@ -220,36 +220,6 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
-        Route::prefix('frequencies')->name('frequencies/')->group(static function () {
-            Route::get('/',                                             'FrequencyController@index')->name('index');
-            Route::get('/create',                                       'FrequencyController@create')->name('create');
-            Route::post('/',                                            'FrequencyController@store')->name('store');
-            Route::get('/{frequency}/edit',                             'FrequencyController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'FrequencyController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{frequency}',                                 'FrequencyController@update')->name('update');
-            Route::delete('/{frequency}',                               'FrequencyController@destroy')->name('destroy');
-        });
-    });
-});
-
-/* Auto-generated admin routes */
-Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
-        Route::prefix('payrolls')->name('payrolls/')->group(static function () {
-            Route::get('/',                                             'PayrollController@index')->name('index');
-            Route::get('/create',                                       'PayrollController@create')->name('create');
-            Route::post('/',                                            'PayrollController@store')->name('store');
-            Route::get('/{payroll}/edit',                               'PayrollController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'PayrollController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{payroll}',                                   'PayrollController@update')->name('update');
-            Route::delete('/{payroll}',                                 'PayrollController@destroy')->name('destroy');
-        });
-    });
-});
-
-/* Auto-generated admin routes */
-Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
         Route::prefix('states')->name('states/')->group(static function () {
             Route::get('/',                                             'StateController@index')->name('index');
             Route::get('/create',                                       'StateController@create')->name('create');
@@ -592,6 +562,21 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'CardProgramsController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{cardProgram}',                               'CardProgramsController@update')->name('update');
             Route::delete('/{cardProgram}',                             'CardProgramsController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('tmc-customers')->name('tmc-customers/')->group(static function() {
+            Route::get('/',                                             'TmcCustomerController@index')->name('index');
+            Route::get('/create',                                       'TmcCustomerController@create')->name('create');
+            Route::post('/',                                            'TmcCustomerController@store')->name('store');
+            Route::get('/{tmcCustomer}/edit',                           'TmcCustomerController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'TmcCustomerController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{tmcCustomer}',                               'TmcCustomerController@update')->name('update');
+            Route::delete('/{tmcCustomer}',                             'TmcCustomerController@destroy')->name('destroy');
         });
     });
 });

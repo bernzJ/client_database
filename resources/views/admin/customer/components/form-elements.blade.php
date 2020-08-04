@@ -21,7 +21,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('industry'), 'has-success': fields.industry && fields.industry.valid }">
     <label for="industry" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.industry') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.industry_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
 
         <multiselect v-model="form.industry" :options="industries" :multiple="false" track-by="id" label="name"
@@ -54,7 +54,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('employee_group'), 'has-success': fields.employee_group && fields.employee_group.valid }">
     <label for="employee_group" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.employee_group') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.employee_group_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="hidden" v-model="form.employee_group.id" v-validate="'integer'">
 
@@ -100,7 +100,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('state'), 'has-success': fields.state && fields.state.valid }">
     <label for="state" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.state') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.state_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.state" :options="states" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select State') }}" placeholder="{{ __('State') }}">
@@ -113,7 +113,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('country'), 'has-success': fields.country && fields.country.valid }">
     <label for="country" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.country') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.country_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.country" :options="countries" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select Country') }}" placeholder="{{ __('Country') }}">
@@ -230,7 +230,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('hr'), 'has-success': fields.hr && fields.hr.valid }">
     <label for="hr" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.hr') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.hr_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="hidden" v-model="form.hr.id" v-validate="'integer'">
 
@@ -287,7 +287,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('client_type'), 'has-success': fields.client_type && fields.client_type.valid }">
     <label for="client_type" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.client_type') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.client_type_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.client_type" :options="client_types" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select Client Type') }}" placeholder="{{ __('Client Type') }}">
@@ -300,7 +300,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('concur_product'), 'has-success': fields.concur_product && fields.concur_product.valid }">
     <label for="concur_product" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.concur_product') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.concur_product_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
 
         <multiselect v-model="form.concur_product" :options="concur_products" :multiple="true" track-by="id"
@@ -315,7 +315,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('tmc'), 'has-success': fields.tmc && fields.tmc.valid }">
     <label for="tmc" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.tmc') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.tmc_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
 
         <multiselect v-model="form.tmc" :options="tmcs" :multiple="true" track-by="id" label="name"
@@ -329,7 +329,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('project_type'), 'has-success': fields.project_type && fields.project_type.valid }">
     <label for="project_type" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.project_type') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.project_type_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.project_type" :options="project_types" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select Project Type') }}" placeholder="{{ __('Project Type') }}">
@@ -357,7 +357,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('fiscal_year'), 'has-success': fields.fiscal_year && fields.fiscal_year.valid }">
     <label for="fiscal_year" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.fiscal_year') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.fiscal_year_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <!-- TODO: implement error display. -->
         <input type="hidden" v-model="form.fiscal_year.id" v-validate="'integer'">
@@ -389,14 +389,14 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('financial'), 'has-success': fields.financial && fields.financial.valid }">
     <label for="financial" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.financial.platform') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.financial_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="hidden" v-model="form.financial.id" v-validate="'integer'">
 
         <input type="text" v-model="form.financial.platform" v-validate="'required'" @input="validate($event)"
             class="form-control"
             :class="{'form-control-danger': errors.has('financial'), 'form-control-success': fields.financial && fields.financial.valid}"
-            id="financial" name="financial" placeholder="{{ trans('admin.customer.columns.financial.platform') }}">
+            id="financial" name="financial" placeholder="{{ trans('admin.customer.columns.financial_id') }}">
         <div v-if="errors.has('financial')" class="form-control-feedback form-text" v-cloak>
             @{{ errors.first('financial') }}</div>
     </div>
@@ -405,7 +405,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('timezone'), 'has-success': fields.timezone && fields.timezone.valid }">
     <label for="timezone" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.timezone') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.timezone_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect v-model="form.timezone" :options="timezones" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select Timezone') }}" placeholder="{{ __('Timezone') }}">

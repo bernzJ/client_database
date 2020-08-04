@@ -25,7 +25,7 @@ class IndexTmcCustomer extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:|nullable',
+            'orderBy' => 'in:id,tmc_id,customer_id|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

@@ -5,6 +5,8 @@ Vue.component('tmc-customer-form', {
     data: function() {
         return {
             form: {
+                tmc_id:  '' ,
+                customer_id:  '' ,
                 
             }
         }

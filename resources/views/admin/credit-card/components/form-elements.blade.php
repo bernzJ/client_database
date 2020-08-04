@@ -43,7 +43,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('liability'), 'has-success': fields.liability_id && fields.liability_id.valid }">
     <label for="liability" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.credit-card.columns.liability') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.credit-card.columns.liability_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
 
         <multiselect v-model="form.liability" :options="liabilities" :multiple="false" track-by="id" label="name"
@@ -71,7 +71,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('payment_method'), 'has-success': fields.payment_method && fields.payment_method.valid }">
     <label for="payment_method" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.credit-card.columns.payment_method') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.credit-card.columns.payment_method_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
 
         <multiselect v-model="form.payment_method" :options="payment_methods" :multiple="false" track-by="id"
@@ -113,7 +113,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('card_program'), 'has-success': fields.card_program && fields.card_program.valid }">
     <label for="card_program" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.credit-card.columns.card_program') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.credit-card.columns.card_program_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
 
         <multiselect v-model="form.card_program" :options="card_programs" :multiple="false" track-by="id" label="name"
@@ -128,7 +128,7 @@
 <div class="form-group row align-items-center"
     :class="{'has-danger': errors.has('customer'), 'has-success': fields.customer && fields.customer.valid }">
     <label for="customer" class="col-form-label text-md-right"
-        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.credit-card.columns.customer') }}</label>
+        :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.credit-card.columns.customer_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
 
         <multiselect v-model="form.customer" :options="customers" :multiple="false" track-by="id" label="name"

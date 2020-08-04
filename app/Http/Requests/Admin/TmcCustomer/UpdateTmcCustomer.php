@@ -26,6 +26,8 @@ class UpdateTmcCustomer extends FormRequest
     public function rules(): array
     {
         return [
+            'tmc_id' => ['sometimes', 'integer'],
+            'customer_id' => ['sometimes', 'integer'],
             
         ];
     }
