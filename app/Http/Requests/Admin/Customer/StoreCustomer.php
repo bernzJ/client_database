@@ -28,23 +28,23 @@ class StoreCustomer extends FormRequest
         return [
             'name' => ['required', 'string'],
             'website' => ['nullable', 'string'],
-            'industry' => ['required'],
-            'timezone' => ['required'],
+            'industry' => ['nullable'],
+            'timezone' => ['nullable'],
             'fiscal_year.id' => ['nullable'],
-            'fiscal_year.begin' => ['required_without:fiscal_year.id'],
+            'fiscal_year.begin' => ['nullable'],
             'fiscal_year.end' => ['nullable', 'date'],
             'fiscal_year.month_end_close_period' => ['nullable', 'date'],
             'fiscal_year.quarterly_close_cycle' => ['nullable', 'date'],
             'employees_count' => ['required', 'integer'],
-            'project_type' => ['nullable'],
+            'project_type' => ['required'],
             'client_type' => ['required'],
             'active_projects' => ['required', 'boolean'],
             'referenceable' => ['required', 'boolean'],
             'opted_out' => ['required', 'boolean'],
             'financial.id' => ['nullable'],
-            'financial.platform' => ['required_without:financial.id'],
+            'financial.platform' => ['nullable'],
             'hr.id' => ['nullable'],
-            'hr.system' => ['required_without:hr.id'],
+            'hr.system' => ['nullable'],
             'sso' => ['required', 'boolean'],
             'test_site' => ['required', 'boolean'],
             'refresh_date' => ['nullable', 'date'],
@@ -56,19 +56,19 @@ class StoreCustomer extends FormRequest
             'zip' => ['nullable', 'string'],
             'country' => ['required'],
             'state' => ['nullable'],
-            'lg_account_owner_oversight' => ['nullable', 'string'],
-            'lg_sales_owner' => ['nullable', 'string'],
+            'lg_account_owner_oversight' => ['required', 'string'],
+            'lg_sales_owner' => ['required', 'string'],
             'employee_group.id' => ['nullable'],
-            'employee_group.name' => ['required_without:employee_group.id'],
-            'concur_product' => ['required'],
-            'tmc' => ['required'],
+            'employee_group.name' => ['nullable'],
+            'concur_product' => ['nullable'],
+            'tmc' => ['nullable'],
 
         ];
     }
 
     public function getIndustryId()
     {
-        if ($this->has('industry')) {
+        if ($this->filled('industry')) {
             return $this->get('industry')['id'];
         }
         return null;
@@ -76,7 +76,7 @@ class StoreCustomer extends FormRequest
 
     public function getTimezoneId()
     {
-        if ($this->has('timezone')) {
+        if ($this->filled('timezone')) {
             return $this->get('timezone')['id'];
         }
         return null;
@@ -100,7 +100,7 @@ class StoreCustomer extends FormRequest
 
     public function getCountryId()
     {
-        if ($this->has('country')) {
+        if ($this->filled('country')) {
             return $this->get('country')['id'];
         }
         return null;
@@ -126,12 +126,14 @@ class StoreCustomer extends FormRequest
     {
         if ($this->filled('fiscal_year')) {
             $data = $this->get('fiscal_year');
-            return [
-                'begin' => $data['begin'],
-                'end' => $data['end'],
-                'month_end_close_period' => $data['month_end_close_period'],
-                'quarterly_close_cycle' => $data['quarterly_close_cycle'],
-            ];
+            if ($data['begin'] !== null) {
+                return [
+                    'begin' => $data['begin'],
+                    'end' => $data['end'],
+                    'month_end_close_period' => $data['month_end_close_period'],
+                    'quarterly_close_cycle' => $data['quarterly_close_cycle'],
+                ];
+            }
         }
         return null;
     }
@@ -140,9 +142,11 @@ class StoreCustomer extends FormRequest
     {
         if ($this->filled('financial')) {
             $data = $this->get('financial');
-            return [
-                'platform' => $data['platform'],
-            ];
+            if ($data['platform'] !== null) {
+                return [
+                    'platform' => $data['platform'],
+                ];
+            }
         }
         return null;
     }
@@ -151,9 +155,11 @@ class StoreCustomer extends FormRequest
     {
         if ($this->filled('hr')) {
             $data = $this->get('hr');
-            return [
-                'system' => $data['system'],
-            ];
+            if ($data['system'] !== null) {
+                return [
+                    'system' => $data['system'],
+                ];
+            }
         }
         return null;
     }
@@ -162,9 +168,11 @@ class StoreCustomer extends FormRequest
     {
         if ($this->filled('employee_group')) {
             $data = $this->get('employee_group');
-            return [
-                'name' => $data['name'],
-            ];
+            if ($data['name'] !== null) {
+                return [
+                    'name' => $data['name'],
+                ];
+            }
         }
         return null;
     }

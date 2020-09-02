@@ -1,5 +1,5 @@
 <!--  https://www.getcraftable.com/docs/5.0/user-interface#notification -->
-<div v-for="error in errors" :key="id" class="alert alert-danger alert-dismissible fade show" role="alert">
+<div v-for="error in errors" class="alert alert-danger alert-dismissible fade show" role="alert">
     @{{ error.msg }}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -58,7 +58,7 @@
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="hidden" v-model="form.employee_group.id" v-validate="'integer'">
 
-        <input type="text" v-model="form.employee_group.name" v-validate="'required'" @input="validate($event)"
+        <input type="text" v-model="form.employee_group.name" v-validate="''" @input="validate($event)"
             class="form-control"
             :class="{'form-control-danger': errors.has('employee_group'), 'form-control-success': fields.employee_group && fields.employee_group.valid}"
             id="employee_group" name="employee_group"
@@ -73,7 +73,7 @@
     <label for="lg_sales_owner" class="col-form-label text-md-right"
         :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.lg_sales_owner') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.lg_sales_owner" v-validate="''" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.lg_sales_owner" v-validate="'required'" @input="validate($event)" class="form-control"
             :class="{'form-control-danger': errors.has('lg_sales_owner'), 'form-control-success': fields.lg_sales_owner && fields.lg_sales_owner.valid}"
             id="lg_sales_owner" name="lg_sales_owner"
             placeholder="{{ trans('admin.customer.columns.lg_sales_owner') }}">
@@ -87,7 +87,7 @@
     <label for="lg_account_owner_oversight" class="col-form-label text-md-right"
         :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.lg_account_owner_oversight') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.lg_account_owner_oversight" v-validate="''" @input="validate($event)"
+        <input type="text" v-model="form.lg_account_owner_oversight" v-validate="'required'" @input="validate($event)"
             class="form-control"
             :class="{'form-control-danger': errors.has('lg_account_owner_oversight'), 'form-control-success': fields.lg_account_owner_oversight && fields.lg_account_owner_oversight.valid}"
             id="lg_account_owner_oversight" name="lg_account_owner_oversight"
@@ -393,7 +393,7 @@
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="hidden" v-model="form.financial.id" v-validate="'integer'">
 
-        <input type="text" v-model="form.financial.platform" v-validate="'required'" @input="validate($event)"
+        <input type="text" v-model="form.financial.platform" v-validate="''" @input="validate($event)"
             class="form-control"
             :class="{'form-control-danger': errors.has('financial'), 'form-control-success': fields.financial && fields.financial.valid}"
             id="financial" name="financial" placeholder="{{ trans('admin.customer.columns.financial_id') }}">

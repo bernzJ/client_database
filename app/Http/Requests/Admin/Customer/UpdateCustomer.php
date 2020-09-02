@@ -28,23 +28,23 @@ class UpdateCustomer extends FormRequest
         return [
             'name' => ['sometimes', 'string'],
             'website' => ['nullable', 'string'],
-            'industry' => ['required'],
-            'timezone' => ['required'],
+            'industry' => ['nullable'],
+            'timezone' => ['nullable'],
             'fiscal_year.id' => ['nullable'],
-            'fiscal_year.begin' => ['required_without:fiscal_year.id'],
+            'fiscal_year.begin' => ['nullable'],
             'fiscal_year.end' => ['nullable', 'date'],
             'fiscal_year.month_end_close_period' => ['nullable', 'date'],
             'fiscal_year.quarterly_close_cycle' => ['nullable', 'date'],
             'employees_count' => ['sometimes', 'integer'],
-            'project_type' => ['nullable'],
+            'project_type' => ['required'],
             'client_type' => ['required'],
             'active_projects' => ['sometimes', 'boolean'],
             'referenceable' => ['sometimes', 'boolean'],
             'opted_out' => ['sometimes', 'boolean'],
             'financial.id' => ['nullable'],
-            'financial.platform' => ['required_without:financial.id'],
+            'financial.platform' => ['nullable'],
             'hr.id' => ['nullable'],
-            'hr.system' => ['required_without:hr.id'],
+            'hr.system' => ['nullable'],
             'sso' => ['sometimes', 'boolean'],
             'test_site' => ['sometimes', 'boolean'],
             'refresh_date' => ['nullable', 'date'],
@@ -56,18 +56,18 @@ class UpdateCustomer extends FormRequest
             'zip' => ['nullable', 'string'],
             'country' => ['required'],
             'state' => ['nullable'],
-            'lg_account_owner_oversight' => ['nullable', 'string'],
-            'lg_sales_owner' => ['nullable', 'string'],
+            'lg_account_owner_oversight' => ['required', 'string'],
+            'lg_sales_owner' => ['required', 'string'],
             'employee_group.id' => ['nullable'],
-            'employee_group.name' => ['required_without:employee_group.id'],
+            'employee_group.name' => ['nullable'],
             'concur_product' => ['sometimes'],
-            'tmc' => ['required'],
+            'tmc' => ['nullable'],
         ];
     }
 
     public function getIndustryId()
     {
-        if ($this->has('industry')) {
+        if ($this->filled('industry')) {
             return $this->get('industry')['id'];
         }
         return null;
@@ -75,7 +75,7 @@ class UpdateCustomer extends FormRequest
 
     public function getTimezoneId()
     {
-        if ($this->has('timezone')) {
+        if ($this->filled('timezone')) {
             return $this->get('timezone')['id'];
         }
         return null;
@@ -99,7 +99,7 @@ class UpdateCustomer extends FormRequest
 
     public function getCountryId()
     {
-        if ($this->has('country')) {
+        if ($this->filled('country')) {
             return $this->get('country')['id'];
         }
         return null;

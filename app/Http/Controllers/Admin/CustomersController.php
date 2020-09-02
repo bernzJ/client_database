@@ -149,27 +149,39 @@ class CustomersController extends Controller
 
         // Store concurproducts
         $concur_ids = $request->getConcurProductIds();
-        $customer->concurProduct()->attach($concur_ids);
+        if ($concur_ids != null) {
+            $customer->concurProduct()->attach($concur_ids);
+        }
 
         // Store fiscal year
-        $fiscalYear = FiscalYear::create($fsSanitized);
-        $customer->fiscalYear()->associate($fiscalYear)->save();
+        if ($fsSanitized != null) {
+            $fiscalYear = FiscalYear::create($fsSanitized);
+            $customer->fiscalYear()->associate($fiscalYear)->save();
+        }
 
         // Store financial
-        $financial = Financial::create($fiSanitized);
-        $customer->financial()->associate($financial)->save();
+        if ($fiSanitized != null) {
+            $financial = Financial::create($fiSanitized);
+            $customer->financial()->associate($financial)->save();
+        }
 
         // Store hr
-        $hr = Hr::create($hrSanitized);
-        $customer->hr()->associate($hr)->save();
+        if ($hrSanitized != null) {
+            $hr = Hr::create($hrSanitized);
+            $customer->hr()->associate($hr)->save();
+        }
 
         // Store employee group
-        $employeeGroup = EmployeeGroup::create($egSanitized);
-        $customer->employeeGroup()->associate($employeeGroup)->save();
+        if ($egSanitized != null) {
+            $employeeGroup = EmployeeGroup::create($egSanitized);
+            $customer->employeeGroup()->associate($employeeGroup)->save();
+        }
 
         // Store tmcs
         $tmc_ids = $request->getTmcIds();
-        $customer->tmc()->attach($tmc_ids);
+        if ($tmc_ids != null) {
+            $customer->tmc()->attach($tmc_ids);
+        }
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/customers'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
