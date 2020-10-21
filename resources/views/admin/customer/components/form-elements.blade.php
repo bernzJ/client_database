@@ -56,12 +56,12 @@
     <label for="employee_group" class="col-form-label text-md-right"
         :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.employee_group_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="hidden" v-model="form.employee_group.id" v-validate="'integer'">
+        <input type="hidden" v-model="form.employee_group_id" v-validate="'integer'">
 
-        <input type="text" v-model="form.employee_group.name" v-validate="''" @input="validate($event)"
+        <input type="text" v-model="form.employee_group_name" v-validate="''" @input="validate($event)"
             class="form-control"
             :class="{'form-control-danger': errors.has('employee_group'), 'form-control-success': fields.employee_group && fields.employee_group.valid}"
-            id="employee_group" name="employee_group"
+            id="employee_group_name" name="employee_group_name"
             placeholder="{{ trans('admin.customer.columns.employee_group') }}">
         <div v-if="errors.has('employee_group')" class="form-control-feedback form-text" v-cloak>
             @{{ errors.first('employee_group') }}</div>
@@ -73,7 +73,8 @@
     <label for="lg_sales_owner" class="col-form-label text-md-right"
         :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.lg_sales_owner') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.lg_sales_owner" v-validate="'required'" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.lg_sales_owner" v-validate="'required'" @input="validate($event)"
+            class="form-control"
             :class="{'form-control-danger': errors.has('lg_sales_owner'), 'form-control-success': fields.lg_sales_owner && fields.lg_sales_owner.valid}"
             id="lg_sales_owner" name="lg_sales_owner"
             placeholder="{{ trans('admin.customer.columns.lg_sales_owner') }}">
@@ -115,6 +116,7 @@
     <label for="country" class="col-form-label text-md-right"
         :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.country_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="hidden" name="address_lng_lat" :value="address_lng_lat">
         <multiselect v-model="form.country" :options="countries" :multiple="false" track-by="id" label="name"
             tag-placeholder="{{ __('Select Country') }}" placeholder="{{ __('Country') }}">
         </multiselect>
@@ -232,11 +234,11 @@
     <label for="hr" class="col-form-label text-md-right"
         :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.hr_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="hidden" v-model="form.hr.id" v-validate="'integer'">
+        <input type="hidden" v-model="form.hr_id" v-validate="'integer'">
 
-        <input type="text" v-model="form.hr.system" v-validate="''" @input="validate($event)" class="form-control"
+        <input type="text" v-model="form.hr_system" v-validate="''" @input="validate($event)" class="form-control"
             :class="{'form-control-danger': errors.has('hr'), 'form-control-success': fields.hr && fields.hr.valid}"
-            id="hr" name="hr" placeholder="{{ trans('admin.customer.columns.hr') }}">
+            id="hr_system" name="hr_system" placeholder="{{ trans('admin.customer.columns.hr') }}">
         <div v-if="errors.has('hr')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('hr') }}
         </div>
     </div>
@@ -359,25 +361,24 @@
     <label for="fiscal_year" class="col-form-label text-md-right"
         :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.fiscal_year_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <!-- TODO: implement error display. -->
-        <input type="hidden" v-model="form.fiscal_year.id" v-validate="'integer'">
+        <input type="hidden" v-model="form.fiscal_year_id" v-validate="'integer'">
 
-        <datetime v-model="form.fiscal_year.begin" :config="datePickerConfig"
+        <datetime v-model="form.fiscal_year_begin" :config="datePickerConfig"
             v-validate="'date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr"
             :class="{'form-control-danger': errors.has('fiscal_year.begin'), 'form-control-success': fields.fiscal_year_begin && fields.fiscal_year_begin.valid}"
             placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
 
-        <datetime v-model="form.fiscal_year.end" :config="datePickerConfig"
+        <datetime v-model="form.fiscal_year_end" :config="datePickerConfig"
             v-validate="'date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr"
             :class="{'form-control-danger': errors.has('fiscal_year.end'), 'form-control-success': fields.fiscal_year_end && fields.fiscal_year_end.valid}"
             placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
 
-        <datetime v-model="form.fiscal_year.month_end_close_period" :config="datePickerConfig"
+        <datetime v-model="form.fiscal_year_month_end_close_period" :config="datePickerConfig"
             v-validate="'date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr"
             :class="{'form-control-danger': errors.has('fiscal_year.month_end_close_period'), 'form-control-success': fields.fiscal_year_month_end_close_period && fields.fiscal_year_month_end_close_period.valid}"
             placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
 
-        <datetime v-model="form.fiscal_year.quarterly_close_cycle" :config="datePickerConfig"
+        <datetime v-model="form.fiscal_year_quarterly_close_cycle" :config="datePickerConfig"
             v-validate="'date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr"
             :class="{'form-control-danger': errors.has('fiscal_year.quarterly_close_cycle'), 'form-control-success': fields.fiscal_year_quarterly_close_cycle && fields.fiscal_year_quarterly_close_cycle.valid}"
             placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
@@ -391,12 +392,13 @@
     <label for="financial" class="col-form-label text-md-right"
         :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.financial_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="hidden" v-model="form.financial.id" v-validate="'integer'">
+        <input type="hidden" v-model="form.financial_id" v-validate="'integer'">
 
-        <input type="text" v-model="form.financial.platform" v-validate="''" @input="validate($event)"
+        <input type="text" v-model="form.financial_platform" v-validate="''" @input="validate($event)"
             class="form-control"
             :class="{'form-control-danger': errors.has('financial'), 'form-control-success': fields.financial && fields.financial.valid}"
-            id="financial" name="financial" placeholder="{{ trans('admin.customer.columns.financial_id') }}">
+            id="financial_platform" name="financial_platform"
+            placeholder="{{ trans('admin.customer.columns.financial_id') }}">
         <div v-if="errors.has('financial')" class="form-control-feedback form-text" v-cloak>
             @{{ errors.first('financial') }}</div>
     </div>

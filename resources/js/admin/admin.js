@@ -11,6 +11,7 @@ import VueCookie from 'vue-cookie';
 import { Admin } from 'craftable';
 import VModal from 'vue-js-modal'
 import Vue from 'vue';
+import AsyncComputed from 'vue-async-computed';
 
 import './app-components/bootstrap';
 import './index';
@@ -24,6 +25,7 @@ Vue.use(VModal, { dialog: true, dynamic: true, injectModalsContainer: true });
 Vue.use(VueQuillEditor);
 Vue.use(Notifications);
 Vue.use(VueCookie);
+Vue.use(AsyncComputed);
 
 new Vue({
     mixins: [Admin],

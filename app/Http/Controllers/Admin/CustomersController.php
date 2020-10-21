@@ -138,6 +138,7 @@ class CustomersController extends Controller
         $sanitized['client_type_id'] = $request->getClientTypeId();
         $sanitized['country_id'] = $request->getCountryId();
         $sanitized['state_id'] = $request->getStateId();
+        // $sanitized['address_lng_lat'] = $request->get('');
 
         $fsSanitized = $request->getFiscalYearObject();
         $fiSanitized = $request->getFinancialObject();
@@ -149,37 +150,37 @@ class CustomersController extends Controller
 
         // Store concurproducts
         $concur_ids = $request->getConcurProductIds();
-        if ($concur_ids != null) {
+        if ($concur_ids) {
             $customer->concurProduct()->attach($concur_ids);
         }
 
         // Store fiscal year
-        if ($fsSanitized != null) {
+        if ($fsSanitized) {
             $fiscalYear = FiscalYear::create($fsSanitized);
             $customer->fiscalYear()->associate($fiscalYear)->save();
         }
 
         // Store financial
-        if ($fiSanitized != null) {
+        if ($fiSanitized) {
             $financial = Financial::create($fiSanitized);
             $customer->financial()->associate($financial)->save();
         }
 
         // Store hr
-        if ($hrSanitized != null) {
+        if ($hrSanitized) {
             $hr = Hr::create($hrSanitized);
             $customer->hr()->associate($hr)->save();
         }
 
         // Store employee group
-        if ($egSanitized != null) {
+        if ($egSanitized) {
             $employeeGroup = EmployeeGroup::create($egSanitized);
             $customer->employeeGroup()->associate($employeeGroup)->save();
         }
 
         // Store tmcs
         $tmc_ids = $request->getTmcIds();
-        if ($tmc_ids != null) {
+        if ($tmc_ids) {
             $customer->tmc()->attach($tmc_ids);
         }
 
@@ -240,6 +241,8 @@ class CustomersController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        //dd($sanitized);
+
         $sanitized['industry_id'] = $request->getIndustryId();
         $sanitized['timezone_id'] = $request->getTimezoneId();
         $sanitized['project_type_id'] = $request->getProjectTypeId();
@@ -259,10 +262,22 @@ class CustomersController extends Controller
         $tmc_ids = $request->getTmcIds();
         $customer->tmc()->sync($tmc_ids);
 
-        $customer->fiscalYear()->update($fsSanitized);
-        $customer->financial()->update($fiSanitized);
-        $customer->hr()->update($hrSanitized);
-        $customer->employeeGroup()->update($egSanitized);
+        if ($fsSanitized && $customer->fiscalYear()->update($fsSanitized) === 0) {
+            $fiscalYear = FiscalYear::create($fsSanitized);
+            $customer->fiscalYear()->associate($fiscalYear)->save();
+        }
+        if ($fiSanitized && $customer->financial()->update($fiSanitized) === 0) {
+            $financial = Financial::create($fiSanitized);
+            $customer->financial()->associate($financial)->save();
+        }
+        if ($hrSanitized && $customer->hr()->update($hrSanitized) === 0) {
+            $hr = Hr::create($hrSanitized);
+            $customer->hr()->associate($hr)->save();
+        }
+        if ($egSanitized && $customer->employeeGroup()->update($egSanitized) === 0) {
+            $employeeGroup = EmployeeGroup::create($egSanitized);
+            $customer->employeeGroup()->associate($employeeGroup)->save();
+        }
 
         $customer->update($sanitized);
 

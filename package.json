@@ -21,6 +21,8 @@
     },
     "dependencies": {
         "leaflet": "^1.6.0",
+        "leaflet-geosearch": "^3.0.6",
+        "vue-async-computed": "^3.9.0",
         "vue2-leaflet": "^2.5.2"
     }
 }

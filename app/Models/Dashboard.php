@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class Dashboard extends Model
 {
@@ -14,12 +13,16 @@ class Dashboard extends Model
     protected $dates = [];
     public $timestamps = false;
 
-    protected $appends = ['resource_url'];
+    protected $appends = ['resource_url', 'customer_url'];
 
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()
     {
         return url('/admin/dashboards/' . $this->getKey());
+    }
+    public function getCustomerUrlAttribute()
+    {
+        return url('admin/customers/' . $this->getKey() . '/edit');
     }
 }

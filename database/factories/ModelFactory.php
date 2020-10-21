@@ -289,11 +289,18 @@ $factory->define(App\Models\CardProgram::class, static function (Faker\Generator
     ];
 });
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Models\TmcCustomer::class, static function (Faker\Generator $faker) {
+$factory->define(App\Models\CustomerTmc::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\CustomerTmc::class, static function (Faker\Generator $faker) {
     return [
         'tmc_id' => $faker->randomNumber(5),
         'customer_id' => $faker->randomNumber(5),
-
-
+        
+        
     ];
 });

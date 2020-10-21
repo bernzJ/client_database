@@ -15,7 +15,7 @@
         <l-tile-layer :url="url" :attribution="attribution" />
         <l-marker :lat-lng="withPopup(item.address_lng_lat)" :icon="icon">
           <l-popup>
-            <div :key="index" @click="innerClick" class="container">
+            <div :key="index" class="container">
               <div class="row header">
                 <label class="title">{{item.name}}</label>
               </div>
@@ -41,7 +41,7 @@
               </div>
               <div class="row footer">
                 <div class="col">
-                  <a class="main-button" :href="item.resource_url">
+                  <a class="main-button" :href="item.customer_url">
                     See Details
                     <i class="icon-arrow-right" style="color:#fff;"></i>
                   </a>
@@ -73,7 +73,7 @@ export default {
   data() {
     return {
       zoom: 3,
-      maxZoom: 20,
+      maxZoom: 15,
       center: latLng(51.505, -0.09),
       url:
         "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png",
@@ -107,9 +107,6 @@ export default {
     },
     centerUpdate(center) {
       this.currentCenter = center;
-    },
-    innerClick() {
-      alert("Click!");
     }
   },
   props: {

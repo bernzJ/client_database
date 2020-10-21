@@ -6,7 +6,6 @@
 
 <customer-listing :data="{{ $data->toJson() }}" :url="'{{ url('admin/customers') }}'" inline-template>
     <div class="row">
-
         <div class="col">
             <div class="card">
                 <div class="card-header">

@@ -6,7 +6,6 @@
 
 <div class="container-xl">
     <div class="card">
-
         <customer-form :action="'{{ $customer->resource_url }}'" :data="{{ $customer->toJson() }}"
             :industries="{{$industries->toJson()}}" :timezones="{{$timezones->toJson()}}"
             :project_types="{{$project_types->toJson()}}" :client_types="{{$client_types->toJson()}}"

@@ -403,21 +403,6 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
-        Route::prefix('tmc-customers')->name('tmc-customers/')->group(static function () {
-            Route::get('/',                                             'TmcCustomerController@index')->name('index');
-            Route::get('/create',                                       'TmcCustomerController@create')->name('create');
-            Route::post('/',                                            'TmcCustomerController@store')->name('store');
-            Route::get('/{tmcCustomer}/edit',                           'TmcCustomerController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'TmcCustomerController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{tmcCustomer}',                               'TmcCustomerController@update')->name('update');
-            Route::delete('/{tmcCustomer}',                             'TmcCustomerController@destroy')->name('destroy');
-        });
-    });
-});
-
-/* Auto-generated admin routes */
-Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
         Route::prefix('payment-methods')->name('payment-methods/')->group(static function () {
             Route::get('/',                                             'PaymentMethodsController@index')->name('index');
             Route::get('/create',                                       'PaymentMethodsController@create')->name('create');
@@ -566,17 +551,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     });
 });
 
+
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('tmc-customers')->name('tmc-customers/')->group(static function() {
-            Route::get('/',                                             'TmcCustomerController@index')->name('index');
-            Route::get('/create',                                       'TmcCustomerController@create')->name('create');
-            Route::post('/',                                            'TmcCustomerController@store')->name('store');
-            Route::get('/{tmcCustomer}/edit',                           'TmcCustomerController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'TmcCustomerController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{tmcCustomer}',                               'TmcCustomerController@update')->name('update');
-            Route::delete('/{tmcCustomer}',                             'TmcCustomerController@destroy')->name('destroy');
+        Route::prefix('customer-tmcs')->name('customer-tmcs/')->group(static function() {
+            Route::get('/',                                             'CustomerTmcController@index')->name('index');
+            Route::get('/create',                                       'CustomerTmcController@create')->name('create');
+            Route::post('/',                                            'CustomerTmcController@store')->name('store');
+            Route::get('/{customerTmc}/edit',                           'CustomerTmcController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CustomerTmcController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{customerTmc}',                               'CustomerTmcController@update')->name('update');
+            Route::delete('/{customerTmc}',                             'CustomerTmcController@destroy')->name('destroy');
         });
     });
 });
