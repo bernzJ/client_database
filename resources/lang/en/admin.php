@@ -29,31 +29,28 @@ return [
         ],
     ],
 
-    'fiscal-year' => [
-        'title' => 'Fiscal Year',
-
-        'actions' => [
-            'index' => 'Fiscal Year',
-            'create' => 'New Fiscal Year',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-            'begin' => 'Begin',
-            'end' => 'End',
-            'month_end_close_period' => 'Month end close period',
-            'quarterly_close_cycle' => 'Quarterly close cycle',
-
-        ],
-    ],
-
     'client-type' => [
         'title' => 'Client Type',
 
         'actions' => [
             'index' => 'Client Type',
             'create' => 'New Client Type',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+
+        ],
+    ],
+
+    'project-scope' => [
+        'title' => 'Project Scope',
+
+        'actions' => [
+            'index' => 'Project Scope',
+            'create' => 'New Project Scope',
             'edit' => 'Edit :name',
         ],
 
@@ -177,8 +174,12 @@ return [
             'website' => 'Website',
             'industry_id' => 'Industry',
             'timezone_id' => 'Timezone',
-            'fiscal_year_id' => 'Fiscal year',
+            'fiscal_year_begin' => 'Fiscal year begin',
+            'fiscal_year_end' => 'Fiscal year end',
+            'fiscal_year_month_end_close_period' => 'Fiscal year month end close period',
+            'fiscal_year_quarterly_close_cycle' => 'Fiscal year quarterly close cycle',
             'employees_count' => 'Employees count',
+            'project_scope_id' => 'Project scope',
             'project_type_id' => 'Project type',
             'client_type_id' => 'Client type',
             'active_projects' => 'Active projects',
@@ -406,12 +407,12 @@ return [
         ],
     ],
 
-    'tmc-customer' => [
-        'title' => 'TMC Customers',
+    'customer-tmc' => [
+        'title' => 'Customer TMC',
 
         'actions' => [
-            'index' => 'TMC Customer (pivot table)',
-            'create' => 'New TMC Customer',
+            'index' => 'Customer TMC (pivot table)',
+            'create' => 'New Customer TMC',
             'edit' => 'Edit :name',
         ],
 
