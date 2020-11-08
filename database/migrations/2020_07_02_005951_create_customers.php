@@ -32,7 +32,6 @@ class CreateCustomers extends Migration
             $table->boolean('sso')->default(false);
             $table->boolean('test_site')->default(false);
             $table->date('refresh_date')->nullable();
-            $table->string('logo')->nullable();
             $table->string('address_1');
             $table->string('address_2')->nullable();
             $table->string('address_lng_lat');

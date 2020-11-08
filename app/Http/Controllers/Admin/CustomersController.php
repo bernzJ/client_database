@@ -50,10 +50,10 @@ class CustomersController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'name', 'website', 'industry_id', 'timezone_id', 'fiscal_year_id', 'employees_count', 'project_type_id', 'project_scope_id', 'client_type_id', 'active_projects', 'referenceable', 'opted_out', 'financial_id', 'hr_id', 'sso', 'test_site', 'refresh_date', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'country_id', 'state_id', 'lg_account_owner_oversight', 'lg_sales_owner', 'employee_group_id'],
+            ['id', 'name', 'website', 'industry_id', 'timezone_id', 'fiscal_year_id', 'employees_count', 'project_type_id', 'project_scope_id', 'client_type_id', 'active_projects', 'referenceable', 'opted_out', 'financial_id', 'hr_id', 'sso', 'test_site', 'refresh_date', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'country_id', 'state_id', 'lg_account_owner_oversight', 'lg_sales_owner', 'employee_group_id'],
 
             // set columns to searchIn
-            ['id', 'name', 'website', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'lg_account_owner_oversight', 'lg_sales_owner'],
+            ['id', 'name', 'website', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'lg_account_owner_oversight', 'lg_sales_owner'],
 
             function ($query) use ($request) {
                 //@NOTE: this might be redundant from model's protected.
@@ -141,7 +141,7 @@ class CustomersController extends Controller
         $sanitized['industry_id'] = $request->getIndustryId();
         $sanitized['timezone_id'] = $request->getTimezoneId();
         $sanitized['project_type_id'] = $request->getProjectTypeId();
-        $sanitized['project_scope_id'] = $request->getProjecScopeId();
+        $sanitized['project_scope_id'] = $request->getProjectScopeId();
         $sanitized['client_type_id'] = $request->getClientTypeId();
         $sanitized['country_id'] = $request->getCountryId();
         $sanitized['state_id'] = $request->getStateId();
@@ -254,7 +254,7 @@ class CustomersController extends Controller
         $sanitized['industry_id'] = $request->getIndustryId();
         $sanitized['timezone_id'] = $request->getTimezoneId();
         $sanitized['project_type_id'] = $request->getProjectTypeId();
-        $sanitized['project_scope_id'] = $request->getProjecScopeId();
+        $sanitized['project_scope_id'] = $request->getProjectScopeId();
         $sanitized['client_type_id'] = $request->getClientTypeId();
         $sanitized['country_id'] = $request->getCountryId();
         $sanitized['state_id'] = $request->getStateId();

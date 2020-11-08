@@ -1,6 +1,4 @@
 <!--  https://www.getcraftable.com/docs/5.0/user-interface#notification -->
-
-
 <div class="card">
     <div class="card-header">
         <i class="fa fa-plus"></i> Customer Information</span>
@@ -122,6 +120,40 @@
         <i class="fa fa-plus"></i> Company Information</span>
     </div>
     <div class="card-block">
+        <div class="form-group row align-items-center">
+            <div class="avatar-upload m-auto">
+                @include('brackets/admin-ui::admin.includes.avatar-uploader', [
+                'mediaCollection' => app(App\Models\Customer::class)->getMediaCollection('logos'),
+                'media' => ($customer ?? '') ? $customer->getThumbs200ForCollection('logos') : null,
+                'label' => 'Logo'
+                ])
+            </div>
+        </div>
+
+
+        <div class="form-group row align-items-center"
+            :class="{'has-danger': errors.has('website'), 'has-success': fields.website && fields.website.valid }">
+            <label for="website" class="col-form-label text-md-right"
+                :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.customer.columns.website') }}</label>
+            <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+                <input type="text" v-model="form.website" v-validate="''" @input="validate($event)" class="form-control"
+                    :class="{'form-control-danger': errors.has('website'), 'form-control-success': fields.website && fields.website.valid}"
+                    id="website" name="website" placeholder="{{ trans('admin.customer.columns.website') }}">
+                <div v-if="errors.has('website')" class="form-control-feedback form-text" v-cloak>
+                    @{{ errors.first('website') }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row align-items-center">
+            <span :class="isFormLocalized ? 'col-md-4' : 'col-md-2'"></span>
+            <div class="col-md-4 col-xl-4"
+                :class="{'has-danger': errors.has('website'), 'has-success': fields.website && fields.website.valid }">
+
+
+            </div>
+        </div>
+
 
         <div class="form-group row align-items-center">
             <span :class="isFormLocalized ? 'col-md-4' : 'col-md-2'"></span>
@@ -180,32 +212,6 @@
                     placeholder="{{ trans('admin.customer.columns.lg_account_owner_oversight') }}">
                 <div v-if="errors.has('lg_account_owner_oversight')" class="form-control-feedback form-text" v-cloak>
                     @{{ errors.first('lg_account_owner_oversight') }}
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group row align-items-center">
-            <span :class="isFormLocalized ? 'col-md-4' : 'col-md-2'"></span>
-            <div class="col-md-4 col-xl-4"
-                :class="{'has-danger': errors.has('logo'), 'has-success': fields.logo && fields.logo.valid }">
-                <label for="logo"
-                    class="col-form-label text-md-right">{{ trans('admin.customer.columns.logo') }}</label>
-                <input type="text" v-model="form.logo" v-validate="''" @input="validate($event)" class="form-control"
-                    :class="{'form-control-danger': errors.has('logo'), 'form-control-success': fields.logo && fields.logo.valid}"
-                    id="logo" name="logo" placeholder="{{ trans('admin.customer.columns.logo') }}">
-                <div v-if="errors.has('logo')" class="form-control-feedback form-text" v-cloak>
-                    @{{ errors.first('logo') }}
-                </div>
-            </div>
-            <div class="col-md-4 col-xl-4"
-                :class="{'has-danger': errors.has('website'), 'has-success': fields.website && fields.website.valid }">
-                <label for="website"
-                    class="col-form-label text-md-right">{{ trans('admin.customer.columns.website') }}</label>
-                <input type="text" v-model="form.website" v-validate="''" @input="validate($event)" class="form-control"
-                    :class="{'form-control-danger': errors.has('website'), 'form-control-success': fields.website && fields.website.valid}"
-                    id="website" name="website" placeholder="{{ trans('admin.customer.columns.website') }}">
-                <div v-if="errors.has('website')" class="form-control-feedback form-text" v-cloak>
-                    @{{ errors.first('website') }}
                 </div>
             </div>
         </div>

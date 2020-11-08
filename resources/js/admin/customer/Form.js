@@ -31,7 +31,6 @@ Vue.component('customer-form', {
                 sso: false,
                 test_site: false,
                 refresh_date: '',
-                logo: '',
                 address_1: '',
                 address_2: '',
                 address_lng_lat: '',
@@ -46,7 +45,8 @@ Vue.component('customer-form', {
                 notes_id: '',
                 concur_product: [],
                 tmc: [],
-            }
+            },
+            mediaCollections: ['logos']
         }
     },
     asyncComputed: {

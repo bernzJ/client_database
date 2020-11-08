@@ -3,9 +3,30 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\Models\Media;
+use Brackets\Media\HasMedia\ProcessMediaTrait;
+use Brackets\Media\HasMedia\AutoProcessMediaTrait;
+use Brackets\Media\HasMedia\HasMediaCollectionsTrait;
+use Brackets\Media\HasMedia\HasMediaThumbsTrait;
 
-class Customer extends Model
+class Customer extends Model implements HasMedia
 {
+
+    use ProcessMediaTrait;
+    use AutoProcessMediaTrait;
+    use HasMediaCollectionsTrait;
+    use HasMediaThumbsTrait;
+
+    public function registerMediaCollections()
+    {
+        $this->addMediaCollection('logos')->accepts('image/*')->maxNumberOfFiles(1);
+    }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->autoRegisterThumb200();
+    }
     protected $fillable = [
         'name',
         'website',
@@ -24,7 +45,6 @@ class Customer extends Model
         'sso',
         'test_site',
         'refresh_date',
-        'logo',
         'address_1',
         'address_2',
         'address_lng_lat',
