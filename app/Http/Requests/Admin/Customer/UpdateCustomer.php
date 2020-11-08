@@ -37,6 +37,7 @@ class UpdateCustomer extends FormRequest
             'fiscal_year_quarterly_close_cycle' => ['nullable', 'date'],
             'employees_count' => ['sometimes', 'integer'],
             'project_type' => [new RequiredIf($this->client_type["name"] === 'Project')],
+            'project_scope' => [new RequiredIf($this->client_type["name"] === 'Project')],
             'client_type' => ['required'],
             'active_projects' => ['sometimes', 'boolean'],
             'referenceable' => ['sometimes', 'boolean'],
@@ -85,6 +86,14 @@ class UpdateCustomer extends FormRequest
     {
         if ($this->filled('project_type')) {
             return $this->get('project_type')['id'];
+        }
+        return null;
+    }
+
+    public function getProjectScopeId()
+    {
+        if ($this->filled('project_scope')) {
+            return $this->get('project_scope')['id'];
         }
         return null;
     }

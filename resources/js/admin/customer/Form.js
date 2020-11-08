@@ -4,7 +4,7 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('customer-form', {
     mixins: [AppForm],
-    props: ['industries', 'timezones', 'project_types', 'client_types', 'countries', 'states', 'concur_products', 'tmcs'],
+    props: ['industries', 'timezones', 'project_types', 'project_scopes', 'client_types', 'countries', 'states', 'concur_products', 'tmcs'],
     data: function () {
         return {
             form: {
@@ -19,6 +19,7 @@ Vue.component('customer-form', {
                 fiscal_year_quarterly_close_cycle: null,
                 employees_count: '',
                 project_type: null,
+                project_scope: null,
                 client_type: null,
                 active_projects: false,
                 referenceable: false,

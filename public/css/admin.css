@@ -23424,6 +23424,27 @@ div.trumbowyg-dropdown-table table td.active {
   margin: 0;
 }
 
+.form-control {
+  padding: 1.375rem 0.75rem;
+}
+
+.header-page {
+  background-color: white;
+  border-bottom: 1px solid rgba(207, 216, 220, 0.35);
+  color: #4273fa;
+  font-weight: 600;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-page {
+  background: white;
+  border: none;
+  padding: 1.25rem;
+  padding-top: 3rem;
+  text-align: right;
+}
+
 @media (max-width: 850px) {
   .app-header.navbar .navbar-brand {
     display: none;

@@ -566,3 +566,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('project-scopes')->name('project-scopes/')->group(static function() {
+            Route::get('/',                                             'ProjectScopeController@index')->name('index');
+            Route::get('/create',                                       'ProjectScopeController@create')->name('create');
+            Route::post('/',                                            'ProjectScopeController@store')->name('store');
+            Route::get('/{projectScope}/edit',                          'ProjectScopeController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ProjectScopeController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{projectScope}',                              'ProjectScopeController@update')->name('update');
+            Route::delete('/{projectScope}',                            'ProjectScopeController@destroy')->name('destroy');
+        });
+    });
+});

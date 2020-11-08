@@ -30,6 +30,8 @@
                         class="nav-icon icon-compass"></i> {{ trans('admin.industry.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/project-types') }}"><i
                         class="nav-icon icon-plane"></i> {{ trans('admin.project-type.title') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/project-scopes') }}"><i
+                        class="nav-icon icon-ghost"></i> {{ trans('admin.project-scope.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/financials') }}"><i
                         class="nav-icon icon-magnet"></i> {{ trans('admin.financial.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/hrs') }}"><i class="nav-icon icon-globe"></i>
@@ -59,10 +61,11 @@
                         class="nav-icon icon-compass"></i> {{ trans('admin.global-footprint-country.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/contact-methods') }}"><i
                         class="nav-icon icon-puzzle"></i> {{ trans('admin.contact-method.title') }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url('admin/customer-tmcs') }}"><i class="nav-icon icon-drop"></i> {{ trans('admin.customer-tmc.title') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/customer-tmcs') }}"><i
+                        class="nav-icon icon-drop"></i> {{ trans('admin.customer-tmc.title') }}</a></li>
             @endrole
 
-           {{-- Do not delete me :) I'm used for auto-generation menu items --}}
+            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/admin-users') }}"><i

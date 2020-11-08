@@ -22,6 +22,7 @@ class CreateCustomers extends Migration
             $table->unsignedInteger('fiscal_year_id')->nullable();
             $table->integer('employees_count')->default(0);
             $table->unsignedInteger('project_type_id')->nullable();
+            $table->unsignedInteger('project_scope_id')->nullable();
             $table->unsignedInteger('client_type_id')->nullable();
             $table->boolean('active_projects')->default(false);
             $table->boolean('referenceable')->default(false);
@@ -48,6 +49,7 @@ class CreateCustomers extends Migration
             $table->foreign('industry_id')->references('id')->on('industries')->onDelete('cascade');
             $table->foreign('timezone_id')->references('id')->on('timezones')->onDelete('cascade');
             $table->foreign('fiscal_year_id')->references('id')->on('fiscal_year')->onDelete('cascade');
+            $table->foreign('project_scope_id')->references('id')->on('project_scope')->onDelete('cascade');
             $table->foreign('project_type_id')->references('id')->on('project_type')->onDelete('cascade');
             $table->foreign('client_type_id')->references('id')->on('client_type')->onDelete('cascade');
             $table->foreign('financial_id')->references('id')->on('financial')->onDelete('cascade');

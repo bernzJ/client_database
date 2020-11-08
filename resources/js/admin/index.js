@@ -28,3 +28,4 @@ import './global-footprint-country';
 import './contact-method';
 import './stakeholder';
 import './customer-tmc';
+import './project-scope';

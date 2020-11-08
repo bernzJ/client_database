@@ -14,6 +14,7 @@ class Customer extends Model
         'fiscal_year_id',
         'employees_count',
         'project_type_id',
+        'project_scope_id',
         'client_type_id',
         'active_projects',
         'referenceable',
@@ -44,6 +45,7 @@ class Customer extends Model
         'industry',
         'timezone',
         'projectType',
+        'projectScope',
         'clientType',
         'country',
         'state',
@@ -82,6 +84,10 @@ class Customer extends Model
     public function financial()
     {
         return $this->belongsTo(Financial::class);
+    }
+    public function projectScope()
+    {
+        return $this->belongsTo(ProjectScope::class);
     }
     public function projectType()
     {

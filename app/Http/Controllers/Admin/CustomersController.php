@@ -17,6 +17,7 @@ use App\Models\Financial;
 use App\Models\FiscalYear;
 use App\Models\Hr;
 use App\Models\Industry;
+use App\Models\ProjectScope;
 use App\Models\ProjectType;
 use App\Models\Timezone;
 use App\Models\State;
@@ -49,7 +50,7 @@ class CustomersController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'name', 'website', 'industry_id', 'timezone_id', 'fiscal_year_id', 'employees_count', 'project_type_id', 'client_type_id', 'active_projects', 'referenceable', 'opted_out', 'financial_id', 'hr_id', 'sso', 'test_site', 'refresh_date', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'country_id', 'state_id', 'lg_account_owner_oversight', 'lg_sales_owner', 'employee_group_id'],
+            ['id', 'name', 'website', 'industry_id', 'timezone_id', 'fiscal_year_id', 'employees_count', 'project_type_id', 'project_scope_id', 'client_type_id', 'active_projects', 'referenceable', 'opted_out', 'financial_id', 'hr_id', 'sso', 'test_site', 'refresh_date', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'country_id', 'state_id', 'lg_account_owner_oversight', 'lg_sales_owner', 'employee_group_id'],
 
             // set columns to searchIn
             ['id', 'name', 'website', 'logo', 'address_1', 'address_2', 'address_lng_lat', 'city', 'zip', 'lg_account_owner_oversight', 'lg_sales_owner'],
@@ -65,6 +66,9 @@ class CustomersController extends Controller
                 }
                 if ($request->has('project_types')) {
                     $query->whereIn('project_type_id', $request->get('project_types'));
+                }
+                if ($request->has('project_scopes')) {
+                    $query->whereIn('project_scope_id', $request->get('project_scopes'));
                 }
                 if ($request->has('client_types')) {
                     $query->whereIn('client_type_id', $request->get('client_types'));
@@ -92,6 +96,7 @@ class CustomersController extends Controller
             'industries' => Industry::all(),
             'timezones' => Timezone::all(),
             'project_types' => ProjectType::all(),
+            'project_scopes' => ProjectScope::all(),
             'client_types' => ClientType::all(),
             'countries' => Country::all(),
             'states' => State::all(),
@@ -114,6 +119,7 @@ class CustomersController extends Controller
             'industries' => Industry::all(),
             'timezones' => Timezone::all(),
             'project_types' => ProjectType::all(),
+            'project_scopes' => ProjectScope::all(),
             'client_types' => ClientType::all(),
             'countries' => Country::all(),
             'states' => State::all(),
@@ -135,6 +141,7 @@ class CustomersController extends Controller
         $sanitized['industry_id'] = $request->getIndustryId();
         $sanitized['timezone_id'] = $request->getTimezoneId();
         $sanitized['project_type_id'] = $request->getProjectTypeId();
+        $sanitized['project_scope_id'] = $request->getProjecScopeId();
         $sanitized['client_type_id'] = $request->getClientTypeId();
         $sanitized['country_id'] = $request->getCountryId();
         $sanitized['state_id'] = $request->getStateId();
@@ -222,6 +229,7 @@ class CustomersController extends Controller
             'industries' => Industry::all(),
             'timezones' => Timezone::all(),
             'project_types' => ProjectType::all(),
+            'project_scopes' => ProjectScope::all(),
             'client_types' => ClientType::all(),
             'countries' => Country::all(),
             'states' => State::all(),
@@ -246,6 +254,7 @@ class CustomersController extends Controller
         $sanitized['industry_id'] = $request->getIndustryId();
         $sanitized['timezone_id'] = $request->getTimezoneId();
         $sanitized['project_type_id'] = $request->getProjectTypeId();
+        $sanitized['project_scope_id'] = $request->getProjecScopeId();
         $sanitized['client_type_id'] = $request->getClientTypeId();
         $sanitized['country_id'] = $request->getCountryId();
         $sanitized['state_id'] = $request->getStateId();
