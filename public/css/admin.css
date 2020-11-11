@@ -182,8 +182,7 @@
 :root .fa-rotate-270,
 :root .fa-flip-horizontal,
 :root .fa-flip-vertical {
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 
 .fa-stack {
@@ -6029,11 +6028,6 @@ pre code {
 }
 
 .form-control:-ms-input-placeholder {
-  color: #73818f;
-  opacity: 1;
-}
-
-.form-control::-ms-input-placeholder {
   color: #73818f;
   opacity: 1;
 }
@@ -17454,10 +17448,6 @@ canvas {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.sidebar .sidebar-form .form-control::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
 .sidebar .sidebar-form .form-control::placeholder {
   color: rgba(255, 255, 255, 0.7);
 }
@@ -21753,10 +21743,6 @@ label {
   color: #b9c8de;
 }
 
-.form-control::-ms-input-placeholder {
-  color: #b9c8de;
-}
-
 .form-control::placeholder {
   color: #b9c8de;
 }
@@ -21938,10 +21924,6 @@ small select {
 }
 
 .multiselect__input:-ms-input-placeholder {
-  color: #b9c8de;
-}
-
-.multiselect__input::-ms-input-placeholder {
   color: #b9c8de;
 }
 

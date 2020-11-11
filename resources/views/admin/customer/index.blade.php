@@ -10,6 +10,9 @@
             <div class="card">
                 <div class="card-header">
                     <i class="fa fa-align-justify"></i> {{ trans('admin.customer.actions.index') }}
+                    <a class="btn btn-primary btn-sm pull-right m-b-0 ml-2" href="{{ url('admin/customers/export') }}"
+                        role="button"><i class="fa fa-file-excel-o"></i>&nbsp;
+                        {{ trans('admin.customer.actions.export') }}</a>
                     <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0"
                         href="{{ url('admin/customers/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp;
                         {{ trans('admin.customer.actions.create') }}</a>
@@ -17,7 +20,7 @@
                 <div class="card-body" v-cloak>
                     <div class="card-block">
                         <form @submit.prevent="">
-                            <div class="row justify-content-start">
+                            <div class="row justify-content-md-between">
                                 <div class="col col-lg-7 col-xl-5 form-group">
                                     <div class="input-group">
                                         <input class="form-control"
@@ -31,17 +34,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col form-group deadline-checkbox-col">
-                                    <div class="switch-filter-wrap">
-                                        <label class="switch switch-3d switch-primary">
-                                            <input type="checkbox" class="switch-input" v-model="showIndustriesFilter">
-                                            <span class="switch-slider"></span>
-                                        </label>
-                                        <span class="industries-filter">&nbsp;{{ __('Industries filter') }}</span>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-auto form-group ">
+                                <div class="col-sm-auto form-group pull-right">
                                     <select class="form-control" v-model="pagination.state.per_page">
 
                                         <option value="10">10</option>
@@ -50,7 +43,111 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row" v-if="showIndustriesFilter">
+                            <!-- Filters -->
+                            <div class="row justify-content-start">
+                                <div class="col form-group deadline-checkbox-col">
+                                    <div class="switch-filter-wrap">
+                                        <label class="switch switch-3d switch-primary">
+                                            <input type="checkbox" class="switch-input" v-model="showIndustriesFilter">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                        <span
+                                            style="bottom:8px;position:relative;">&nbsp;{{ __('Industries filter') }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="col form-group deadline-checkbox-col">
+                                    <div class="switch-filter-wrap">
+                                        <label class="switch switch-3d switch-primary">
+                                            <input type="checkbox" class="switch-input" v-model="showTimezonesFilter">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                        <span
+                                            style="bottom:8px;position:relative;">&nbsp;{{ __('Timezones filter') }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="col form-group deadline-checkbox-col">
+                                    <div class="switch-filter-wrap">
+                                        <label class="switch switch-3d switch-primary">
+                                            <input type="checkbox" class="switch-input"
+                                                v-model="showProjectTypesFilter">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                        <span
+                                            style="bottom:8px;position:relative;">&nbsp;{{ __('Project types filter') }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="col form-group deadline-checkbox-col">
+                                    <div class="switch-filter-wrap">
+                                        <label class="switch switch-3d switch-primary">
+                                            <input type="checkbox" class="switch-input" v-model="showClientTypesFilter">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                        <span
+                                            style="bottom:8px;position:relative;">&nbsp;{{ __('Client types filter') }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="col form-group deadline-checkbox-col">
+                                    <div class="switch-filter-wrap">
+                                        <label class="switch switch-3d switch-primary">
+                                            <input type="checkbox" class="switch-input" v-model="showCountriesFilter">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                        <span
+                                            style="bottom:8px;position:relative;">&nbsp;{{ __('Countries filter') }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="col form-group deadline-checkbox-col">
+                                    <div class="switch-filter-wrap">
+                                        <label class="switch switch-3d switch-primary">
+                                            <input type="checkbox" class="switch-input" v-model="showStatesFilter">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                        <span
+                                            style="bottom:8px;position:relative;">&nbsp;{{ __('States filter') }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="col form-group deadline-checkbox-col">
+                                    <div class="switch-filter-wrap">
+                                        <label class="switch switch-3d switch-primary">
+                                            <input type="checkbox" class="switch-input"
+                                                v-model="showProjectScopesFilter">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                        <span
+                                            style="bottom:8px;position:relative;">&nbsp;{{ __('Project scopes filter') }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2 form-group deadline-checkbox-col">
+                                    <div class="switch-filter-wrap">
+                                        <label class="switch switch-3d switch-primary">
+                                            <input type="checkbox" class="switch-input"
+                                                v-model="showConcurProductsFilter">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                        <span
+                                            style="bottom:8px;position:relative;">&nbsp;{{ __('Concur products filter') }}</span>
+                                    </div>
+                                </div>
+                                <div class="col form-group deadline-checkbox-col">
+                                    <div class="switch-filter-wrap">
+                                        <label class="switch switch-3d switch-primary">
+                                            <input type="checkbox" class="switch-input" v-model="showTMCsFilter">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                        <span style="bottom:8px;position:relative;">&nbsp;{{ __('TMCs filter') }}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-start" v-if="showIndustriesFilter">
                                 <div class="col-sm-auto form-group" style="margin-bottom: 0;">
                                     <p style="line-height: 40px; margin:0;">{{ __('Select industry/s') }}</p>
                                 </div>
@@ -60,6 +157,108 @@
                                         label="label" track-by="key"
                                         placeholder="{{ __('Type to search a industry/s') }}" :limit="2"
                                         :multiple="true">
+                                    </multiselect>
+                                </div>
+                            </div>
+                            <div class="row" v-if="showTimezonesFilter">
+                                <div class="col-sm-auto form-group" style="margin-bottom: 0;">
+                                    <p style="line-height: 40px; margin:0;">{{ __('Select timezone/s') }}</p>
+                                </div>
+                                <div class="col col-lg-12 col-xl-12 form-group" style="max-width: 590px; ">
+                                    <multiselect v-model="timezonesMultiselect"
+                                        :options="{{ $timezones->map(function($timezone) { return ['key' => $timezone->id, 'label' =>  $timezone->name]; })->toJson() }}"
+                                        label="label" track-by="key"
+                                        placeholder="{{ __('Type to search a timezone/s') }}" :limit="2"
+                                        :multiple="true">
+                                    </multiselect>
+                                </div>
+                            </div>
+                            <div class="row" v-if="showProjectTypesFilter">
+                                <div class="col-sm-auto form-group" style="margin-bottom: 0;">
+                                    <p style="line-height: 40px; margin:0;">{{ __('Project type/s') }}</p>
+                                </div>
+                                <div class="col col-lg-12 col-xl-12 form-group" style="max-width: 590px; ">
+                                    <multiselect v-model="projectTypesMultiselect"
+                                        :options="{{ $project_types->map(function($project_type) { return ['key' => $project_type->id, 'label' =>  $project_type->name]; })->toJson() }}"
+                                        label="label" track-by="key"
+                                        placeholder="{{ __('Type to search a Project type/s') }}" :limit="2"
+                                        :multiple="true">
+                                    </multiselect>
+                                </div>
+                            </div>
+                            <div class="row" v-if="showClientTypesFilter">
+                                <div class="col-sm-auto form-group" style="margin-bottom: 0;">
+                                    <p style="line-height: 40px; margin:0;">{{ __('Client type/s') }}</p>
+                                </div>
+                                <div class="col col-lg-12 col-xl-12 form-group" style="max-width: 590px; ">
+                                    <multiselect v-model="clientTypesMultiselect"
+                                        :options="{{ $client_types->map(function($client_type) { return ['key' => $client_type->id, 'label' =>  $client_type->name]; })->toJson() }}"
+                                        label="label" track-by="key"
+                                        placeholder="{{ __('Type to search a Client type/s') }}" :limit="2"
+                                        :multiple="true">
+                                    </multiselect>
+                                </div>
+                            </div>
+                            <div class="row" v-if="showCountriesFilter">
+                                <div class="col-sm-auto form-group" style="margin-bottom: 0;">
+                                    <p style="line-height: 40px; margin:0;">{{ __('Country/s') }}</p>
+                                </div>
+                                <div class="col col-lg-12 col-xl-12 form-group" style="max-width: 590px; ">
+                                    <multiselect v-model="countriesMultiselect"
+                                        :options="{{ $countries->map(function($country) { return ['key' => $country->id, 'label' =>  $country->name]; })->toJson() }}"
+                                        label="label" track-by="key"
+                                        placeholder="{{ __('Type to search a country/s') }}" :limit="2"
+                                        :multiple="true">
+                                    </multiselect>
+                                </div>
+                            </div>
+                            <div class="row" v-if="showStatesFilter">
+                                <div class="col-sm-auto form-group" style="margin-bottom: 0;">
+                                    <p style="line-height: 40px; margin:0;">{{ __('State/s') }}</p>
+                                </div>
+                                <div class="col col-lg-12 col-xl-12 form-group" style="max-width: 590px; ">
+                                    <multiselect v-model="statesMultiselect"
+                                        :options="{{ $states->map(function($state) { return ['key' => $state->id, 'label' =>  $state->name]; })->toJson() }}"
+                                        label="label" track-by="key" placeholder="{{ __('Type to search a state/s') }}"
+                                        :limit="2" :multiple="true">
+                                    </multiselect>
+                                </div>
+                            </div>
+                            <div class="row" v-if="showProjectScopesFilter">
+                                <div class="col-sm-auto form-group" style="margin-bottom: 0;">
+                                    <p style="line-height: 40px; margin:0;">{{ __('Project Scope/s') }}</p>
+                                </div>
+                                <div class="col col-lg-12 col-xl-12 form-group" style="max-width: 590px; ">
+                                    <multiselect v-model="projectScopesMultiselect"
+                                        :options="{{ $project_scopes->map(function($project_scope) { return ['key' => $project_scope->id, 'label' =>  $project_scope->name]; })->toJson() }}"
+                                        label="label" track-by="key"
+                                        placeholder="{{ __('Type to search a project scope/s') }}" :limit="2"
+                                        :multiple="true">
+                                    </multiselect>
+                                </div>
+                            </div>
+                            <div class="row" v-if="showConcurProductsFilter">
+                                <div class="col-sm-auto form-group" style="margin-bottom: 0;">
+                                    <p style="line-height: 40px; margin:0;">{{ __('Concur product/s') }}</p>
+                                </div>
+                                <div class="col col-lg-12 col-xl-12 form-group" style="max-width: 590px; ">
+                                    <multiselect v-model="concurProductsMultiselect"
+                                        :options="{{ $concur_products->map(function($concur_product) { return ['key' => $concur_product->id, 'label' =>  $concur_product->product]; })->toJson() }}"
+                                        label="label" track-by="key"
+                                        placeholder="{{ __('Type to search a concur product/s') }}" :limit="2"
+                                        :multiple="true">
+                                    </multiselect>
+                                </div>
+                            </div>
+                            <div class="row" v-if="showTMCsFilter">
+                                <div class="col-sm-auto form-group" style="margin-bottom: 0;">
+                                    <p style="line-height: 40px; margin:0;">{{ __('TMC/s') }}</p>
+                                </div>
+                                <div class="col col-lg-12 col-xl-12 form-group" style="max-width: 590px; ">
+                                    <multiselect v-model="TMCsMultiselect"
+                                        :options="{{ $tmcs->map(function($tmc) { return ['key' => $tmc->id, 'label' =>  $tmc->name]; })->toJson() }}"
+                                        label="label" track-by="key" placeholder="{{ __('Type to search a TMC/s') }}"
+                                        :limit="2" :multiple="true">
                                     </multiselect>
                                 </div>
                             </div>

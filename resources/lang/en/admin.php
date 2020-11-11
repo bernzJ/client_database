@@ -166,6 +166,7 @@ return [
             'index' => 'Customers',
             'create' => 'New Customer',
             'edit' => 'Edit :name',
+            'export' => 'Export',
         ],
 
         'columns' => [

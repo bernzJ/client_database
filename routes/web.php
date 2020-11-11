@@ -53,6 +53,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'CustomersController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{customer}',                                  'CustomersController@update')->name('update');
             Route::delete('/{customer}',                                'CustomersController@destroy')->name('destroy');
+            Route::get('/export',                                       'CustomersController@export')->name('export');
         });
     });
 });

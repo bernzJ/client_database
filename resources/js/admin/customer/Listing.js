@@ -8,24 +8,33 @@ Vue.component('customer-listing', {
             showIndustriesFilter: false,
             showTimezonesFilter: false,
             showProjectTypesFilter: false,
+            showProjectScopesFilter: false,
             showClientTypesFilter: false,
             showCountriesFilter: false,
             showStatesFilter: false,
+            showConcurProductsFilter: false,
+            showTMCsFilter: false,
 
             industriesMultiselect: {},
             timezonesMultiselect: {},
             projectTypesMultiselect: {},
+            projectScopesMultiselect: {},
             clientTypesMultiselect: {},
             countriesMultiselect: {},
             statesMultiselect: {},
+            concurProductsMultiselect: {},
+            TMCsMultiselect: {},
 
             filters: {
                 industries: [],
                 timezones: [],
                 projectTypes: [],
+                projectScopes: [],
                 clientTypes: [],
                 countries: [],
                 states: [],
+                concurProducts: [],
+                TMCs: [],
             },
         }
     },
@@ -40,6 +49,9 @@ Vue.component('customer-listing', {
         showProjectTypesFilter: function (newVal, oldVal) {
             this.projectTypesMultiselect = [];
         },
+        showProjectScopesFilter: function (newVal, oldVal) {
+            this.projectScopesMultiselect = [];
+        },
         showClientTypesFilter: function (newVal, oldVal) {
             this.clientTypesMultiselect = [];
         },
@@ -48,6 +60,12 @@ Vue.component('customer-listing', {
         },
         showStatesFilter: function (newVal, oldVal) {
             this.statesMultiselect = [];
+        },
+        showConcurProductsFilter: function (newVal, oldVal) {
+            this.concurProductsMultiselect = [];
+        },
+        showTMCsFilter: function (newVal, oldVal) {
+            this.TMCsMultiselect = [];
         },
 
         industriesMultiselect: function (newVal, oldVal) {
@@ -62,6 +80,10 @@ Vue.component('customer-listing', {
             this.filters.projectTypes = newVal.map(function (object) { return object['key']; });
             this.filter('projectTypes', this.filters.projectTypes);
         },
+        projectScopesMultiselect: function (newVal, oldVal) {
+            this.filters.projectScopes = newVal.map(function (object) { return object['key']; });
+            this.filter('projectScopes', this.filters.projectScopes);
+        },
         clientTypesMultiselect: function (newVal, oldVal) {
             this.filters.clientTypes = newVal.map(function (object) { return object['key']; });
             this.filter('clientTypes', this.filters.clientTypes);
@@ -73,6 +95,14 @@ Vue.component('customer-listing', {
         statesMultiselect: function (newVal, oldVal) {
             this.filters.states = newVal.map(function (object) { return object['key']; });
             this.filter('states', this.filters.states);
+        },
+        concurProductsMultiselect: function (newVal, oldVal) {
+            this.filters.concurProducts = newVal.map(function (object) { return object['key']; });
+            this.filter('concurProducts', this.filters.concurProducts);
+        },
+        TMCsMultiselect: function (newVal, oldVal) {
+            this.filters.TMCs = newVal.map(function (object) { return object['key']; });
+            this.filter('TMCs', this.filters.TMCs);
         },
     }
 });
