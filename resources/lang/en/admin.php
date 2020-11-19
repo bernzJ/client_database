@@ -457,7 +457,23 @@ return [
         ],
     ],
 
-    'global-footprint-country' => [
+    'concur-product-global-footprint' => [
+        'title' => 'Concur Product Global footprint',
+
+        'actions' => [
+            'index' => 'Concur product Global footprint (pivot table)',
+            'create' => 'New Concur product Global footprint',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'global_footprint_id' => 'Global footprint',
+            'concur_product_id' => 'Concur product',
+        ],
+    ],
+
+    'country-global-footprint' => [
         'title' => 'Global footprint country',
 
         'actions' => [
@@ -469,6 +485,22 @@ return [
         'columns' => [
             'id' => 'ID',
             'global_footprint_id' => 'Global footprint',
+            'country_id' => 'Country',
+        ],
+    ],
+
+    'country-credit-card' => [
+        'title' => 'Country credit card',
+
+        'actions' => [
+            'index' => 'Country credit card (pivot table)',
+            'create' => 'New Country credit card',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'credit_card_id' => 'Credit card',
             'country_id' => 'Country',
         ],
     ],

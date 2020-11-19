@@ -22,7 +22,7 @@ class GlobalFootprint extends Model
 
     public function reimbursement()
     {
-        return $this->hasMany(Reimbursement::class);
+        return $this->belongsTo(Reimbursement::class);
     }
     // many to many.
     public function country()

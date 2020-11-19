@@ -21,7 +21,7 @@ class Reimbursement extends Model
 
     public function globalFootprint()
     {
-        return $this->belongsTo(GlobalFootprint::class);
+        return $this->hasMany(GlobalFootprint::class);
     }
 
     /* ************************ ACCESSOR ************************* */

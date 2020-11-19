@@ -117,7 +117,7 @@
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
 
         <multiselect v-model="form.card_program" :options="card_programs" :multiple="false" track-by="id" label="name"
-            tag-placeholder="{{ __('Select Customer') }}" placeholder="{{ __('Customer') }}">
+            tag-placeholder="{{ __('Card Program') }}" placeholder="{{ __('Card Program') }}">
         </multiselect>
 
         <div v-if="errors.has('card_program')" class="form-control-feedback form-text" v-cloak>

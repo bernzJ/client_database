@@ -319,3 +319,51 @@ $factory->define(App\Models\ProjectScope::class, static function (Faker\Generato
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\CountryGlobalFootprint::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\CountryGlobalFootprint::class, static function (Faker\Generator $faker) {
+    return [
+        'global_footprint_id' => $faker->randomNumber(5),
+        'country_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ConcurProductGlobalFootprint::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ConcurProductGlobalFootprint::class, static function (Faker\Generator $faker) {
+    return [
+        'global_footprint_id' => $faker->randomNumber(5),
+        'concur_product_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\CountryCreditCard::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\CountryCreditCard::class, static function (Faker\Generator $faker) {
+    return [
+        'credit_card_id' => $faker->randomNumber(5),
+        'country_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});

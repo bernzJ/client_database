@@ -57,12 +57,17 @@
             </li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/reimbursements') }}"><i
                         class="nav-icon icon-diamond"></i> {{ trans('admin.reimbursement.title') }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('admin/global-footprint-countries') }}"><i
-                        class="nav-icon icon-compass"></i> {{ trans('admin.global-footprint-country.title') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/country-global-footprints') }}"><i
+                        class="nav-icon icon-globe"></i> {{ trans('admin.country-global-footprint.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/contact-methods') }}"><i
                         class="nav-icon icon-puzzle"></i> {{ trans('admin.contact-method.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/customer-tmcs') }}"><i
                         class="nav-icon icon-drop"></i> {{ trans('admin.customer-tmc.title') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/concur-product-global-footprints') }}"><i
+                        class="nav-icon icon-ghost"></i> {{ trans('admin.concur-product-global-footprint.title') }}</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/country-credit-cards') }}"><i
+                        class="nav-icon icon-diamond"></i> {{ trans('admin.country-credit-card.title') }}</a></li>
             @endrole
 
             {{-- Do not delete me :) I'm used for auto-generation menu items --}}

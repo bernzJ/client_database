@@ -30,7 +30,7 @@ class UpdateStakeholder extends FormRequest
             'name' => ['sometimes', 'string'],
             'email' => ['nullable', 'email', 'string'],
             'phone' => ['nullable', 'string'],
-            'contact_method_id' => ['sometimes', 'integer'],
+            'contact_method' => ['sometimes'],
             'timezone' => ['required'],
             'customer' => ['required'],
 

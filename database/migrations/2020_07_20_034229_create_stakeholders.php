@@ -20,9 +20,9 @@ class CreateStakeholders extends Migration
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
 
-            $table->unsignedInteger('contact_method_id');
-            $table->unsignedInteger('timezone_id');
-            $table->unsignedInteger('customer_id');
+            $table->unsignedInteger('contact_method_id')->nullable();
+            $table->unsignedInteger('timezone_id')->nullable();
+            $table->unsignedInteger('customer_id')->nullable();
 
 
             $table->foreign('contact_method_id')->references('id')->on('contact_method')->onDelete('cascade');

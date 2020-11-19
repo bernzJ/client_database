@@ -30,7 +30,7 @@ class StoreStakeholder extends FormRequest
             'name' => ['required', 'string'],
             'email' => ['nullable', 'email', 'string'],
             'phone' => ['nullable', 'string'],
-            'contact_method_id' => ['required', 'integer'],
+            'contact_method' => ['required'],
             'timezone' => ['required'],
             'customer' => ['required'],
 

@@ -138,6 +138,10 @@ class Customer extends Model implements HasMedia
     {
         return $this->belongsTo(Hr::class);
     }
+    public function creditCards()
+    {
+        return $this->hasMany(CreditCard::class);
+    }
     // many to many.
     public function stakeholder()
     {
@@ -156,10 +160,5 @@ class Customer extends Model implements HasMedia
     public function segment()
     {
         return $this->hasOneThrough(Segment::class, ConcurProduct::class);
-    }
-
-    public function creditCards()
-    {
-        return $this->hasMany(CreditCard::class);
     }
 }

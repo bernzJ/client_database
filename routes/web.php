@@ -495,21 +495,6 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
-        Route::prefix('global-footprint-countries')->name('global-footprint-countries/')->group(static function () {
-            Route::get('/',                                             'GlobalFootprintCountryController@index')->name('index');
-            Route::get('/create',                                       'GlobalFootprintCountryController@create')->name('create');
-            Route::post('/',                                            'GlobalFootprintCountryController@store')->name('store');
-            Route::get('/{globalFootprintCountry}/edit',                'GlobalFootprintCountryController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'GlobalFootprintCountryController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{globalFootprintCountry}',                    'GlobalFootprintCountryController@update')->name('update');
-            Route::delete('/{globalFootprintCountry}',                  'GlobalFootprintCountryController@destroy')->name('destroy');
-        });
-    });
-});
-
-/* Auto-generated admin routes */
-Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
         Route::prefix('contact-methods')->name('contact-methods/')->group(static function () {
             Route::get('/',                                             'ContactMethodController@index')->name('index');
             Route::get('/create',                                       'ContactMethodController@create')->name('create');
@@ -579,6 +564,53 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'ProjectScopeController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{projectScope}',                              'ProjectScopeController@update')->name('update');
             Route::delete('/{projectScope}',                            'ProjectScopeController@destroy')->name('destroy');
+        });
+    });
+});
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('country-global-footprints')->name('country-global-footprints/')->group(static function() {
+            Route::get('/',                                             'CountryGlobalFootprintController@index')->name('index');
+            Route::get('/create',                                       'CountryGlobalFootprintController@create')->name('create');
+            Route::post('/',                                            'CountryGlobalFootprintController@store')->name('store');
+            Route::get('/{countryGlobalFootprint}/edit',                'CountryGlobalFootprintController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CountryGlobalFootprintController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{countryGlobalFootprint}',                    'CountryGlobalFootprintController@update')->name('update');
+            Route::delete('/{countryGlobalFootprint}',                  'CountryGlobalFootprintController@destroy')->name('destroy');
+        });
+    });
+});
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('concur-product-global-footprints')->name('concur-product-global-footprints/')->group(static function() {
+            Route::get('/',                                             'ConcurProductGlobalFootprintController@index')->name('index');
+            Route::get('/create',                                       'ConcurProductGlobalFootprintController@create')->name('create');
+            Route::post('/',                                            'ConcurProductGlobalFootprintController@store')->name('store');
+            Route::get('/{concurProductGlobalFootprint}/edit',          'ConcurProductGlobalFootprintController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ConcurProductGlobalFootprintController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{concurProductGlobalFootprint}',              'ConcurProductGlobalFootprintController@update')->name('update');
+            Route::delete('/{concurProductGlobalFootprint}',            'ConcurProductGlobalFootprintController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('country-credit-cards')->name('country-credit-cards/')->group(static function() {
+            Route::get('/',                                             'CountryCreditCardController@index')->name('index');
+            Route::get('/create',                                       'CountryCreditCardController@create')->name('create');
+            Route::post('/',                                            'CountryCreditCardController@store')->name('store');
+            Route::get('/{countryCreditCard}/edit',                     'CountryCreditCardController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CountryCreditCardController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{countryCreditCard}',                         'CountryCreditCardController@update')->name('update');
+            Route::delete('/{countryCreditCard}',                       'CountryCreditCardController@destroy')->name('destroy');
         });
     });
 });

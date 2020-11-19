@@ -97,16 +97,22 @@ class GlobalFootprintController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['reimbursement_id'] = $request->getReimbursementId();
+
         // Store the GlobalFootprint
         $globalFootprint = GlobalFootprint::create($sanitized);
 
         // Store countries
         $country_ids = $request->getCountryIds();
-        $globalFootprint->country()->attach($country_ids);
+        if ($country_ids) {
+            $globalFootprint->country()->attach($country_ids);
+        }
 
         // Store concurproducts
         $concur_ids = $request->getConcurProductIds();
-        $globalFootprint->concurProduct()->attach($concur_ids);
+        if ($concur_ids) {
+            $globalFootprint->concurProduct()->attach($concur_ids);
+        }
+
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/global-footprints'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];

@@ -54,18 +54,6 @@ class FillPermissionsForCreditCard extends Migration
                 'guard_name' => $this->guardName,
                 'permissions' => $permissions,
             ],
-            [
-                'name' => 'Subscriber',
-                'guard_name' => $this->guardName,
-                'permissions' =>  [
-                    'admin.credit-card',
-                    'admin.credit-card.index',
-                    'admin.credit-card.create',
-                    'admin.credit-card.show',
-                    'admin.credit-card.edit',
-                    'admin.credit-card.delete',
-                ],
-            ],
         ];
     }
 
@@ -84,7 +72,7 @@ class FillPermissionsForCreditCard extends Migration
             'role_has_permissions' => 'role_has_permissions',
         ]);
 
-        DB::transaction(function () use ($tableNames) {
+        DB::transaction(function () use($tableNames) {
             foreach ($this->permissions as $permission) {
                 $permissionItem = DB::table($tableNames['permissions'])->where([
                     'name' => $permission['name'],
@@ -140,8 +128,8 @@ class FillPermissionsForCreditCard extends Migration
             'model_has_roles' => 'model_has_roles',
             'role_has_permissions' => 'role_has_permissions',
         ]);
-
-        DB::transaction(function () use ($tableNames) {
+        
+        DB::transaction(function () use ($tableNames){
             foreach ($this->permissions as $permission) {
                 $permissionItem = DB::table($tableNames['permissions'])->where([
                     'name' => $permission['name'],
