@@ -31,3 +31,4 @@ import './project-scope';
 import './country-global-footprint';
 import './concur-product-global-footprint';
 import './country-credit-card';
+import './customer-panel';

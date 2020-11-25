@@ -57,6 +57,7 @@ class Customer extends Model implements HasMedia
         'employee_group_id',
     ];
 
+    //@TODO: add the other dates?
     protected $dates = [
         'refresh_date',
 

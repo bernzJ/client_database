@@ -3,6 +3,9 @@
         <ul class="nav">
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.content') }}</li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/customer-panels') }}"><i
+                        class="nav-icon icon-star"></i> {{ trans('admin.customer-panel.title') }}</a></li>
+
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/dashboards') }}"><i
                         class="nav-icon icon-compass"></i> {{ trans('admin.dashboard.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/customers') }}"><i

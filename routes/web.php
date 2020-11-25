@@ -614,3 +614,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('customer-panels')->name('customer-panels/')->group(static function() {
+            Route::get('/',                                             'CustomerPanelController@index')->name('index');
+            Route::get('/create',                                       'CustomerPanelController@create')->name('create');
+            Route::post('/',                                            'CustomerPanelController@store')->name('store');
+            Route::get('/{customerPanel}/edit',                         'CustomerPanelController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CustomerPanelController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{customerPanel}',                             'CustomerPanelController@update')->name('update');
+            Route::delete('/{customerPanel}',                           'CustomerPanelController@destroy')->name('destroy');
+        });
+    });
+});

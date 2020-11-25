@@ -539,5 +539,56 @@ return [
         'title' => 'Dashboard',
     ],
 
+    'customer-panel' => [
+        'title' => 'Layout V2',
+
+        'actions' => [
+            'index' => 'Customers',
+            'create' => 'New Customer',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            'website' => 'Website',
+            'industry_id' => 'Industry',
+            'timezone_id' => 'Timezone',
+            'fiscal_year_begin' => 'Fiscal year begin',
+            'fiscal_year_end' => 'Fiscal year end',
+            'fiscal_year_month_end_close_period' => 'Fiscal year month end close period',
+            'fiscal_year_quarterly_close_cycle' => 'Fiscal year quarterly close cycle',
+            'employees_count' => 'Employees count',
+            'project_scope_id' => 'Project scope',
+            'project_type_id' => 'Project type',
+            'client_type_id' => 'Client type',
+            'active_projects' => 'Active projects',
+            'referenceable' => 'Referenceable',
+            'opted_out' => 'Opted out',
+            'financial_id' => 'Financial',
+            'hr_id' => 'Hr',
+            'sso' => 'Sso',
+            'test_site' => 'Test site',
+            'refresh_date' => 'Refresh date',
+            'logo' => 'Logo',
+            'address_1' => 'Address 1',
+            'address_2' => 'Address 2',
+            'address_lng_lat' => 'Address lng lat',
+            'city' => 'City',
+            'zip' => 'Zip',
+            'country_id' => 'Country',
+            'state_id' => 'State',
+            'lg_account_owner_oversight' => 'Lg account owner oversight',
+            'lg_sales_owner' => 'Lg sales owner',
+            'employee_group_id' => 'Employee groups',
+            'notes_id' => 'Notes',
+            'tmc_id' => 'TMC',
+            'platform_id' => 'Platform',
+            'concur_product_id' => 'Concur Products',
+
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

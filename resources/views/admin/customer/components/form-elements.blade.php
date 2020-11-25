@@ -1,7 +1,7 @@
 <!--  https://www.getcraftable.com/docs/5.0/user-interface#notification -->
 <div class="card">
     <div class="card-header">
-        <i class="fa fa-plus"></i> Customer Information</span>
+        <i class="fa fa-plus"></i> Customer Information
     </div>
     <div class="card-block">
         <div class="form-group row align-items-center"
