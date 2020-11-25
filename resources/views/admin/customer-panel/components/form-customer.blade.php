@@ -31,8 +31,8 @@
                 </multiselect>
             </div>
             <div class="col-md-4 col-xl-4">
-                <label for="country"
-                    class="col-form-label text-md-right">{{ trans('admin.customer.columns.country_id') }}</label>
+                <label for="state"
+                    class="col-form-label text-md-right">{{ trans('admin.customer.columns.state_id') }}</label>
                 <multiselect :options="[{'id':0,name:'test'}]" :multiple="false" track-by="id" label="name"
                     tag-placeholder="{{ __('Select State') }}" placeholder="{{ __('State') }}">
                 </multiselect>
